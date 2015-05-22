@@ -12,22 +12,23 @@ body
 
 .menu-btn
 {
-    background-image: url('../imgs/assets/button-menu@2x.png');
+  /*  background-image: url('../imgs/assets/button-menu@2x.png');
     width: 68px;
-    height: 68px;
+    height: 68px;*/
     top: 2%;
-    left: 75%;
+    left: 83%;
     position: absolute;
 }
 
 .img-451
 {
-    background-image: url('../imgs/assets/navbar-home-451@2x.png');
+   /* background-image: url('../imgs/assets/navbar-home-451@2x.png');
     width: 198px;
-    height: 164px;
+    height: 164px;*/
     position: absolute;
     top: 0;
     left: 43%;
+    width: 16.9%;
 }
 
 
@@ -73,9 +74,7 @@ body
  #menuModal .modal-dialog
  {
     height: 75%;
- }
-
- 
+ } 
 
 #menuModal h4
 {
