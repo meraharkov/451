@@ -4,27 +4,22 @@ body
     background: #2e2e2e;
 }
 
-#header
+#header.navbar-default
 {
-    margin-bottom: -164px;
-    position: relative;
+    border: none;
+    background: none;
 }
 
 .menu-btn
-{
-  /*  background-image: url('../imgs/assets/button-menu@2x.png');
-    width: 68px;
-    height: 68px;*/
-    top: 2%;
-    left: 83%;
-    position: absolute;
+{ 
+      top: 28%;
+      left: 83%;
+      position: absolute;
+      width: 6.2%;
 }
-
+ 
 .img-451
-{
-   /* background-image: url('../imgs/assets/navbar-home-451@2x.png');
-    width: 198px;
-    height: 164px;*/
+{ 
     position: absolute;
     top: 0;
     left: 43%;
@@ -45,11 +40,13 @@ body
     font-family: 'Avenir Next', sans-serif;
     font-weight: 400;
     text-align: left;
+   /* font-size: 225%;*/
 }
 
 .home-caption
 {
     font-size: 16px;
+ /*  font-size: 50%;*/
 }
 
 .home-break
@@ -73,7 +70,10 @@ body
 
  #menuModal .modal-dialog
  {
-    height: 75%;
+      height: 100%;
+      margin-top: 0;
+       width: 100%;
+      opacity: 0.8;
  } 
 
 #menuModal h4
@@ -81,8 +81,10 @@ body
     color: #bb0a14;
     text-align: center;
     font-weight: bold;
-    font-size: 46px;
-    border-bottom: 2px solid #bb0a14
+   /* font-size: 46px;*/
+    border-bottom: 2px solid #bb0a14;
+     font-size: 3.3em;
+         
 }
 
 #menuModal .close
@@ -107,3 +109,5 @@ body
 {
     border: none;
 }
+
+ 
