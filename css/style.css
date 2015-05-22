@@ -10,16 +10,21 @@ body
     background: none;
 }
 
-.menu-btn
-{ 
-      top: 28%;
-      left: 83%;
-      position: absolute;
-      width: 6.2%;
+#header .container-fluid .navbar-header 
+{
+    margin-right: 0!important;
 }
- 
+
+.menu-btn
+{
+    top: 6%;
+    position: absolute;
+    width: 8.2%;
+    right: 8%;
+}
+
 .img-451
-{ 
+{
     position: absolute;
     top: 0;
     left: 43%;
@@ -40,13 +45,14 @@ body
     font-family: 'Avenir Next', sans-serif;
     font-weight: 400;
     text-align: left;
-   /* font-size: 225%;*/
+    font-size: 2.3em;
+    /* font-size: 225%;*/
 }
 
 .home-caption
 {
-    font-size: 16px;
- /*  font-size: 50%;*/
+    /*font-size: 16px;*/
+      font-size: 0.5em;
 }
 
 .home-break
@@ -54,60 +60,60 @@ body
     height: 10px;
 }
 
-.ex-mortis
+
+
+#ex-mortis
 {
-    width: 97.5%;
-    margin-left: 14px;
+    margin-top: 10px;
+    
 }
 
-#menuModal .modal-content 
+#menuModal .modal-content
 {
-   height: 100%;
-     border-radius: 0;
+    height: 100%;
+    border-radius: 0;
     border: 3px solid grey;
 }
 
 
- #menuModal .modal-dialog
- {
-      height: 100%;
-      margin-top: 0;
-       width: 100%;
-      opacity: 0.8;
- } 
+#menuModal .modal-dialog
+{
+    height: 100%;
+    margin-top: 0;
+    width: 100%;
+    opacity: 0.8;
+}
 
 #menuModal h4
 {
     color: #bb0a14;
     text-align: center;
     font-weight: bold;
-   /* font-size: 46px;*/
+    /* font-size: 46px;*/
     border-bottom: 2px solid #bb0a14;
-     font-size: 3.3em;
-         
+    font-size: 3.3em;
 }
 
 #menuModal .close
 {
     color: #bb0a14;
-    padding-top: 3%;
-    padding-right: 1%;
-    font-weight: bold;
-    font-size: 46px;
-    opacity: 1!important;
+  padding-top: 1%;
+  padding-right: 4%;
+  font-weight: bold;
+  /* font-size: 46px; */
+  opacity: 1!important;
+  font-size: 1.2em;
 }
 
 #menuModal h5
 {
     color: #bb0a14;
     font-weight: bold;
-    font-size: 24px;
-      padding: 3%;
+    font-size: 1.7em;
+    padding: 3%;
 }
 
-#menuModal .modal-header 
+#menuModal .modal-header
 {
     border: none;
 }
-
- 
