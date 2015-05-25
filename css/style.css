@@ -40,31 +40,31 @@ body
 {
     background: #2e2e2e;
 }
- 
 
-#header 
+
+#header
 {
     width: 15%;
 }
 
-#header.navbar-fixed-top
-{
-    right: 5%!important;
-    left: 80%!important;
-}
+    #header.navbar-fixed-top
+    {
+        right: 5%!important;
+        left: 80%!important;
+    }
 
 
 
-#header.navbar-default
-{
-    border: none;
-    background: none;
-}
+    #header.navbar-default
+    {
+        border: none;
+        background: none;
+    }
 
-#header .container-fluid .navbar-header
-{
-    margin-right: 0!important;
-}
+    #header .container-fluid .navbar-header
+    {
+        margin-right: 0!important;
+    }
 
 .menu-btn
 {
@@ -105,14 +105,17 @@ body
 }
 
 
-#title-page #bad-moon 
-{
-     margin-top: -82%;
-    margin-left: 23%;
-   
-  text-align: center;
-  width: 58%;
-}
+    #title-page #bad-moon
+    {
+        margin-top: -82%;
+        margin-left: 23%;
+        text-align: center;
+        width: 60%;
+        font-size: 1.7em;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
 .home-label
 {
     margin-top: -100%;
