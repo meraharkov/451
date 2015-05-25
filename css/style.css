@@ -117,3 +117,19 @@ body
 {
     border: none;
 }
+
+.title-label {
+      margin-top: -30%;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: rgba(187, 10, 20, 1.0);
+}
+
+/* slide effect */
+.modal.fade:not(.in).right .modal-dialog {
+	-webkit-transform: translate3d(125%, 0, 0);
+	transform: translate3d(125%, 0, 0);
+}
+.modal.fade:not(.in).bottom .modal-dialog {
+	-webkit-transform: translate3d(0, 125%, 0);
+	transform: translate3d(0, 125%, 0);
+}
