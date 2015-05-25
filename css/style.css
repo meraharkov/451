@@ -40,13 +40,19 @@ body
 {
     background: #2e2e2e;
 }
+ 
 
-/*
-.container 
+#header 
 {
-    padding-left: 0!important;
-    padding-right: 0!important;
-}*/
+    width: 15%;
+}
+
+#header.navbar-fixed-top
+{
+    right: 5%!important;
+    left: 80%!important;
+}
+
 
 
 #header.navbar-default
@@ -62,9 +68,9 @@ body
 
 .menu-btn
 {
-     top: 40%;
+    top: 40%;
     position: absolute;
-    width: 8.2%;
+    width: 55%;
     right: 8%;
 }
 
@@ -73,37 +79,44 @@ body
     position: absolute;
     top: 0;
     left: 39%;
-  width: 25.9%;
+    width: 25.9%;
 }
 
-#home-page 
+.back-to-home
+{
+    position: absolute;
+    top: 2.6%;
+    left: 6%;
+    width: 8.7%;
+}
+
+#home-page
 {
     padding-left: 0!important;
     padding-right: 0!important;
 }
 
-#home-page .col-xs-12 
-{
-    padding-left: 0!important;
-    padding-right: 0!important;  
-}
 
-#title-page 
+
+#title-page
 {
     padding-left: 0!important;
     padding-right: 0!important;
 }
 
-#title-page .col-xs-12 
-{
-     padding-left: 0!important;
-    padding-right: 0!important;
-}
 
+#title-page #bad-moon 
+{
+     margin-top: -82%;
+    margin-left: 23%;
+   
+  text-align: center;
+  width: 58%;
+}
 .home-label
 {
     margin-top: -100%;
-    padding-top: 2%; 
+    padding-top: 2%;
     padding-bottom: 2%;
     z-index: 10;
     background-color: rgba(187, 10, 20, 0.8);
@@ -114,11 +127,11 @@ body
     font-weight: 400;
     text-align: left;
     font-size: 2.0em;
-     font-family: 'Avenir-Next-Condensed-bold'; /*Header text: */
+    font-family: 'Avenir-Next-Condensed-bold'; /*Header text: */
     /* font-size: 225%;*/
 }
 
-.subhead-text 
+.subhead-text
 {
     font-family: 'Avenir-Next-Condensed-damiBold';
 }
@@ -156,7 +169,7 @@ body
     /*margin-top: 0;*/
     width: 100%;
     opacity: 0.8;
-     margin: 0;
+    margin: 0;
 }
 
 #menuModal a
@@ -221,9 +234,8 @@ body
 
 .show-video
 {
-      width: 6%;
-      float: right;
-      margin-right: 3%;
-      margin-top: 3%;
+    width: 6%;
+    float: right;
+    margin-right: 3%;
+    margin-top: 3%;
 }
-
