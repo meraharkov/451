@@ -122,9 +122,11 @@ body
         text-align: center;
         width: 80%;
         /* margin: 0 auto; */
-        font-size: 1.5em;
+        font-size: 1.4em;
         padding-top: 6%;
         padding-bottom: 6%;
+          padding-left: 0;
+          padding-right: 0;
         left: 19%;
     }
 
