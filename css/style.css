@@ -82,9 +82,21 @@ body
     padding-right: 0!important;
 }
 
+#home-page .col-xs-12 
+{
+    padding-left: 0!important;
+    padding-right: 0!important;  
+}
+
 #title-page 
 {
     padding-left: 0!important;
+    padding-right: 0!important;
+}
+
+#title-page .col-xs-12 
+{
+     padding-left: 0!important;
     padding-right: 0!important;
 }
 
@@ -101,7 +113,7 @@ body
     font-family: 'Avenir-Next', sans-serif;
     font-weight: 400;
     text-align: left;
-    font-size: 2.1em;
+    font-size: 2.0em;
      font-family: 'Avenir-Next-Condensed-bold'; /*Header text: */
     /* font-size: 225%;*/
 }
@@ -141,9 +153,10 @@ body
 #menuModal .modal-dialog
 {
     height: 100%;
-    margin-top: 0;
+    /*margin-top: 0;*/
     width: 100%;
     opacity: 0.8;
+     margin: 0;
 }
 
 #menuModal a
