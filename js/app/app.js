@@ -10,8 +10,8 @@
             function ($routeProvider) {
 
                 $routeProvider
-               .when('/index', { templateUrl: 'js/partials/home.html', controller: 'mainCtrl' })
-                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'mainCtrl' })
+               .when('/index', { templateUrl: 'js/partials/home.html' })
+                .when('/title', { templateUrl: 'js/partials/title.html' })
                .otherwise({ redirectTo: '/index' });
 
             }]);
@@ -22,9 +22,13 @@
 $(document).ready(function () {
 
     $('.menu-btn').click(function () {
-        $('.modal')
+        $('#menuModal')
             .prop('class', 'modal fade') // revert to default
             .addClass($(this).data('direction'));
-        $('.modal').modal('show');
+        $('#menuModal').modal('show');
+    });
+
+    $('#bad-moon-menu-btn').click(function () {
+        $('#menuModal').modal('hide');
     });
 });

@@ -3,8 +3,8 @@
 @font-face
 {
     font-family: 'Avenir';
-    /* src: url('../css/fonts/Avenir/Avenir.ttc');*/
-    src: url('../css/fonts/Avenir/Avenir-Medium.otf');
+    src: url('../css/fonts/Avenir-Next-Condensed/AvenirNextCondensed-Medium.otf');
+    /*src: url('../css/fonts/Avenir/Avenir.ttc');*/
     font-weight: normal;
     font-style: normal;
 }
@@ -105,6 +105,7 @@ body
 {
     padding-left: 0!important;
     padding-right: 0!important;
+    overflow: hidden;
 }
 
 
@@ -113,6 +114,7 @@ body
 {
     padding-left: 0!important;
     padding-right: 0!important;
+      overflow: hidden;
 }
 
 
@@ -125,8 +127,8 @@ body
         font-size: 1.4em;
         padding-top: 6%;
         padding-bottom: 6%;
-          padding-left: 0;
-          padding-right: 0;
+        padding-left: 0;
+        padding-right: 0;
         left: 19%;
     }
 
@@ -202,18 +204,20 @@ body
     /* font-size: 46px;*/
     border-bottom: 2px solid #bb0a14;
     font-size: 2.0em;
-    width: 95%;
+    width: 100%;
 }
 
 #menuModal .close
 {
-    color: #bb0a14;
+    /* color: #bb0a14;
     padding-top: 3%;
-    
     font-weight: bold;
-     
     opacity: 1!important;
-    font-size: 0.9em;
+    font-size: 0.9em;*/
+    color: #bb0a14;
+    font-weight: bold;
+    opacity: 1!important;
+    font-size: 1.4em;
 }
 
 #menuModal h5
@@ -237,10 +241,9 @@ body
 }
 
 /* slide effect */
-.modal.fade:not(.in).right .modal-dialog
-{
-    -webkit-transform: translate3d(125%, 0, 0);
-    transform: translate3d(125%, 0, 0);
+.modal.fade:not(.in).left .modal-dialog {
+	-webkit-transform: translate3d(-25%, 0, 0);
+	transform: translate3d(-25%, 0, 0);
 }
 
 .modal.fade:not(.in).bottom .modal-dialog
@@ -255,4 +258,117 @@ body
     float: right;
     margin-right: 3%;
     margin-top: 3%;
+}
+
+
+/*Social popap*/
+#socialuModal .modal-content
+{
+    height: 100%;
+    border-radius: 0;
+    border: 3px solid grey;
+    font-family: 'Avenir';
+}
+
+
+#socialuModal .modal-dialog
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#socialuModal a
+{
+    text-decoration: none;
+}
+
+#socialuModal h4
+{
+    color: #bb0a14;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #bb0a14;
+    font-size: 2.0em;
+    width: 100%;
+}
+
+#socialuModal .close
+{
+    color: #bb0a14;
+    font-weight: bold;
+    opacity: 1!important;
+    font-size: 1.4em;
+}
+
+#socialuModal h5
+{
+    font-weight: bold;
+    font-size: 1.5em;
+    padding: 3%;
+}
+
+#socialuModal .modal-header
+{
+    border: none;
+}
+
+#socialuModal h5 img
+{
+    padding-right: 5%;
+}
+
+/*Shared popap*/
+#sharedModal .modal-content
+{
+    height: 100%;
+    border-radius: 0;
+    border: 3px solid grey;
+    font-family: 'Avenir';
+    opacity: 0.8;
+}
+
+
+#sharedModal .modal-dialog
+{
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+#sharedModal.modal-body
+{
+    height: 100%;
+}
+
+#sharedModal a
+{
+    text-decoration: none;
+}
+
+#sharedModal .shared-center
+{
+    margin-top: 65%;
+}
+
+    #sharedModal .shared-center img
+    {
+        display: block;
+        float: left;
+        padding: 4.2%;
+    }
+
+#sharedModal .close
+{
+    display: block;
+    float: none;
+    margin: 0 auto;
+    padding: 3%;
+    border: 1px solid #bb0a14;
+    opacity: 1;
+    color: #bb0a14;
+    margin-top: 5%;
+    letter-spacing: 0.1em;
+    padding-left: 7%;
+    padding-right: 7%;
 }
