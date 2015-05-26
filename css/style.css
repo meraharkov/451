@@ -96,7 +96,7 @@ body
 .back-to-home
 {
     position: absolute;
-    top: 19.6%;
+    top: 12.6%;
     left: 6%;
     width: 14.7%;
 }
@@ -114,7 +114,7 @@ body
 {
     padding-left: 0!important;
     padding-right: 0!important;
-      overflow: hidden;
+    overflow: hidden;
 }
 
 
@@ -122,14 +122,18 @@ body
     {
         margin-top: 0%;
         text-align: center;
-        width: 80%;
-        /* margin: 0 auto; */
         font-size: 1.4em;
-        padding-top: 6%;
-        padding-bottom: 6%;
-        padding-left: 0;
-        padding-right: 0;
-        left: 19%;
+        width: 100%;
+        margin: 0;
+        margin-top: 4.6%;
+       
+        padding: 4.7%;
+    }
+
+    #title-page .bad-moon-header
+    {
+        float: right!important;
+        width: 60%;
     }
 
 .home-label
@@ -241,9 +245,10 @@ body
 }
 
 /* slide effect */
-.modal.fade:not(.in).left .modal-dialog {
-	-webkit-transform: translate3d(-25%, 0, 0);
-	transform: translate3d(-25%, 0, 0);
+.modal.fade:not(.in).left .modal-dialog
+{
+    -webkit-transform: translate3d(-25%, 0, 0);
+    transform: translate3d(-25%, 0, 0);
 }
 
 .modal.fade:not(.in).bottom .modal-dialog
@@ -346,17 +351,64 @@ body
     text-decoration: none;
 }
 
-#sharedModal .shared-center
+#sharedModal .modal-body
 {
-    margin-top: 65%;
+      position: absolute;
+      top: 30%;
+      width: 100%;
 }
 
-    #sharedModal .shared-center img
-    {
-        display: block;
-        float: left;
-        padding: 4.2%;
-    }
+ 
+#sharedModal .navbar
+{
+      background: none;
+      border: none;
+}
+
+#sharedModal .navbar img {
+    width: 100%;
+}
+
+#sharedModal  .navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
+
+ #sharedModal  .navbar .navbar-collapse 
+ {
+    text-align: center;
+    border-color: transparent
+}
+
+ #sharedModal .navbar-collapse{
+       display: block;
+ }
+
+
+ #sharedModal .navbar-nav>li 
+ {
+       float: left;
+         width: 25%;
+ }
+
+  #sharedModal .navbar-nav>li>a {
+  padding-top: 3%;
+  padding-bottom: 3%;
+}
+
+ /*
+#sharedModal .nav>li
+ {
+      position: relative;
+  display: block;
+ }
+
+
+
+ #sharedModal .navbar-nav>li {
+  float: left;
+}*/
 
 #sharedModal .close
 {
@@ -367,8 +419,13 @@ body
     border: 1px solid #bb0a14;
     opacity: 1;
     color: #bb0a14;
-    margin-top: 5%;
     letter-spacing: 0.1em;
     padding-left: 7%;
     padding-right: 7%;
+}
+
+
+#videoTrailer 
+{
+    display: initial;
 }

@@ -31,4 +31,7 @@ $(document).ready(function () {
     $('#bad-moon-menu-btn').click(function () {
         $('#menuModal').modal('hide');
     });
+    
+
+    
 });
