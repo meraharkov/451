@@ -39,6 +39,7 @@
 body
 {
     background: #2e2e2e;
+    font-size: 100%;
 }
 
 
@@ -55,7 +56,7 @@ body
 
 #header-rising
 {
-    width: 70%;
+    width: 80%;
 }
 
 #header.navbar-right
@@ -96,9 +97,9 @@ body
 .back-to-home
 {
     position: absolute;
-    top: 12.6%;
-    left: 6%;
-    width: 14.7%;
+    top: 6.6%;
+    left: 13%;
+    width: 13%;
 }
 
 #home-page
@@ -122,18 +123,17 @@ body
     {
         margin-top: 0%;
         text-align: center;
-        font-size: 1.4em;
+        font-size: 4em;
         width: 100%;
         margin: 0;
         margin-top: 4.6%;
-       
         padding: 4.7%;
     }
 
     #title-page .bad-moon-header
     {
         float: right!important;
-        width: 60%;
+        width: 70%;
     }
 
 .home-label
@@ -145,13 +145,12 @@ body
     background-color: rgba(187, 10, 20, 0.8);
     color: #fff;
     text-transform: uppercase;
-    font-size: 32px;
     font-family: 'Avenir-Next', sans-serif;
     font-weight: 400;
     text-align: left;
-    font-size: 2.0em;
+    /*font-size: 48px;*/
+    font-size: 5em;
     font-family: 'Avenir-Next-Condensed-bold'; /*Header text: */
-    /* font-size: 225%;*/
 }
 
 .subhead-text
@@ -161,8 +160,8 @@ body
 
 .home-caption
 {
-    /*font-size: 16px;*/
-    font-size: 0.5em;
+    /*font-size: 32px;*/
+    font-size: 0.6em;
 }
 
 .home-break
@@ -179,7 +178,7 @@ body
 
 #menuModal .modal-content
 {
- min-height: 100%;
+    min-height: 100%;
     border-radius: 0;
     border: 3px solid grey;
     font-family: 'Avenir';
@@ -207,12 +206,12 @@ body
     font-weight: bold;
     /* font-size: 46px;*/
     border-bottom: 2px solid #bb0a14;
-    font-size: 2.0em;
+    font-size: 4em;
     width: 100%;
 }
 
 #menuModal .close
-{ 
+{
     color: #bb0a14;
     font-weight: bold;
     opacity: 1!important;
@@ -223,7 +222,7 @@ body
 {
     color: #bb0a14;
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 3.5em;
     padding: 3%;
 }
 
@@ -289,7 +288,7 @@ body
     text-align: center;
     font-weight: bold;
     border-bottom: 2px solid #bb0a14;
-    font-size: 2.0em;
+    font-size: 4em;
     width: 100%;
 }
 
@@ -304,7 +303,7 @@ body
 #socialuModal h5
 {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 3.5em;
     padding: 3%;
 }
 
@@ -348,51 +347,55 @@ body
 
 #sharedModal .modal-body
 {
-      position: absolute;
-      top: 30%;
-      width: 100%;
-}
-
- 
-#sharedModal .navbar
-{
-      background: none;
-      border: none;
-}
-
-#sharedModal .navbar img {
+    position: absolute;
+    top: 30%;
     width: 100%;
 }
 
-#sharedModal  .navbar .navbar-nav {
-  display: inline-block;
-  float: none;
-  vertical-align: top;
+
+#sharedModal .navbar
+{
+    background: none;
+    border: none;
 }
 
- #sharedModal  .navbar .navbar-collapse 
- {
-    text-align: center;
-    border-color: transparent
+    #sharedModal .navbar img
+    {
+        width: 100%;
+    }
+
+    #sharedModal .navbar .navbar-nav
+    {
+        display: inline-block;
+        float: none;
+        vertical-align: top;
+    }
+
+    #sharedModal .navbar .navbar-collapse
+    {
+        text-align: center;
+        border-color: transparent;
+    }
+
+#sharedModal .navbar-collapse
+{
+    display: block;
 }
 
- #sharedModal .navbar-collapse{
-       display: block;
- }
 
-
- #sharedModal .navbar-nav>li 
- {
-       float: left;
-         width: 25%;
- }
-
-  #sharedModal .navbar-nav>li>a {
-  padding-top: 3%;
-  padding-bottom: 3%;
+#sharedModal .navbar-nav > li
+{
+    float: left;
+    width: 25%;
 }
 
- 
+    #sharedModal .navbar-nav > li > a
+    {
+        padding-top: 3%;
+        padding-bottom: 3%;
+    }
+
+
 #sharedModal .close
 {
     display: block;
@@ -408,74 +411,157 @@ body
 }
 
 
-#videoTrailer 
+#videoTrailer
 {
     display: initial;
 }
 
-.video-frame 
+.video-frame
 {
-    width: 100%    !important;
-  height: auto   !important;
-  /* max-width:854px; */
-   
-}
- 
-#videoModel .modal-header
-{
-   
-    font-weight: bold;
-    
-    border-color:  #bb0a14;
-    
-      width: 100%;
-  margin: 0 auto;
+    width: 100% !important;
+    height: auto !important;
+    /* max-width:854px; */
 }
 
- 
+#videoModel .modal-header
+{
+    font-weight: bold;
+    border-color: #bb0a14;
+    width: 100%;
+    margin: 0 auto;
+}
+
+
 #videoModel .close
-{ 
+{
     color: #bb0a14;
     font-weight: bold;
     opacity: 1!important;
     font-size: 1.4em;
-/*    margin-right: -4%;*/
-  margin-top: -2%;
+    /*    margin-right: -4%;*/
+    margin-top: -2%;
 }
 
-.video-link   
+.video-link
 {
     color: #bb0a14;
     text-decoration: none;
 }
 
-.video-link:hover {
-    color: #bb0a14;
-    text-decoration: none;
-}
+    .video-link:hover
+    {
+        color: #bb0a14;
+        text-decoration: none;
+    }
 
-#videoModel  .modal-body 
+#videoModel .modal-body
 {
     padding: 0;
 }
 
-#videoModel  .content {
-   /* width: 50%;*/
+#videoModel .content
+{
+    /* width: 50%;*/
     margin: 0px auto;
 }
 
-#videoModel .embed-container {
+#videoModel .embed-container
+{
     height: 0;
     width: 100%;
     padding-bottom: 56.25%;
     overflow: hidden;
     position: relative;
 }
-			
-#videoModel .embed-container iframe {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
+
+    #videoModel .embed-container iframe
+    {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+/*320 480 640 800 1024 */
+
+@media screen and (max-width:320px)
+{
+    body
+    {
+        font-size: 62%;
+    }
+
+    .back-to-home
+    {
+        top: 20.6%;
+    }
+
+    #title-page .bad-moon-header
+    {
+        margin-right: 0%;
+        font-size: 0.6em;
+    }
+}
+
+@media screen and (min-width:321px) and (max-width:480px)
+{
+    body
+    {
+        font-size: 82%;
+    }
+
+    .back-to-home
+    {
+        top: 14.6%;
+    }
+
+    #title-page .bad-moon-header
+    {
+        margin-right: 0%;
+        font-size: 0.7em;
+    }
+}
+
+@media screen and (min-width:481px) and (max-width:640px)
+{
+    body
+    {
+        font-size: 100%;
+    }
+
+    #title-page .bad-moon-header
+    {
+        margin-right: 1%;
+          font-size: 0.9em;
+        
+    }
+}
+
+@media screen and (min-width:641px) and (max-width:800px)
+{
+    body
+    {
+        font-size: 100%;
+    }
+
+    #title-page .bad-moon-header
+    {
+        margin-right: 1%;
+        
+    }
+}
+
+@media screen and (min-width:801px)
+{
+    body
+    {
+        font-size: 100%;
+    }
+
+      #title-page .bad-moon-header
+    {
+        margin-right: 1%;
+        
+    }
 }

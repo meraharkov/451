@@ -31,14 +31,12 @@ $(document).ready(function () {
     $('#bad-moon-menu-btn').click(function () {
         $('#menuModal').modal('hide');
     });
-    
-   /* window.plugins = {};
-    window.plugins.statusBar = new StatusBar();
-    
-   var statusbar = window.plugins.statusBar;
-    statusbar.hide();
-    statusbar.show();
-    statusbar.whiteTint();
-    statusbar.blackTint();*/
-    
+
+ /* var height =  window.screen.availHeight;
+  var width = window.screen.availWidth;
+  var relationSize = height / width;
+   alert(relationSize);
+    $(document.body).css('font-size', '75%');*/
+ 
+
 });
