@@ -415,12 +415,12 @@ body
 
 .video-frame 
 {
-    width: 100%;
-    
+    width: 100%    !important;
+  height: auto   !important;
+  /* max-width:854px; */
+   
 }
-
  
-
 #videoModel .modal-header
 {
    
@@ -452,4 +452,30 @@ body
 .video-link:hover {
     color: #bb0a14;
     text-decoration: none;
+}
+
+#videoModel  .modal-body 
+{
+    padding: 0;
+}
+
+#videoModel  .content {
+   /* width: 50%;*/
+    margin: 0px auto;
+}
+
+#videoModel .embed-container {
+    height: 0;
+    width: 100%;
+    padding-bottom: 56.25%;
+    overflow: hidden;
+    position: relative;
+}
+			
+#videoModel .embed-container iframe {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
