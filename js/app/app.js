@@ -32,6 +32,13 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
     
-
+   /* window.plugins = {};
+    window.plugins.statusBar = new StatusBar();
+    
+   var statusbar = window.plugins.statusBar;
+    statusbar.hide();
+    statusbar.show();
+    statusbar.whiteTint();
+    statusbar.blackTint();*/
     
 });

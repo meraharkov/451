@@ -48,11 +48,14 @@
     <preference name="android-minSdkVersion"      value="7" />              <!-- android: MIN SDK version supported on the target device. MAX version is blank by default. -->
     <preference name="android-installLocation"    value="auto" />           <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
     <preference name="loadUrlTimeoutValue " value="60000" />
-    <preference name="StatusBarOverlaysWebView" value="true" /> 
-	<preference name="StatusBarBackgroundColor" value="#000000" />
-	<preference name="StatusBarStyle" value="lightcontent" />
-  
+
+<!--  <preference name="StatusBarOverlaysWebView" value="true" /> -->
+  <preference name="StatusBarBackgroundColor" value="#000000" />
+  <preference name="StatusBarStyle" value="lightcontent" />
+  <preference name="StatusBarOverlaysWebView" value="true" />
     <!-- Plugins can also be added here. -->
+  <gap:plugin name="com.phonegap.plugin.statusbar" />
+  <param name="ios-package" value="CDVStatusBar" onload="true" />
     <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
