@@ -11,7 +11,7 @@
 
                 $routeProvider
                .when('/index', { templateUrl: 'js/partials/home.html' })
-                .when('/title', { templateUrl: 'js/partials/title.html' })
+                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'titleCtrl' })
                .otherwise({ redirectTo: '/index' });
 
             }]);
@@ -32,6 +32,9 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
 
+
+  
+    
   /*  $('#bad-moon-menu-btn').click(function() {
         $('#menuModal')
            .prop('class', 'modal fade') // revert to default

@@ -18,7 +18,7 @@
 
     <div class='row'>
         <div class='col-xs-12 padding0'>
-            <img class="w100Per" src="imgs/content/tile-badmoonrising-seriestrailer.png" />
+            <img class="w100Per" style="margin-top: 10%;" src="imgs/content/tile-badmoonrising-seriestrailer.png" />
         </div>
 
         <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
@@ -51,7 +51,7 @@
 
     <div class='row'>
         <div class='col-xs-12 padding0'>
-            <img class="w100Per" src="imgs/content/tile-badmoonrising-imaginationtoburn.png" />
+            <img class="w100Per"  src="imgs/content/tile-badmoonrising-imaginationtoburn.png" />
         </div>
         <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
             IMAGINATION TO BURN
@@ -142,101 +142,35 @@
 
                     <div class="content">
                         <div class="embed-container">
-                            <button onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
+                         <!--   <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
                                 <img src="imgs/assets/button-back.png" />
-                            </button>
-
-                            <iframe id="video-frame"
+                            </button>-->
+                             <img id="video-frame" ng-click="startVideo()" src="imgs/assets/button-back.png" />
+                            <iframe id="video"
                                     class="fl-left"
-                                    src="https://www.youtube.com/embed/T0bVqgBSZHk" frameborder="0" allowfullscreen>
+                                    src="https://www.youtube.com/embed/T0bVqgBSZHk" frameborder="0" allowfullscreen >
                             </iframe>
+                            
+                          
                         </div>
                     </div>
 
                     <script type="text/javascript">
                         
-                        $("#video-frame").click(function() {
-                            var videoUrl = "https://www.youtube.com/embed/T0bVqgBSZHk";
 
-                            // Just play a video
-                            window.plugins.streamingMedia.playVideo(videoUrl);
+                   /*     console.log = function (message) {
 
-                            // Play a video with callbacks
-                            var options = {
-                                successCallback: function () {
-                                    alert("success Callback");
-                                    console.log("Video was closed without error.");
-                                },
-                                errorCallback: function (errMsg) {
-                                    console.log("Error! " + errMsg);
-                                    alert(errMsg);
-                                }
-                            };
-                            
-                            try {
-                                window.plugins.streamingMedia.playVideo(videoUrl, options);
-                            } catch(e) {
-                                alert(e);
-                            }
-                            
+                            var div = document.getElementById('#debugDiv');
 
-/*
-                            var audioUrl = STREAMING_AUDIO_URL;
+                            div.innerHTML += message;
+                            div.innerHTML += "<br/>  ================================> <br/>";
+                            /*  $('#debugDiv').append('<p>' + message + '</p>');#1#
+                        };
+                        */
 
-                            // Play an audio file (not recommended, since the screen will be plain black)
-                            window.plugins.streamingMedia.playAudio(audioUrl);
-
-                            // Play an audio file with options (all options optional)
-                            var options = {
-                                bgColor: "#FFFFFF",
-                                bgImage: "<SWEET_BACKGROUND_IMAGE>",
-                                bgImageScale: "fit",
-                                successCallback: function () {
-                                    console.log("Player closed without error.");
-                                },
-                                errorCallback: function (errMsg) {
-                                    console.log("Error! " + errMsg);
-                                }
-                            };
-                            window.plugins.streamingMedia.playAudio(audioUrl, options);*/
-                        });
+                         
                     </script>
-                            <!--  <div>
-                            tag video
-                                <video id="video-tag" width="320" height="240" controls>
-                                <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/mp4">
-                                <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/ogg">
-                                    Your browser does not support the video tag.
-                                    </video>
-                        
-                                    <button id="video-tag-2">
-                                        Video Player
-                                            </button>
-
-                                            <script type="text/javascript">
-                           
-                                                $('#video-tag').click(function () {
-                                 
-                                                    try { 
-                                                        cordova.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
-                                                    } catch (err) {
-
-                                                        alert(err);
-                                                    }
-                                                });
-                            
-
-                                            $('#video-tag-2').click(function () {
-                                                try {
-                                                    window.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
-                                                } catch (err) {
-
-                                                    alert(err);
-                                                }
-                                            });
-
-                    </script>-->
-                    </div>
+                   </div>
  
                 </div>
             </div>
@@ -256,18 +190,10 @@
             closevideo();
         });
 
-    /*    $("#title-page").ready(function () {
-    
-                $('#title-page')
-                       .prop('class', 'modal fade') // revert to default
-                       .addClass($(this).data('direction'));
-    
-                $('#title-page').modal('show');
-                alert("title");
-            });*/
+   
 
 
     </script>
 
-</div>
+ 
 

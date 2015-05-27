@@ -507,9 +507,16 @@ body
 {
     width: 100%;
     height: 100%;
-    position: absolute;
+    /*position: absolute;*/
     /*top: 0;
     left: 0;*/
+}
+
+#wrapper-video {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: transparent;
 }
 
 /*320 480 640 800 1024 */
@@ -592,4 +599,10 @@ body
         margin-right: 1%;
         
     }
+}
+
+
+#video 
+{
+    position: absolute;
 }

@@ -29,112 +29,120 @@
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
-    
-    <script src="js/vendor/plugin/StreamingMedia.js"></script>
 
+   
+
+      
     <!-- 
         <script src="js/vendor/plugin/VideoThumbnail.js"></script>
         <script src="js/vendor/plugin/videoplayer.js"></script>
      -->
 
     <script src="js/app/app.js"></script>
+    <script src="js/controllers/titleCtrl.js"></script>
+
 </head>
-<body>
-    <!-- ng-app="comix"-->
-    <nav id="header" class="navbar navbar-right navbar-fixed-top ">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <img class="menu-btn"
-                    src='imgs/assets/button-menu@2x.png'
-                    data-direction='left'
-                    alt="" />
+    <body>
+        
+        
+        <!-- ng-app="comix"-->
+        <nav id="header" class="navbar navbar-right navbar-fixed-top ">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <img class="menu-btn"
+                         src='imgs/assets/button-menu@2x.png'
+                         data-direction='left'
+                         alt="" />
 
-                <!--      data-toggle="modal"
-                data-target="#menuModal"
-                -->
+                    <!--      data-toggle="modal"
+                        data-target="#menuModal"
+                        -->
+                </div>
             </div>
-        </div>
-        <!-- /.container-fluid -->
-    </nav>
+            <!-- /.container-fluid -->
+        </nav>
+        
+        
 
-    <div ng-view></div>
+        <div   ng-view></div>
 
 
-    <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
+        <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
 
-                    <h4 class="modal-title bold">MENU 
+                        <h4 class="modal-title bold">MENU 
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </h4>
-                </div>
+                        </h4>
+                    </div>
 
-                <div class="modal-body">
-                    <a data-toggle="modal"
-                        data-target="#socialuModal">
-                        <h5>SOCIAL</h5>
-                    </a>
+                    <div class="modal-body">
+                        <a data-toggle="modal"
+                           data-target="#socialuModal">
+                            <h5>SOCIAL</h5>
+                        </a>
 
-                    <h5>WHERE TO BUY</h5>
+                        <h5>WHERE TO BUY</h5>
 
-                    <h5>ABOUT</h5>
-                    <br />
-                    <br />
+                        <h5>ABOUT</h5>
+                        <br />
+                        <br />
 
-                    <a id="bad-moon-menu-btn" href="#/title">
-                        <h5>BAD MOON RISING</h5>
-                    </a>
-                    <h5>EXMORTIS</h5>
-                    <h5>HUMBUG</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="socialuModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h4 class="modal-title bold">SOCIAL 
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </h4>
-                </div>
-
-                <div class="modal-body">
-
-                    <a href="https://www.facebook.com/login/" target="_blank">
-                        <h5>
-                            <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
-                        </h5>
-                    </a>
-
-                    <a>
-                        <h5>
-                            <img src="imgs/assets/button-social-instagram-57x57.png" />
-                            INSTAGRAM 
-                        </h5>
-                    </a>
-
-                    <a href="https://twitter.com/twitt_login" target="_blank">
-                        <h5>
-                            <img src="imgs/assets/button-share-twitter.png" />
-                            TWITTER
-                        </h5>
-                    </a>
-
-                    <a>
-                        <h5>
-                            <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
-                        </h5>
-                    </a>
+                        <a id="bad-moon-menu-btn" href="#/title">
+                            <h5>BAD MOON RISING</h5>
+                        </a>
+                        <h5>EXMORTIS</h5>
+                        <h5>HUMBUG</h5>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+
+        <div class="modal fade" id="socialuModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+
+                        <h4 class="modal-title bold">SOCIAL 
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        </h4>
+                    </div>
+
+                    <div class="modal-body">
+
+                        <a href="https://www.facebook.com/login/" target="_blank">
+                            <h5>
+                                <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
+                            </h5>
+                        </a>
+
+                        <a>
+                            <h5>
+                                <img src="imgs/assets/button-social-instagram-57x57.png" />
+                                INSTAGRAM 
+                            </h5>
+                        </a>
+
+                        <a href="https://twitter.com/twitt_login" target="_blank">
+                            <h5>
+                                <img src="imgs/assets/button-share-twitter.png" />
+                                TWITTER
+                            </h5>
+                        </a>
+
+                        <a>
+                            <h5>
+                                <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
+                            </h5>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
-</body>
+    </body>
+     <script src="js/vendor/plugin/StreamingMedia.js"></script>
 
 </html>
