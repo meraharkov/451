@@ -1,4 +1,10 @@
-var exec = require("cordova/exec");
+
+try {
+    var exec = require("cordova/exec");
+} catch(e) {
+    alert(e);
+} 
+ 
 
 module.exports = {
 
