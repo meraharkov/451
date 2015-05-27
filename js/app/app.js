@@ -32,11 +32,12 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
 
- /* var height =  window.screen.availHeight;
-  var width = window.screen.availWidth;
-  var relationSize = height / width;
-   alert(relationSize);
-    $(document.body).css('font-size', '75%');*/
- 
+  /*  $('#bad-moon-menu-btn').click(function() {
+        $('#menuModal')
+           .prop('class', 'modal fade') // revert to default
+           .addClass($(this).data('direction'));
+        $('#menuModal').modal('show');
+
+    });*/
 
 });
