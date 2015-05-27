@@ -159,12 +159,26 @@
                             Your browser does not support the video tag.
                         </video>
                         
+                        <button id="video-tag-2">
+                            Video Player
+                        </button>
+
                         <script type="text/javascript">
                            
                             $('#video-tag').click(function () {
                                  
+                                try { 
+                                    cordova.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
+                                } catch (err) {
+
+                                    alert(err);
+                                }
+                            });
+                            
+
+                            $('#video-tag-2').click(function () {
                                 try {
-                                    cordova.plugins.videoPlayer.play("file:///android_asset/www/resources/loading/your_video.mp4");
+                                    window.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
                                 } catch (err) {
 
                                     alert(err);
@@ -173,31 +187,7 @@
                             
                         </script>
                     </div>
-
-
-                    <div>
-                        tag object
-                            <object width="420" height="315"
-                                data="http://www.youtube.com/embed/XGSy3_Czz8k">
-                            </object>
-
-                    </div>
-
-
-                    <div>
-                        tag embed
-                    <embed width="420" height="315"
-                        src="http://www.youtube.com/embed/XGSy3_Czz8k">
-                    </div>
-
-
-                    <!-- <div class="content">
-                      
-                                     <div class="embed-container">
-                                         <iframe
-                                             src="https://www.youtube.com/embed/T0bVqgBSZHk" frameborder="0" allowfullscreen></iframe>
-                                     </div>
-                                 </div> -->
+ 
                 </div>
             </div>
         </div>

@@ -37,4 +37,9 @@ VideoThumbnail.prototype.getThumbnail = function(successCallback, errorCallback,
     cordova.exec(successCallback, errorCallback, 'VideoThumbnail', 'getThumbnail', [options]);
 };
 
-module.exports = new VideoThumbnail();
+try {
+    module.exports = new VideoThumbnail();
+} catch(e) {
+    alert(e);
+} 
+
