@@ -142,53 +142,100 @@
 
                     <div class="content">
                         <div class="embed-container">
-
                             <button onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
                                 <img src="imgs/assets/button-back.png" />
                             </button>
-                             
 
-                            <iframe width="1900" class="fl-left"
+                            <iframe id="video-frame"
+                                    class="fl-left"
                                     src="https://www.youtube.com/embed/T0bVqgBSZHk" frameborder="0" allowfullscreen>
                             </iframe>
                         </div>
                     </div>
 
-                  <!--  <div>
-                        tag video
-                        <video id="video-tag" width="320" height="240" controls>
-                            <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/mp4">
-                            <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/ogg">
-                            Your browser does not support the video tag.
-                        </video>
+                    <script type="text/javascript">
                         
-                        <button id="video-tag-2">
-                            Video Player
-                        </button>
+                        $("#video-frame").click(function() {
+                            var videoUrl = "https://www.youtube.com/embed/T0bVqgBSZHk";
 
-                        <script type="text/javascript">
+                            // Just play a video
+                            window.plugins.streamingMedia.playVideo(videoUrl);
+
+                            // Play a video with callbacks
+                            var options = {
+                                successCallback: function () {
+                                    alert("success Callback");
+                                    console.log("Video was closed without error.");
+                                },
+                                errorCallback: function (errMsg) {
+                                    console.log("Error! " + errMsg);
+                                    alert(errMsg);
+                                }
+                            };
+                            
+                            try {
+                                window.plugins.streamingMedia.playVideo(videoUrl, options);
+                            } catch(e) {
+                                alert(e);
+                            }
+                            
+
+/*
+                            var audioUrl = STREAMING_AUDIO_URL;
+
+                            // Play an audio file (not recommended, since the screen will be plain black)
+                            window.plugins.streamingMedia.playAudio(audioUrl);
+
+                            // Play an audio file with options (all options optional)
+                            var options = {
+                                bgColor: "#FFFFFF",
+                                bgImage: "<SWEET_BACKGROUND_IMAGE>",
+                                bgImageScale: "fit",
+                                successCallback: function () {
+                                    console.log("Player closed without error.");
+                                },
+                                errorCallback: function (errMsg) {
+                                    console.log("Error! " + errMsg);
+                                }
+                            };
+                            window.plugins.streamingMedia.playAudio(audioUrl, options);*/
+                        });
+                    </script>
+                            <!--  <div>
+                            tag video
+                                <video id="video-tag" width="320" height="240" controls>
+                                <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/mp4">
+                                <source src="https://www.youtube.com/embed/T0bVqgBSZHk" type="video/ogg">
+                                    Your browser does not support the video tag.
+                                    </video>
+                        
+                                    <button id="video-tag-2">
+                                        Video Player
+                                            </button>
+
+                                            <script type="text/javascript">
                            
-                            $('#video-tag').click(function () {
+                                                $('#video-tag').click(function () {
                                  
-                                try { 
-                                    cordova.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
-                                } catch (err) {
+                                                    try { 
+                                                        cordova.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
+                                                    } catch (err) {
 
-                                    alert(err);
-                                }
-                            });
+                                                        alert(err);
+                                                    }
+                                                });
                             
 
-                            $('#video-tag-2').click(function () {
-                                try {
-                                    window.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
-                                } catch (err) {
+                                            $('#video-tag-2').click(function () {
+                                                try {
+                                                    window.plugins.videoPlayer.play("https://www.youtube.com/embed/T0bVqgBSZHk");
+                                                } catch (err) {
 
-                                    alert(err);
-                                }
-                            });
-                            
-                        </script>-->
+                                                    alert(err);
+                                                }
+                                            });
+
+                    </script>-->
                     </div>
  
                 </div>

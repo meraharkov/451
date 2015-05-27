@@ -1,27 +1,63 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<plugin
+		xmlns="http://apache.org/cordova/ns/plugins/1.0"
+		xmlns:android="http://schemas.android.com/apk/res/android"
+		id="com.hutchind.cordova.plugins.streamingmedia"
+		version="0.1.4">
 
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
- id="org.apache.cordova.plugins.StatusBar"
- version="0.1.0">
- <name>StatusBar</name>
- <description>
-  Change the style of the status bar in iOS, in any instance of your app. You can show it, hide it, change the tint to white or black. All transitions are animated.
-</description>
-<keywords>phonegap,ios,status bar</keywords>
+	<name>StreamingMedia</name>
 
-<js-module src="www/StatusBar.js" name="StatusBar">
-  <merges target="plugins.statusBar" />
-</js-module>
+	<description>
+		This plugin allows you to launch a fullscreen streaming player for audio or video on iOS and Android.
+	</description>
 
-<!-- ios -->
-<platform name="ios">
-  <config-file target="config.xml" parent="/*">
-    <feature name="StatusBar">
-      <param name="ios-package" value="StatusBar"/>
-    </feature>
-  </config-file>
+	<author>Nicholas Hutchind</author>
 
-  <header-file src="src/ios/StatusBar.h" />
-  <source-file src="src/ios/StatusBar.m" />
-</platform>
+	<license>MIT</license>
+
+	<keywords>Streaming, Media, Video, Audio, Android, iOS</keywords>
+
+	<repo>https://github.com/nchutchind/Streaming-Media-Cordova-Plugin.git</repo>
+
+	<issue>https://github.com/nchutchind/Streaming-Media-Cordova-Plugin/issues</issue>
+
+	<engines>
+		<engine name="cordova" version=">=3.0.0" />
+	</engines>
+
+	<js-module src="www/StreamingMedia.js" name="StreamingMedia">
+		<clobbers target="streamingMedia" />
+	</js-module>
+
+	<!-- ios -->
+	<platform name="ios">
+		<config-file target="config.xml" parent="/*">
+			<feature name="StreamingMedia">
+				<param name="ios-package" value="StreamingMedia" />
+			</feature>
+		</config-file>
+		<header-file src="src/ios/StreamingMedia.h" />
+		<source-file src="src/ios/StreamingMedia.m" />
+		<framework src="MediaPlayer.framework" />
+	</platform>
+
+	<!-- android -->
+	<platform name="android">
+		<config-file target="res/xml/config.xml" parent="/*">
+			<feature name="StreamingMedia">
+				<param name="android-package" value="com.hutchind.cordova.plugins.streamingmedia.StreamingMedia" />
+			</feature>
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest">
+			<uses-permission android:name="android.permission.INTERNET" />
+		</config-file>
+		<config-file target="AndroidManifest.xml" parent="/manifest/application">
+			<activity android:configChanges="orientation|screenSize" android:name="com.hutchind.cordova.plugins.streamingmedia.SimpleAudioStream" android:label="Simple Audio Stream"></activity>
+			<activity android:configChanges="orientation|screenSize" android:name="com.hutchind.cordova.plugins.streamingmedia.SimpleVideoStream" android:label="Simple Video Stream"></activity>
+		</config-file>
+		<source-file src="src/android/com/hutchind/cordova/plugins/streamingmedia/SimpleAudioStream.java" target-dir="src/com/hutchind/cordova/plugins/streamingmedia" />
+		<source-file src="src/android/com/hutchind/cordova/plugins/streamingmedia/SimpleVideoStream.java" target-dir="src/com/hutchind/cordova/plugins/streamingmedia" />
+		<source-file src="src/android/com/hutchind/cordova/plugins/streamingmedia/StreamingMedia.java" target-dir="src/com/hutchind/cordova/plugins/streamingmedia" />
+		<source-file src="src/android/com/hutchind/cordova/plugins/streamingmedia/ImageLoadTask.java" target-dir="src/com/hutchind/cordova/plugins/streamingmedia" />
+	</platform>
 </plugin>
