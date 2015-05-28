@@ -460,11 +460,12 @@ body
     font-weight: bold;
     opacity: 1!important;
     font-size: 1.4em;
-    margin: 2%;
-    
+    margin: 1%;
+      width: 6%;
 }
 
-#videoModel img {
+#videoModel img 
+{
    width: 85%; 
 }
 
@@ -499,7 +500,7 @@ body
     height: 0;
     width: 100%;
     padding-bottom: 56.25%;
-    overflow: hidden;
+ /*   overflow: hidden;*/
     position: relative;
 }
 
@@ -508,11 +509,14 @@ body
     width: 100%;
     height: 100%;
     position: absolute;
+    padding-left: 2%;
+    padding-right: 8%;
     /*top: 0;
     left: 0;*/
 }
 
-#wrapper-video {
+#wrapper-video 
+{
     width: 100%;
     height: 100%;
     position: absolute;

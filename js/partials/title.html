@@ -18,12 +18,10 @@
 
     <div class='row'>
         <div class='col-xs-12 padding0'>
-            <img class="w100Per" style="margin-top: 10%;" src="imgs/content/tile-badmoonrising-seriestrailer.png" />
+            <img class="w100Per" src="imgs/content/tile-badmoonrising-seriestrailer.png" />
         </div>
 
         <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
-
-
             <a class="video-link"
                 data-toggle="modal"
                 data-target="#videoModel">
@@ -139,19 +137,21 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-body">
-
+                    <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
+                            <img src="imgs/assets/button-back.png" />
+                        </button>
                     <div class="content">
+                        
+
                         <div class="embed-container">
-                            <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
-                                <img src="imgs/assets/button-back.png" />
-                            </button>
+                         
                             <!-- <img id="video-frame" ng-click="startVideo()" src="imgs/assets/button-back.png" />-->
-                           <!-- <iframe id="video"
+                            <iframe id="video"
                                     class="fl-left"
-                                    src="https://www.youtube.com/embed/T0bVqgBSZHk" frameborder="0" allowfullscreen >
-                            </iframe>-->
+                                    src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen="" >
+                            </iframe>
                             
-                          <iframe width="670" height="402" src="https://youtube.com/embed/o-QTsRAz1Bo?wmode=opaque" frameborder="0" allowfullscreen=""></iframe>
+                          <!--<iframe width="670" height="402" src="https://youtube.com/embed/o-QTsRAz1Bo?wmode=opaque" frameborder="0" allowfullscreen=""></iframe>-->
                         </div>
                     </div>
 
