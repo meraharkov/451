@@ -539,12 +539,13 @@ body
 
     transform: rotate(90deg)!important;
   
-   /*   width: 1024px!important;
-  height: 768px!important;*/
   
+/*
   margin-top: 17%!important;
   margin-left: -16%!important;
-
+*/
+  margin-top: 13em!important;
+  margin-left: -13em!important;
 }
 
 .rotateVideo 
