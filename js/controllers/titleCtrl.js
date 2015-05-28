@@ -4,9 +4,34 @@
 
     angular
         .module(window.appName)
-        .controller('titleCtrl', ['$scope', function ($scope  ) {
+        .controller('titleCtrl', ['$scope', function ($scope) {
 
-            $scope.isShowVideo = false;
+           
+            
+            $scope.changeRotateVideoPopap = function () {
+                
+                var className = null;
+                
+                var width = $(window).innerWidth();
+                var height = $(window).innerHeight();
+
+                if (width < height) {
+                      className = "rotateVideo90";
+                   
+                } else {
+                 
+                    className = "rotateVideo";
+                }
+                
+                return className;
+            };
+
+            window.onresize = function (event) {
+               
+                $scope.$apply($scope.changeRotateVideoPopap());
+            };
+            
+            /*$scope.isShowVideo = false;
             $scope.isShowPopap = true;
             
             $scope.startVideo = function () {
@@ -45,8 +70,8 @@
                 } catch (e) {
                     alert(e);
                 }
-
-                /*var width = 800;
+*/
+            /*var width = 800;
                 var heght = 600;
                 
                 $('#video').css({ width: width + 'px', height: heght + 'px' });
@@ -54,15 +79,15 @@
                 $(window).resize(function () {
                     $('#video').css({ width: width + 'px', height: heght + 'px' });
                 });*/
-                
-                
-               /*$('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' }); 
+
+
+            /*$('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' }); 
 
                 // If you want to keep full screen on window resize
                  $(window).resize(function () {
                     $('#video').css({ width: $(window).innerWidth() + 'px', height: $(window).innerHeight() + 'px' });
-                }); */
-            };
+                }); 
+            };*/
         } ]);
 
 }(window, window.angular));

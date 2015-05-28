@@ -77,7 +77,6 @@
                 </div>
 
         </div>
-
     </div>
     <!-- END ROW Contnet-Cell -->
 
@@ -87,15 +86,6 @@
                 <div class="modal-body">
                     <div class="container padding0">
                         <nav class="navbar navbar-default" role="navigation">
-                            <!-- Brand and toggle get grouped for better mobile display -->
-                            <!--           <div class="navbar-header">
-                                               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                                                   <span class="sr-only">Toggle navigation</span>
-                                                   <span class="icon-bar"></span>
-                                                   <span class="icon-bar"></span>
-                                                   <span class="icon-bar"></span>
-                                               </button>
-                                           </div>-->
 
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
@@ -134,44 +124,27 @@
     </div>
 
     <div class="modal fade" id="videoModel" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog" ng-class="changeRotateVideoPopap()"  > <!--ng-class="{'changeRotateVideoPopap()':  'rotateVideo90': null}"-->
             <div class="modal-content">
                 <div class="modal-body">
-                    <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
-                            <img src="imgs/assets/button-back.png" />
-                        </button>
+                   
                     <div class="content">
                         
 
                         <div class="embed-container">
-                         
-                            <!-- <img id="video-frame" ng-click="startVideo()" src="imgs/assets/button-back.png" />-->
+                            <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
+                                <img src="imgs/assets/button-back.png" />
+                            </button>
+
                             <iframe id="video"
                                     class="fl-left"
                                     src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen="" >
                             </iframe>
-                            
-                          <!--<iframe width="670" height="402" src="https://youtube.com/embed/o-QTsRAz1Bo?wmode=opaque" frameborder="0" allowfullscreen=""></iframe>-->
                         </div>
-                    </div>
+                    </div> 
 
-                    <script type="text/javascript">
-                        
-
-                   /*     console.log = function (message) {
-
-                            var div = document.getElementById('#debugDiv');
-
-                            div.innerHTML += message;
-                            div.innerHTML += "<br/>  ================================> <br/>";
-                            /*  $('#debugDiv').append('<p>' + message + '</p>');#1#
-                        };
-                        */
-
-                         
-                    </script>
-                   </div>
- 
+                </div>
+                     
                 </div>
             </div>
         </div>
@@ -180,6 +153,7 @@
 
     <script type="text/javascript">
         function closevideo() {
+            alert("close");
             $("iframe").each(function () {
                 var src = $(this).attr('src');
                 $(this).attr('src', src);
@@ -190,9 +164,40 @@
             closevideo();
         });
 
-   
+      // changeRotateVideoPopap();
+        
+      /*  window.onresize = function(event) {
+            /*#1#
+            changeRotateVideoPopap();
+        };*/
 
 
+        /*function setTransform(element, elTransformArg) {
+           /* var transfromString = ("rotate(" + elTransformArg.rot + "deg ) scale("
+                + elTransformArg.sca + ") skewX(" + elTransformArg.skx + "deg ) skewY("
+                + elTransformArg.sky + "deg )");#1#
+            var transfromString = "rotate("+ elTransformArg +"deg)";
+            // now attach that variable to each prefixed style
+            element.style.webkitTransform = transfromString;
+         /*   element.style.MozTransform = transfromString;
+            element.style.msTransform = transfromString;
+            element.style.OTransform = transfromString;
+            element.style.transform = transfromString;#1#
+        }*/
+
+       /* function changeRotateVideoPopap() { 
+            
+            var transformPopap = $("#videoModel .modal.in .modal-dialog"); 
+
+            var width = $(window).innerWidth();
+            var height = $(window).innerHeight();
+            
+            if (width < height) {
+                setTransform(transformPopap, 90);
+            } else {
+                setTransform(transformPopap, 0);
+            }
+        }*/
     </script>
 
  

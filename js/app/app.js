@@ -31,16 +31,6 @@ $(document).ready(function () {
     $('#bad-moon-menu-btn').click(function () {
         $('#menuModal').modal('hide');
     });
-
-
-  
-    
-  /*  $('#bad-moon-menu-btn').click(function() {
-        $('#menuModal')
-           .prop('class', 'modal fade') // revert to default
-           .addClass($(this).data('direction'));
-        $('#menuModal').modal('show');
-
-    });*/
+     
 
 });

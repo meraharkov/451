@@ -469,6 +469,16 @@ body
    width: 85%; 
 }
 
+.rotateVideo90 
+{
+    transform: rotate(90deg)!important;
+    margin-top: 40%;
+}
+
+.rotateVideo 
+{
+    transform: rotate(0deg)!important;
+}
 
 .video-link
 {
