@@ -24,10 +24,17 @@
 
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
+ 
+  <!--  <script src="js/vendor/cordova/2.9.1/cordova.js"></script>-->
     <script src="js/vendor/cordova/cordova.js" type="text/javascript"></script>
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script> 
+  
+    
+    <script src="www/screenorientation.android.js"></script>
+    <script src="www/screenorientation.ios.js"></script>
+    <script src="www/screenorientation.js"></script>
 
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
@@ -100,7 +107,7 @@
 
                     <div class="modal-body">
 
-                        <a href="https://www.facebook.com/login/" target="_blank">
+                        <a  onclick="window.open('https://www.facebook.com/login/', '_system');"   target="_blank">
                             <h5>
                                 <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
                             </h5>
@@ -113,18 +120,24 @@
                             </h5>
                         </a>
 
-                        <a href="https://twitter.com/twitt_login" target="_blank">
+                        <a onclick="navigator.app.loadUrl('https://google.com/', { openExternal:true });"  target="_blank">
                             <h5>
                                 <img src="imgs/assets/button-share-twitter.png" />
                                 TWITTER
                             </h5>
                         </a>
 
-                        <a>
+                        <a id="tumbrl">
                             <h5>
                                 <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
                             </h5>
                         </a>
+                        <script type="text/javascript">
+                            $("#tubrl").click(function() {
+                                alert("open");
+                                window.open("http://google.com", '_system');
+                            })
+                        </script>
                     </div>
                 </div>
             </div>
