@@ -6,6 +6,9 @@
         .module(window.appName)
         .controller('titleCtrl', ['$scope', function ($scope) {
 
+            $scope.popapWidth = $(window).innerWidth();
+            
+            $scope.popapHeight = $(window).innerHeight();
            
             
             $scope.changeRotateVideoPopap = function () {
@@ -16,10 +19,13 @@
                 var height = $(window).innerHeight();
 
                 if (width < height) {
-                      className = "rotateVideo90";
-                   
+                    className = "rotateVideo90";
+                    $scope.popapWidth = height;
+                    $scope.popapHeight = width;
+
                 } else {
-                 
+                    $scope.popapWidth = width;
+                    $scope.popapHeight = height;
                     className = "rotateVideo";
                 }
                 

@@ -445,6 +445,10 @@ body
     /* max-width:854px; */
 }
 
+#videoModel {
+    padding-left: 0px;
+}
+
 #videoModel .modal-header
 {
     font-weight: bold;
@@ -453,6 +457,63 @@ body
     margin: 0 auto;
 }
 
+
+#videoModel .modal-dialog 
+{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+#videoModel .modal-content 
+{
+    width: 100%;
+    height: 100%;
+}
+
+#videoModel .modal-body {
+    width: 100%;
+    height: 100%;
+}
+
+
+#videoModel .content 
+{
+     width: 100%;
+    height: 100%;
+}
+
+#videoModel .modal-body
+{
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-left: 0;
+    padding-right: 8%;
+}
+
+#videoModel .content
+{
+    margin: 0px auto;
+}
+
+#videoModel .embed-container
+{
+    height: 100%;
+    width: 100%;
+    padding-bottom: 56.25%;
+ /*   overflow: hidden;*/
+    position: relative;
+}
+
+#videoModel .embed-container iframe
+{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    padding-left: 2%;
+    padding-right: 8%;
+ 
+}
 
 #videoModel .close
 {
@@ -477,7 +538,13 @@ body
       -o-transform:      rotate(90deg)!important;
 
     transform: rotate(90deg)!important;
-    margin-top: 40%;
+  
+   /*   width: 1024px!important;
+  height: 768px!important;*/
+  
+  margin-top: 17%!important;
+  margin-left: -16%!important;
+
 }
 
 .rotateVideo 
@@ -502,46 +569,8 @@ body
     text-decoration: none;
 }
 
-#videoModel .modal-body
-{
-    padding-top: 0;
-    padding-bottom: 0;
-    padding-left: 0;
-    padding-right: 8%;
-}
 
-#videoModel .content
-{
-    margin: 0px auto;
-}
-
-#videoModel .embed-container
-{
-    height: 0;
-    width: 100%;
-    padding-bottom: 56.25%;
- /*   overflow: hidden;*/
-    position: relative;
-}
-
-#videoModel .embed-container iframe
-{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    padding-left: 2%;
-    padding-right: 8%;
-    /*top: 0;
-    left: 0;*/
-}
-
-#wrapper-video 
-{
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    background: transparent;
-}
+ 
 
 /*320 480 640 800 1024 */
 @media screen and (max-width:320px)
