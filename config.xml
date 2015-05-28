@@ -129,6 +129,6 @@
       <string>UIInterfaceOrientationLandscapeRight</string>
     </array>
   </gap:config-file>
-  <preference name="orientation" value="portrait" />
+  <preference name="orientation" value="landscape" />
   
 </widget>
