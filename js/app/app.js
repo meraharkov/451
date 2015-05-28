@@ -32,14 +32,14 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
      
-    // set to either landscape
+  /*  // set to either landscape
     screen.lockOrientation('landscape');
 
     // allow user rotate
     screen.unlockOrientation();
 
     // access current orientation
-   /* console.log('Orientation is ' + screen.orientation);*/
+   /* console.log('Orientation is ' + screen.orientation);#1#
     alert('Orientation is ' + screen.orientation);
     
   
@@ -48,7 +48,6 @@ $(document).ready(function () {
         var so = cordova.plugins.screenorientation;
         so.setOrientation(so.Orientation.LANDSCAPE);
     }
-    document.addEventListener("deviceready", onDeviceReady, false);
- 
-    
+    document.addEventListener("deviceready", onDeviceReady, false);*/
+  
 });
