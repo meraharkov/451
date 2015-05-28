@@ -471,12 +471,22 @@ body
 
 .rotateVideo90 
 {
+      -webkit-transform: rotate(90deg)!important; 
+      -moz-transform:    rotate(90deg)!important; 
+      -ms-transform:     rotate(90deg)!important; 
+      -o-transform:      rotate(90deg)!important;
+
     transform: rotate(90deg)!important;
     margin-top: 40%;
 }
 
 .rotateVideo 
 {
+     -webkit-transform: rotate(0deg)!important; 
+      -moz-transform:    rotate(0deg)!important; 
+      -ms-transform:     rotate(0deg)!important; 
+      -o-transform:      rotate(0deg)!important;
+
     transform: rotate(0deg)!important;
 }
 
