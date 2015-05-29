@@ -113,7 +113,9 @@
         <button id="Button2"> Open link '_system', 'location=false' </button>
         <br/>  <br/>
         <button id="open-link-2"> Open link '_blank', 'location=false'  </button>
-
+        <br/>
+        <br/>
+        <button id="open-link-3"> loads in the system browser </button>
 
         <script type="text/javascript">
             $("#lock").click(function () {
@@ -153,8 +155,12 @@
                 var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system', 'location=false');
                 alert(ref2);
             });
+            
+            $("#open-link-3").click(function () {
 
-
+                window.open('https://www.facebook.com/login/', '_system');       // loads in the system browser
+               
+            }); 
            
 
         </script>
