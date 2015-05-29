@@ -21,6 +21,8 @@
 
 $(document).ready(function () {
 
+    alert("document ready event");
+    
     $('.menu-btn').click(function () {
         $('#menuModal')
             .prop('class', 'modal fade') // revert to default
@@ -32,22 +34,25 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
      
-  /*  // set to either landscape
-    screen.lockOrientation('landscape');
+    // set to either landscape
+   // screen.lockOrientation('landscape');
 
     // allow user rotate
-    screen.unlockOrientation();
+ //   screen.unlockOrientation();
 
     // access current orientation
-   /* console.log('Orientation is ' + screen.orientation);#1#
-    alert('Orientation is ' + screen.orientation);
+   /* console.log('Orientation is ' + screen.orientation);*/
+    alert('Orientation is ' + screen.orientation.type);
     
   
     function onDeviceReady() {
-        alert("onDeviceReady")
-        var so = cordova.plugins.screenorientation;
-        so.setOrientation(so.Orientation.LANDSCAPE);
+        alert("onDeviceReady");
+        screen.lockOrientation('landscape');
+        alert("Lock Orientation Landscape");
+        /*   var so = cordova.plugins.screenorientation;*/
+        /*  var so = screen.orientation;
+        so.setOrientation(so.Orientation.LANDSCAPE);*/
     }
-    document.addEventListener("deviceready", onDeviceReady, false);*/
+    document.addEventListener("deviceready", onDeviceReady, false);
   
 });

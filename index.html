@@ -50,22 +50,34 @@
         <script src="www/screenorientation.ios.js"></script>
         <script src="www/screenorientation.js"></script>-->
 
-    <script src="www/SamplePlugin.js"></script>
+    <!--<script src="www/SamplePlugin.js"></script>-->
+
+    <script src="www/screenorientation.js"></script>
+
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
     
     <script type="text/javascript">
         function onLoad() {
+           
             document.addEventListener('deviceready', onDeviceReady, false);
+          
         }
 
         function onDeviceReady() {
-            window.sum(2, 3, function (result) { alert("Result:" + result); }, function (err) { alert(err); });
+
+            alert("on device redy event");
+            
+            /*  window.sum(2, 3, function(result) {
+                 alert("Result:" + result);
+            }, function(err) {
+                 alert(err);
+            });*/
         }
     </script>
 
 </head>
-    <body onload="onLoad()">
+    <body  >
           
         <nav id="header" class="navbar navbar-right navbar-fixed-top ">
             <div class="container-fluid">
@@ -87,7 +99,22 @@
 
         <div   ng-view></div>
 
+        <button id="lock"> lock orientation </button>
+        <button id="unlock"> unlock orientation </button>
+        
+        <script type="text/javascript">
+            
+            $("#lock").click(function() {
+                alert("lock orientation landscape");
+                screen.lockOrientation('landscape');
+            });
 
+            $("#unlock").click(function () {
+                alert("unlock Orientation");
+                screen.unlockOrientation();
+            });
+
+        </script>
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
