@@ -73,12 +73,16 @@
   <!-- Plugins can also be added here. -->
   <gap:plugin name="com.phonegap.plugin.statusbar" />
    
-  <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />
+ <!-- <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />-->
 <!--  <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />-->
   <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
     -->
+  <feature name="InAppBrowser">
+    <param name="ios-package" value="CDVInAppBrowser" />
+  </feature>
+  
 
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />
