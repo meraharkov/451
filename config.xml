@@ -73,7 +73,9 @@
   <!-- Plugins can also be added here. -->
   <gap:plugin name="com.phonegap.plugin.statusbar" />
   <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" />
-  <param name="ios-package" value="CDVStatusBar" onload="true" />
+  <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />
+  <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />
+  
   <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins
@@ -107,7 +109,7 @@
   <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
   <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
   <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
-  <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" />
+ 
   <!--
         Define access to external domains.
 

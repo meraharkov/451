@@ -62,17 +62,12 @@
 
             // Wait for device API libraries to load
             //
-            document.addEventListener("deviceready", onDeviceReady, false);
+          /*  document.addEventListener("deviceready", onDeviceReady, false);*/
 
             // device APIs are available
             //
             function onDeviceReady() {
-                // external url
-                var ref = window.open(encodeURI('http://apache.org'), '_blank',   'location=yes');
-                alert(ref);
-                
-                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system',   'location=yes');
-                alert(ref2);
+              
                 
 
                 // relative document
@@ -105,21 +100,63 @@
         <div   ng-view></div>
 
         <button id="lock"> lock orientation </button>
+        
+        <br/>
         <button id="unlock"> unlock orientation </button>
         
+        <br/>
+
+        <button id="open-link"> Open link location=yes _blank </button>
+        
+         <br/>
+        <button id="Button1"> Open link '_system', 'location=yes' </button>
+         <br/>
+        <button id="Button2"> Open link '_system', 'location=false' </button>
+        <br/>
+        <button id="open-link-2"> Open link '_blank', 'location=false'  </button>
+
+
         <script type="text/javascript">
-            
-            $("#lock").click(function() {
+            $("#lock").click(function () {
                 alert("lock orientation landscape");
-                           screen.lockOrientation('landscape');
+                screen.lockOrientation('landscape');
                 /*window.shouldRotateToOrientation('landscape');*/
             });
 
             $("#unlock").click(function () {
                 alert("unlock Orientation");
-                 screen.unlockOrientation();
-              /*  window.shouldRotateToOrientation('default');*/
+                screen.unlockOrientation();
+                /*  window.shouldRotateToOrientation('default');*/
             });
+
+            $("#open-link").click(function() {
+                // external url
+                var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=yes');
+                alert(ref);
+            });
+
+            $("#open-link-2").click(function () {
+                // external url
+                var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=false');
+                alert(ref);
+            });
+
+
+
+            $("#Button1").click(function() {
+
+                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system', 'location=yes');
+                alert(ref2);
+            });
+            
+            $("#Button2").click(function () {
+
+                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system', 'location=false');
+                alert(ref2);
+            });
+
+
+           
 
         </script>
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
