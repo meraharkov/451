@@ -23,7 +23,6 @@
         The "device" permission is required for the 'deviceready' event.
     -->
   <feature name="http://api.phonegap.com/1.0/device" />
-
   <!--
         If you do not want any permissions to be added to your app, add the
         following tag to your config.xml; you will still have the INTERNET
@@ -75,8 +74,8 @@
   <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
   
   
- <!-- <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />-->
-<!--  <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />-->
+  <!-- <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />-->
+  <!--  <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />-->
   <!--
         <gap:plugin name="Example" />
         A list of available plugins are available at https://build.phonegap.com/docs/plugins

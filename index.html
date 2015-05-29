@@ -85,11 +85,15 @@
           <br/>
         <br/>
         <button id="unlock"> unlock orientation </button>
-          <br/>
+         <br/>
         <br/>
-        
+        <button id="open-links"> Links </button> 
+        <br/>
+        <br/>
+        <br/>
+         
+        <button id="open-links-2"> Links2</button>
 
-        <button id="open-links"> Links </button>
 
         <script type="text/javascript">
             $("#lock").click(function () {
@@ -109,11 +113,16 @@
 
             $("#open-links").click(function () {
                 alert("links");
-                window.open('https://www.google.ru/', '_system');       // loads in the system browser
-                
-/*
-                var ref = cordova.InAppBrowser.open('http://apache.org', '_system' );*/
+                var ref = window.open('https://www.google.ru/', '_system', 'location=no');       // loads in the system browser  
             });
+            
+
+            $("#open-links-2").click(function () {
+                alert("links");
+                var ref = window.open('https://build.phonegap.com/plugins/616', '_system', 'location=yes');       // loads in the system browser  
+            });
+            
+
         </script>
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
