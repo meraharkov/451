@@ -85,10 +85,15 @@ cordova.define('cordova/plugin_list', function (require, exports, module) {
             }
         };
 
-        cordova.exec(success, null, "YoikScreenOrientation", "screenOrientation", ['set', orientation]);
+        var error = function (response) {
+            alert("error");
+            alert(response);
+        };
+        
+        cordova.exec(success, error, "YoikScreenOrientation", "screenOrientation", ['set', orientation]);
         
 
-        console.log('setOrientation not supported on device');
+       // console.log('setOrientation not supported on device');
     };
 
     function addScreenOrientationApi(obj) {

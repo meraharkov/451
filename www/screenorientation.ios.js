@@ -23,6 +23,8 @@ screenOrientation.setOrientation = function(orientation) {
         }
     };
 
+  
+
     exec(success, null, "YoikScreenOrientation", "screenOrientation", ['set', orientation]);
 };
 
