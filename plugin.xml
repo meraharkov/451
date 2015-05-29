@@ -29,6 +29,24 @@
         <source-file src="src/ios/YoikScreenOrientation.m" />
     </platform>
 
+  <platform name="ios">
+    <js-module src="www/inappbrowser.js" name="inappbrowser">
+      <clobbers target="cordova.InAppBrowser.open" />
+      <clobbers target="window.open" />
+    </js-module>
+    <config-file target="config.xml" parent="/*">
+      <feature name="InAppBrowser">
+        <param name="ios-package" value="CDVInAppBrowser" />
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/CDVInAppBrowser.h" />
+    <source-file src="src/ios/CDVInAppBrowser.m" />
+
+    <framework src="CoreGraphics.framework" />
+  </platform>
+  
+
     <platform name="android">
         <source-file src="src/android/YoikScreenOrientation.java" target-dir="src/net/yoik/cordova/plugins/screenorientation/" />
 

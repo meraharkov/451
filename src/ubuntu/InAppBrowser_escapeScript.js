@@ -1,4 +1,4 @@
-cordova.define("org.apache.cordova.device-orientation.CompassHeading", function(require, exports, module) { /*
+/*
  *
  * Licensed to the Apache Software Foundation (ASF) under one
  * or more contributor license agreements.  See the NOTICE file
@@ -19,13 +19,11 @@ cordova.define("org.apache.cordova.device-orientation.CompassHeading", function(
  *
 */
 
-var CompassHeading = function(magneticHeading, trueHeading, headingAccuracy, timestamp) {
-  this.magneticHeading = magneticHeading;
-  this.trueHeading = trueHeading;
-  this.headingAccuracy = headingAccuracy;
-  this.timestamp = timestamp || new Date().getTime();
-};
-
-module.exports = CompassHeading;
-
+oxide.addMessageHandler("EXECUTE", function(msg) {
+    var code = msg.args.code;
+    try {
+        msg.reply({result: eval(code)});
+    } catch(e) {
+        msg.error("Code threw exception: \"" + e + "\"");
+    }
 });

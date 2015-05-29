@@ -29,8 +29,7 @@
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
 
-    <script src="cordova_3.8.0.js"></script>
-
+    <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
     <!--    <script src="js/vendor/cordova/3.4.0-ios/cordova.js"></script> -->
  
 
@@ -57,23 +56,7 @@
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
     
-        <script type="text/javascript" charset="utf-8">
-
-            // Wait for device API libraries to load
-            //
-          /*  document.addEventListener("deviceready", onDeviceReady, false);*/
-
-            // device APIs are available
-            //
-            function onDeviceReady() {
-              
-                
-
-                // relative document
-                /* ref = window.open('index.html', '_self');*/
-            }
-
-    </script>
+   
 
 </head>
     <body  >
@@ -104,18 +87,9 @@
         <button id="unlock"> unlock orientation </button>
           <br/>
         <br/>
+        
 
-        <button id="open-link"> Open link location=yes _blank </button>
-          <br/>
-         <br/>
-        <button id="Button1"> Open link '_system', 'location=yes' </button>
-         <br/>  <br/>
-        <button id="Button2"> Open link '_system', 'location=false' </button>
-        <br/>  <br/>
-        <button id="open-link-2"> Open link '_blank', 'location=false'  </button>
-        <br/>
-        <br/>
-        <button id="open-link-3"> loads in the system browser </button>
+        <button id="open-links"> Links </button>
 
         <script type="text/javascript">
             $("#lock").click(function () {
@@ -130,39 +104,16 @@
                 /*  window.shouldRotateToOrientation('default');*/
             });
 
-            $("#open-link").click(function() {
-                // external url
-                var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=yes');
-                alert(ref);
-            });
 
-            $("#open-link-2").click(function () {
-                // external url
-                var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=false');
-                alert(ref);
-            });
-
-
-
-            $("#Button1").click(function() {
-
-                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system', 'location=yes');
-                alert(ref2);
-            });
             
-            $("#Button2").click(function () {
 
-                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system', 'location=false');
-                alert(ref2);
+            $("#open-links").click(function () {
+                
+                window.open('http://whitelisted-url.com', '_system');       // loads in the system browser
+                
+/*
+                var ref = cordova.InAppBrowser.open('http://apache.org', '_system' );*/
             });
-            
-            $("#open-link-3").click(function () {
-
-                window.open('https://www.facebook.com/login/', '_system');       // loads in the system browser
-               
-            }); 
-           
-
         </script>
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
