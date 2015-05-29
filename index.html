@@ -52,7 +52,8 @@
 
     <!--<script src="www/SamplePlugin.js"></script>-->
 
-    <script src="www/screenorientation.js"></script>
+   <!-- <script src="www/screenorientation.js"></script>
+    <script src="www/screenorientation.ios.js"></script>-->
 
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
@@ -106,12 +107,14 @@
             
             $("#lock").click(function() {
                 alert("lock orientation landscape");
-                screen.lockOrientation('landscape');
+                /*           screen.lockOrientation('landscape');*/
+                window.shouldRotateToOrientation('landscape');
             });
 
             $("#unlock").click(function () {
                 alert("unlock Orientation");
-                screen.unlockOrientation();
+                /* screen.unlockOrientation();*/
+                window.shouldRotateToOrientation('default');
             });
 
         </script>

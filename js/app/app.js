@@ -42,17 +42,17 @@ $(document).ready(function () {
 
     // access current orientation
    /* console.log('Orientation is ' + screen.orientation);*/
-    alert('Orientation is ' + screen.orientation.type);
+   /* alert('Orientation is ' + screen.orientation.type);
     
   
     function onDeviceReady() {
         alert("onDeviceReady");
         screen.lockOrientation('landscape');
         alert("Lock Orientation Landscape");
-        /*   var so = cordova.plugins.screenorientation;*/
+        /*   var so = cordova.plugins.screenorientation;#1#
         /*  var so = screen.orientation;
-        so.setOrientation(so.Orientation.LANDSCAPE);*/
+        so.setOrientation(so.Orientation.LANDSCAPE);#1#
     }
-    document.addEventListener("deviceready", onDeviceReady, false);
+    document.addEventListener("deviceready", onDeviceReady, false);*/
   
 });

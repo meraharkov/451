@@ -49,8 +49,6 @@
         </js-module>
     </platform>
 
-  
-
     <platform name="blackberry10">
         <dependency id="com.blackberry.app" />
         <config-file target="www/config.xml" parent="/widget">
