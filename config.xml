@@ -72,7 +72,9 @@
   
   <!-- Plugins can also be added here. -->
   <gap:plugin name="com.phonegap.plugin.statusbar" />
-   
+  <gap:plugin name="org.apache.cordova.inappbrowser" version="0.3.3" />
+  
+  
  <!-- <gap:plugin name="InAppBrowser" value="CDVInAppBrowser" />-->
 <!--  <plugin name="InAppBrowser" value="org.apache.cordova.InAppBrowser" />-->
   <!--
