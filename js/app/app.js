@@ -33,25 +33,20 @@ $(document).ready(function () {
         $('#menuModal').modal('hide');
     });
      
-    // set to either landscape
-   // screen.lockOrientation('landscape');
-
-    // allow user rotate
- //   screen.unlockOrientation();
-
-    // access current orientation
-   /* console.log('Orientation is ' + screen.orientation);*/
-   /* alert('Orientation is ' + screen.orientation.type);
+    $("#facebook").click(function () {
+        var ref = window.open('https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser  
+    });
     
-  
-    function onDeviceReady() {
-        alert("onDeviceReady");
-        screen.lockOrientation('landscape');
-        alert("Lock Orientation Landscape");
-        /*   var so = cordova.plugins.screenorientation;#1#
-        /*  var so = screen.orientation;
-        so.setOrientation(so.Orientation.LANDSCAPE);#1#
-    }
-    document.addEventListener("deviceready", onDeviceReady, false);*/
-  
+    $("#instagramm").click(function () {
+        var ref = window.open('https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser  
+    });
+    
+    $("#twitter").click(function () {
+        var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser  
+    });
+
+    $("#tumbrl").click(function() {
+        var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser 
+    });
+
 });

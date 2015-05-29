@@ -12,11 +12,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
-    
-    
-   <!--    <link rel="stylesheet" href="/dist/css/mobile-angular-ui-hover.min.css" />
-    <link rel="stylesheet" href="/dist/css/mobile-angular-ui-base.min.css" />
-    <link rel="stylesheet" href="/dist/css/mobile-angular-ui-desktop.min.css" />-->
+   
 
     <title>451</title>
     <meta property="og:title" content="451" />
@@ -30,28 +26,14 @@
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
 
     <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
-    <!--    <script src="js/vendor/cordova/3.4.0-ios/cordova.js"></script> -->
+ 
  
 
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script>
   
-    <!--  <script src="js/vendor/angular-ui/mobile-angular-ui.core.js"></script>
-        <script src="js/vendor/angular-ui/mobile-angular-ui.js"></script>
-        <script src="js/vendor/angular-ui/mobile-angular-ui.components.js"></script>
-        <script src="js/vendor/angular-ui/mobile-angular-ui.gestures.js"></script>
-        <script src="js/vendor/angular-ui/mobile-angular-ui.migrate.js"></script>-->
-
-    
-    <!-- <script src="www/screenorientation.android.js"></script>
-        <script src="www/screenorientation.ios.js"></script>
-        <script src="www/screenorientation.js"></script>-->
-
-    <!--<script src="www/SamplePlugin.js"></script>-->
-
-   <!-- <script src="www/screenorientation.js"></script>
-    <script src="www/screenorientation.ios.js"></script>-->
+ 
 
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
@@ -80,21 +62,7 @@
         
 
         <div   ng-view></div>
-
-        <button id="lock"> lock orientation </button>
-          <br/>
-        <br/>
-        <button id="unlock"> unlock orientation </button>
-         <br/>
-        <br/>
-        <button id="open-links"> Links </button> 
-        <br/>
-        <br/>
-        <br/>
-         
-        <button id="open-links-2"> Links2</button>
-
-
+ 
         <script type="text/javascript">
             $("#lock").click(function () {
                 alert("lock orientation landscape");
@@ -107,23 +75,12 @@
                 screen.unlockOrientation();
                 /*  window.shouldRotateToOrientation('default');*/
             });
-
-
-            
-
-            $("#open-links").click(function () {
-                alert("links");
-                var ref = window.open('https://www.google.ru/', '_system', 'location=no');       // loads in the system browser  
-            });
-            
-
-            $("#open-links-2").click(function () {
-                alert("links");
-                var ref = window.open('https://build.phonegap.com/plugins/616', '_system', 'location=yes');       // loads in the system browser  
-            });
-            
+             
+  
 
         </script>
+        
+
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -168,37 +125,32 @@
 
                     <div class="modal-body">
 
-                        <a ui-sref="https://www.facebook.com/login/"     target="_blank">
+                        <a id="facebook" >
                             <h5>
                                 <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
                             </h5>
                         </a>
 
-                        <a>
+                        <a id="instagramm">
                             <h5>
                                 <img src="imgs/assets/button-social-instagram-57x57.png" />
                                 INSTAGRAM 
                             </h5>
                         </a>
 
-                        <a    target="_blank">
+                        <a   id="twitter">
                             <h5>
                                 <img src="imgs/assets/button-share-twitter.png" />
                                 TWITTER
                             </h5>
                         </a>
 
-                        <a id="tumbrl-id">
+                        <a id="tumbrl">
                             <h5>
                                 <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
                             </h5>
                         </a>
-                        <script type="text/javascript">
-                            $('#tumbrl-id').click(function () {
-                                alert("open");
-                                window.open("http://google.com", '_system');
-                            })
-                        </script>
+                     
                     </div>
                 </div>
             </div>
