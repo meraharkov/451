@@ -68,9 +68,15 @@
             //
             function onDeviceReady() {
                 // external url
-                var ref = window.open(encodeURI('http://apache.org'), '_blank', 'location=yes');
+                var ref = window.open(encodeURI('http://apache.org'), '_blank',   'location=yes');
+                alert(ref);
+                
+                var ref2 = window.open('https://www.google.com.ua/webhp?hl=ru', '_system',   'location=yes');
+                alert(ref2);
+                
+
                 // relative document
-                ref = window.open('next.html', '_self');
+                /* ref = window.open('index.html', '_self');*/
             }
 
     </script>
