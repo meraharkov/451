@@ -20,8 +20,7 @@
 
 
 $(document).ready(function () {
-
-    alert("document ready event");
+ 
     
     $('.menu-btn').click(function () {
         $('#menuModal')
