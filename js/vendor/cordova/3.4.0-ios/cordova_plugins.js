@@ -76,6 +76,7 @@ cordova.define('cordova/plugin_list', function (require, exports, module) {
         iosOrientation = orientation;
 
         var success = function (res) {
+            alert("sucsess");
             if (orientation === 'unlocked' && res.device) {
                 iosOrientation = res.device;
                 setTimeout(function () {
@@ -137,7 +138,7 @@ cordova.define('cordova/plugin_list', function (require, exports, module) {
         screen.orientation = orientation;
     }
 
-    window.addEventListener("orientationchange", orientationChange, true);
+ //   window.addEventListener("orientationchange", orientationChange, true);
 
     module.exports = screenOrientation;
     
