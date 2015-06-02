@@ -63,6 +63,22 @@
 
         <div   ng-view></div>
  
+        <button id="lock">landscape</button>
+        <br/>
+        <br/>
+        <br/>
+        <button id="unlock">unlock Orientation</button>
+        <br/>
+        <br/>
+        <br/>
+        <a href="art.faccone@socialputts.com" data-rel='external'>
+            Open mail
+              
+        </a>
+        <br/>
+        <br/>
+        <button id="openemail"> openemail </button>
+
         <script type="text/javascript">
             $("#lock").click(function () {
                 alert("lock orientation landscape");
@@ -75,8 +91,17 @@
                 screen.unlockOrientation();
                 /*  window.shouldRotateToOrientation('default');*/
             });
-             
-  
+
+            $("#openemail").click(function () {
+                alert("openemail");
+                cordova.plugins.email.open({
+                    to: 'max@mustermann.de',
+                    cc: 'erika@mustermann.de',
+                    bcc: ['john@doe.com', 'jane@doe.com'],
+                    subject: 'Greetings',
+                    body: 'How are you? Nice greetings from Leipzig'
+                });
+            });
 
         </script>
         
