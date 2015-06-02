@@ -112,17 +112,17 @@
             $("#email-exec").click(function() {
                 alert("email-exec");
                 var args = {
-                    toRecipients:  'max@mustermann.de',
+                    toRecipients: 'max@mustermann.de',
                     ccRecipients: 'erika@mustermann.de',
                     bccRecipients: ['john@doe.com', 'jane@doe.com'],
                     subject: 'Greetings',
                     body: 'How are you? Nice greetings from Leipzig',
                     bIsHtml: true
                 };
-                
-                Cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
 
-            })
+                cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
+
+            });
         </script>
         
 

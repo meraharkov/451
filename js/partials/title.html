@@ -27,7 +27,7 @@
                 data-target="#videoModel">
                 <div id="videoTrailer">Series Trailer </div>
             </a>
-            <!-- <a href="https://www.youtube.com/watch?v=T0bVqgBSZHk"> </a>-->
+            
 
 
             <a data-toggle="modal"
@@ -90,7 +90,7 @@
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
                                 <ul class="nav navbar-nav">
-                                    <li>
+                                    <li id="share-facebook">
                                         <a href="https://www.facebook.com/login/" target="_blank">
                                             <img src="imgs/assets/button-share-facebook.png" />
                                         </a>
@@ -166,40 +166,16 @@
             closevideo();
         });
 
-      // changeRotateVideoPopap();
-        
-      /*  window.onresize = function(event) {
-            /*#1#
-            changeRotateVideoPopap();
-        };*/
+        $("#share-facebook").click(function() {
+            alert("share facebook");
 
-
-        /*function setTransform(element, elTransformArg) {
-           /* var transfromString = ("rotate(" + elTransformArg.rot + "deg ) scale("
-                + elTransformArg.sca + ") skewX(" + elTransformArg.skx + "deg ) skewY("
-                + elTransformArg.sky + "deg )");#1#
-            var transfromString = "rotate("+ elTransformArg +"deg)";
-            // now attach that variable to each prefixed style
-            element.style.webkitTransform = transfromString;
-         /*   element.style.MozTransform = transfromString;
-            element.style.msTransform = transfromString;
-            element.style.OTransform = transfromString;
-            element.style.transform = transfromString;#1#
-        }*/
-
-       /* function changeRotateVideoPopap() { 
             
-            var transformPopap = $("#videoModel .modal.in .modal-dialog"); 
-
-            var width = $(window).innerWidth();
-            var height = $(window).innerHeight();
+            $("#tumbrl").click(function () {
+                var ref = window.open('https://www.facebook.com/dialog/share?app_id=87741124305&href=https%3A//www.youtube.com/watch%3Fv%3D37eEUsd1ASA%26feature%3Dshare&display=popup&redirect_uri=https://www.youtube.com/facebook_redirect', '_system', 'location=no');       // loads in the system browser 
+            });
             
-            if (width < height) {
-                setTransform(transformPopap, 90);
-            } else {
-                setTransform(transformPopap, 0);
-            }
-        }*/
+        });
+   
     </script>
 
  
