@@ -101,10 +101,14 @@
   <gap:plugin name="org.apache.cordova.network-information" />
   <gap:plugin name="org.apache.cordova.splashscreen" />
   <gap:plugin name="org.apache.cordova.vibration" />
-  
+  <gap:plugin name="nl.x-services.plugins.socialsharing" source="plugins.cordova.io" version="4.3.16" />
   
   <feature name="InAppBrowser">
     <param name="ios-package" value="CDVInAppBrowser" />
+  </feature>
+
+  <feature name="SocialSharing">
+    <param name="ios-package" value="SocialSharing" />
   </feature>
   
 

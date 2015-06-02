@@ -27,7 +27,7 @@
                 data-target="#videoModel">
                 <div id="videoTrailer">Series Trailer </div>
             </a>
-            
+
 
 
             <a data-toggle="modal"
@@ -49,7 +49,7 @@
 
     <div class='row'>
         <div class='col-xs-12 padding0'>
-            <img class="w100Per"  src="imgs/content/tile-badmoonrising-imaginationtoburn.png" />
+            <img class="w100Per" src="imgs/content/tile-badmoonrising-imaginationtoburn.png" />
         </div>
         <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
             IMAGINATION TO BURN
@@ -104,8 +104,10 @@
                                         <a>
                                             <img src="imgs/assets/button-share-tumblr.png" /></a>
                                     </li>
-                                    <li><a>
-                                        <img src="imgs/assets/button-share-email.png" /></a></li>
+                                    <li id="mail-share">
+                                        <a>
+                                            <img src="imgs/assets/button-share-email.png" /></a>
+                                    </li>
 
                                 </ul>
                             </div>
@@ -124,59 +126,92 @@
     </div>
 
     <div class="modal fade" id="videoModel" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog  " ng-class="changeRotateVideoPopap()" ng-style="{'width': popapWidth + 'px','height': popapHeight + 'px' }"   >  
+        <div class="modal-dialog  " ng-class="changeRotateVideoPopap()" ng-style="{'width': popapWidth + 'px','height': popapHeight + 'px' }">
             <div class="modal-content  ">
                 <div class="modal-body  ">
-                   
+
                     <div class="content">
-                        
+
 
                         <div class="embed-container">
-                            <button  onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
+                            <button onclick="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
                                 <img src="imgs/assets/button-back.png" />
                             </button>
 
                             <iframe id="video"
-                                    class="fl-left"
-                                    src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen>
-                            </iframe>
-                         <!--  src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque"--> 
-                           
+                                class="fl-left"
+                                src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                            <!--  src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque"-->
+
                         </div>
-                    </div> 
-                   
+                    </div>
+
                 </div>
-                     
-                </div>
+
             </div>
         </div>
     </div>
+</div>
 
 
-    <script type="text/javascript">
-        function closevideo() {
-            
-            $("iframe").each(function () {
-                var src = $(this).attr('src');
-                $(this).attr('src', src);
-            });
-        }
+<script type="text/javascript">
+    function closevideo() {
 
-        $('#videoModel').on('hidden.bs.modal', function () {
-            closevideo();
+        $("iframe").each(function () {
+            var src = $(this).attr('src');
+            $(this).attr('src', src);
+        });
+    }
+
+    $('#videoModel').on('hidden.bs.modal', function () {
+        closevideo();
+    });
+
+    $("#share-facebook").click(function () {
+        alert("share facebook");
+
+
+        $("#tumbrl").click(function () {
+            var ref = window.open('https://www.facebook.com/dialog/share?href=https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser 
         });
 
-        $("#share-facebook").click(function() {
-            alert("share facebook");
+    });
 
-            
-            $("#tumbrl").click(function () {
-                var ref = window.open('https://www.facebook.com/dialog/share?app_id=87741124305&href=https%3A//www.youtube.com/watch%3Fv%3D37eEUsd1ASA%26feature%3Dshare&display=popup&redirect_uri=https://www.youtube.com/facebook_redirect', '_system', 'location=no');       // loads in the system browser 
-            });
-            
-        });
-   
-    </script>
+    function onSuccess(parameters) {
+        alert(parameters);
+    }
 
- 
+    function onError(parameters) {
+        alert(parameters);
+    }
+
+    $("#share-twitter").click(function () {
+
+        window.plugins.socialsharing.shareViaEmail(
+            'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+            'Subject',
+            ['to@person1.com', 'to@person2.com'], // TO: must be null or an array
+            ['cc@person1.com'], // CC: must be null or an array
+            null, // BCC: must be null or an array
+            ['https://www.google.nl/images/srpr/logo4w.png', 'www/localimage.png'], // FILES: can be null, a string, or an array
+            onSuccess, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
+            onError // called when sh*t hits the fan
+            );
+    });
+
+    $("#mail-share").click(function () {
+        var args = {
+            toRecipients: '',
+            ccRecipients: '',
+            bccRecipients: [],
+            subject: '451 company',
+            body: '451 company',
+            bIsHtml: true
+        };
+
+        cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
+    });
+</script>
+
+
 
