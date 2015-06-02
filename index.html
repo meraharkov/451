@@ -81,6 +81,7 @@
         <button id="openemail"> openemail </button>
 
         <script type="text/javascript">
+            
             $("#lock").click(function () {
                 alert("lock orientation landscape");
                 screen.lockOrientation('landscape');
@@ -94,6 +95,12 @@
             });
 
             $("#openemail").click(function () {
+                cordova.plugins.email.isAvailable(
+                    function (isAvailable) {
+                         alert('Service is not available');
+                   }
+                );
+
                 alert("openemail");
                 cordova.plugins.email.open({
                     to: 'max@mustermann.de',
