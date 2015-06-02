@@ -79,15 +79,94 @@
         <!-- <a href="art.faccone@socialputts.com" data-rel='external'>
             Open mail
               
-        </a>
+        </a>-->
         <br/>
         <br/>
-        <button id="openemail"> openemail </button>
+        <button id="share-facebook-btn"> share-facebook-btn </button>
         <br/>
         <br/>
         <br/>
         <br/>
-        <button id="email-exec"> Cordova.exec </button>-->
+        <button onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'http://www.x-services.nl')">msg and link via Twitter</button>
+          <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="window.plugins.socialsharing.shareViaFacebook('Message via Facebook', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
+         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
+         <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="window.plugins.socialsharing.shareViaFacebookWithPasteMessageHint('Message via Facebook', null /* img */, null /* url */, 'Paste it dude!', function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via Facebook (with errcallback)</button>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+        <!-- start facebook on iOS (same as `shareViaFacebook`), if Facebook is not installed, the errorcallback will be invoked with message 'not available' -->
+         
+        <button onclick="window.plugins.socialsharing.shareVia('com.apple.social.facebook', 'Message via FB', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Facebook</button>
+<br/>
+        <br/>
+        <br/>
+        <br/>
+        <!-- start facebook on Android (same as `shareViaFacebook`), if Facebook is not installed, the errorcallback will be invoked with message 'not available' -->
+<button onclick="window.plugins.socialsharing.shareVia('facebook', 'Message via FB', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Facebook</button>
+
+<br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <!-- start twitter on iOS (same as `shareViaTwitter`), if Twitter is not installed, the errorcallback will be invoked with message 'not available' -->
+<button onclick="window.plugins.socialsharing.shareVia('com.apple.social.twitter', 'Message via Twitter', null, null, 'http://www.x-services.nl', function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message and link via Twitter on iOS</button>
+
+<br/>
+        <br/>
+        <br/>
+        <br/>
+        <!-- if you share to a non existing/supported app, the errorcallback will be invoked with message 'not available' -->
+        <button onclick="window.plugins.socialsharing.shareVia('bogus_app', 'Message via Bogus App', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Bogus App</button>
+        
+        
+        
+        <button onclick="window.plugins.socialsharing.canShareVia('com.tencent.mm/com.tencent.mm.ui.tools.ShareToTimeLineUI', 'msg', null, img, null, function(e){alert(e)}, function(e){alert(e)})">is WeChat available on Android?</button>
+<br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <button onclick="window.plugins.socialsharing.canShareVia('com.apple.social.facebook', 'msg', null, null, null, function(e){alert(e)}, function(e){alert(e)})">is facebook available on iOS?</button>
+
+<br/>
+        <br/>
+        <br/>
+        <br/>
+        <button onclick="window.plugins.socialsharing.canShareVia('whatsapp', 'msg', null, null, null, function(e){alert(e)}, function(e){alert(e)})">is WhatsApp available?</button>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        
+
+        <button onclick="window.plugins.socialsharing.canShareVia('sms', 'msg', null, null, null, function(e){alert(e)}, function(e){alert(e)})">is SMS available?</button>
+        
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+
+        <!-- Email is a different beast, so I added a specific method for it -->
+        <button onclick="window.plugins.socialsharing.canShareViaEmail(function(e){alert(e)}, function(e){alert(e)})">is Email available?</button>
+        
+ 
+
         <script type="text/javascript">
             
             $("#lock").click(function () {
@@ -102,40 +181,25 @@
                 /*  window.shouldRotateToOrientation('default');*/
             });
 
-            $("#openemail").click(function () {
-                alert("openemail");
-                /*cordova.plugins.email.open({
-                    to: 'max@mustermann.de',
-                    cc: 'erika@mustermann.de',
-                    bcc: ['john@doe.com', 'jane@doe.com'],
-                    subject: 'Greetings',
-                    body: 'How are you? Nice greetings from Leipzig'
-                });*/
-                
-                cordova.plugins.email.open({
-                    to: 'recipient@email.com',
-                    cc: 'your@email.com',
-                    bcc: ['', ''],
-                    subject: '451 company',
-                    body: '451 company'
-                });
-                
-            });
+            function onSuccess(parameters) {
+                alert(parameters);
+            };
 
+            function onError(parameters) {
+                alert(parameters);
+            }
 
-            $("#email-exec").click(function() {
-                alert("email-exec");
-                var args = {
-                    toRecipients: 'max@mustermann.de',
-                    ccRecipients: 'erika@mustermann.de',
-                    bccRecipients: ['john@doe.com', 'jane@doe.com'],
-                    subject: 'Greetings',
-                    body: 'How are you? Nice greetings from Leipzig',
-                    bIsHtml: true
-                };
-
-                cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
-
+            $("#share-facebook-btn").click(function() {
+                window.plugins.socialsharing.shareViaEmail(
+  'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
+  'Subject',
+  ['to@person1.com', 'to@person2.com'], // TO: must be null or an array
+  ['cc@person1.com'], // CC: must be null or an array
+  null, // BCC: must be null or an array
+  ['https://www.google.nl/images/srpr/logo4w.png', 'www/localimage.png'], // FILES: can be null, a string, or an array
+  onSuccess, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
+  onError // called when sh*t hits the fan
+);
             });
         </script>
         
@@ -208,8 +272,7 @@
                             <h5>
                                 <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
                             </h5>
-                        </a>
-                     
+                        </a> 
                     </div>
                 </div>
             </div>
