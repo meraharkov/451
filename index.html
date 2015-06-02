@@ -25,8 +25,6 @@
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
     <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
- 
- 
 
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
@@ -40,6 +38,7 @@
     <script src="www/screenorientation.ios.js"></script>
     <script src="www/screenorientation.js"></script>
     <script src="www/screenorientation.android.js"></script>
+    <script src="www/email_composer.js"></script>
 
 </head>
     <body  >
@@ -79,7 +78,11 @@
         <br/>
         <br/>
         <button id="openemail"> openemail </button>
-
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <button id="email-exec"> Cordova.exec </button>
         <script type="text/javascript">
             
             $("#lock").click(function () {
@@ -95,12 +98,6 @@
             });
 
             $("#openemail").click(function () {
-                cordova.plugins.email.isAvailable(
-                    function (isAvailable) {
-                         alert('Service is not available');
-                   }
-                );
-
                 alert("openemail");
                 cordova.plugins.email.open({
                     to: 'max@mustermann.de',
@@ -111,6 +108,21 @@
                 });
             });
 
+
+            $("#email-exec").click(function() {
+                alert("email-exec");
+                var args = {
+                    toRecipients:  'max@mustermann.de',
+                    ccRecipients: 'erika@mustermann.de',
+                    bccRecipients: ['john@doe.com', 'jane@doe.com'],
+                    subject: 'Greetings',
+                    body: 'How are you? Nice greetings from Leipzig',
+                    bIsHtml: true
+                };
+                
+                Cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
+
+            })
         </script>
         
 

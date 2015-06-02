@@ -16,7 +16,21 @@
         <clobbers target="cordova.plugins.screenorientation" />
     </js-module>
 
-    <platform name="ios">
+  <platform name="ios">
+    <config-file target="config.xml" parent="/*">
+      <feature name="EmailComposer">
+        <param name="ios-package" value="APPEmailComposer"/>
+      </feature>
+    </config-file>
+
+    <header-file src="src/ios/APPEmailComposer.h" />
+    <source-file src="src/ios/APPEmailComposer.m" />
+
+    <framework src="MessageUI.framework" weak="true" />
+  </platform>
+
+  
+  <platform name="ios">
         <config-file target="config.xml" parent="/*">
             <feature name="YoikScreenOrientation">
                 <param name="ios-package" value="YoikScreenOrientation" />
