@@ -91,12 +91,12 @@
                             <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
                                 <ul class="nav navbar-nav">
                                     <li id="share-facebook">
-                                        <a href="https://www.facebook.com/login/" target="_blank">
+                                        <a   >
                                             <img src="imgs/assets/button-share-facebook.png" />
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href="https://twitter.com/twitt_login" target="_blank">
+                                    <li onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'https://twitter.com/sourceseek')" >
+                                        <a>
                                             <img src="imgs/assets/button-share-twitter.png" />
                                         </a>
                                     </li>
@@ -170,13 +170,23 @@
     $("#share-facebook").click(function () {
        /* alert("share facebook");*/
 
-        window.plugins.socialsharing.shareViaFacebook('Message via Facebook about company 451',
-            null /* img */,
-            "https://www.facebook.com/SourceSeek" /* url */,
+       /* window.plugins.socialsharing.shareViaFacebook('Message via Facebook about company 451',
+            null /* img #1#,
+            "https://www.facebook.com/SourceSeek" /* url #1#,
             function () { console.log('share ok'); },
             function(errormsg) {
             
+            });*/
+
+        window.plugins.socialsharing.shareViaFacebook('Company 451',
+            null /* img */,
+            null /* url */,
+            function() {
+                alert('share ok');
+            }, function(errormsg) {
+                 
             });
+
 
 /*
 
@@ -198,9 +208,10 @@
     $("#share-twitter").click(function () {
       /*  alert("twit");*/
 
-        window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'http://www.x-services.nl');
+        /*window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img #1#, 'http://www.x-services.nl');
 
-
+        window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img #1#, 'http://www.x-services.nl')*/
+        
         /* window.plugins.socialsharing.shareViaEmail(
             'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
             'Subject',
