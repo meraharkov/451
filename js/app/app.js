@@ -20,8 +20,8 @@
 
 
 $(document).ready(function () {
- 
-    
+
+
     $('.menu-btn').click(function () {
         $('#menuModal')
             .prop('class', 'modal fade') // revert to default
@@ -32,21 +32,31 @@ $(document).ready(function () {
     $('#bad-moon-menu-btn').click(function () {
         $('#menuModal').modal('hide');
     });
-     
+
     $("#facebook").click(function () {
         var ref = window.open('https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser  
     });
-    
+
     $("#instagramm").click(function () {
         var ref = window.open('https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser  
     });
-    
+
     $("#twitter").click(function () {
         var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser  
     });
 
-    $("#tumbrl").click(function() {
+    $("#tumbrl").click(function () {
         var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser 
     });
+
+
+    document.addEventListener('deviceready', function () {
+        // cordova.plugins.email is now available
+
+        cordova.plugins.email.isAvailable(function (isAvailable) {
+            alert('Service is not available' + isAvailable);
+        }
+);
+    }, false);
 
 });
