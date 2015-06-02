@@ -35,10 +35,10 @@
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
     
-    <script src="www/screenorientation.ios.js"></script>
+<!--    <script src="www/screenorientation.ios.js"></script>
     <script src="www/screenorientation.js"></script>
     <script src="www/screenorientation.android.js"></script>
-    <script src="www/email_composer.js"></script>
+    <script src="www/email_composer.js"></script>-->
 
 </head>
     <body  >
@@ -71,6 +71,9 @@
         <br/>
         <br/>
         <br/>
+        <button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">
+            message, image and link
+        </button>
        <!-- <a href="art.faccone@socialputts.com" data-rel='external'>
             Open mail
               
@@ -99,13 +102,22 @@
 
             $("#openemail").click(function () {
                 alert("openemail");
-                cordova.plugins.email.open({
+                /*cordova.plugins.email.open({
                     to: 'max@mustermann.de',
                     cc: 'erika@mustermann.de',
                     bcc: ['john@doe.com', 'jane@doe.com'],
                     subject: 'Greetings',
                     body: 'How are you? Nice greetings from Leipzig'
+                });*/
+                
+                cordova.plugins.email.open({
+                    to: 'recipient@email.com',
+                    cc: 'your@email.com',
+                    bcc: ['', ''],
+                    subject: '451 company',
+                    body: '451 company'
                 });
+                
             });
 
 

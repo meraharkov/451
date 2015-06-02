@@ -186,7 +186,7 @@
     }
 
     $("#share-twitter").click(function () {
-
+        alert("twit");
         window.plugins.socialsharing.shareViaEmail(
             'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
             'Subject',
@@ -200,6 +200,8 @@
     });
 
     $("#mail-share").click(function () {
+        alert("mail-share");
+        
         var args = {
             toRecipients: '',
             ccRecipients: '',
