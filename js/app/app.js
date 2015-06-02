@@ -54,9 +54,9 @@ $(document).ready(function () {
         // cordova.plugins.email is now available
 
         cordova.plugins.email.isAvailable(function (isAvailable) {
-            alert('Service is not available' + isAvailable);
-        }
-);
+                    alert('Service is not available' + isAvailable);
+                }
+        );
     }, false);
 
 });
