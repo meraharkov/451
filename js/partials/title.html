@@ -100,7 +100,7 @@
                                             <img src="imgs/assets/button-share-twitter.png" />
                                         </a>
                                     </li>
-                                    <li>
+                                    <li id="tumbrl-share">
                                         <a>
                                             <img src="imgs/assets/button-share-tumblr.png" /></a>
                                     </li>
@@ -182,50 +182,34 @@
             null /* img */,
             null /* url */,
             function() {
-                alert('share ok');
+                alert('Your post shared');
             }, function(errormsg) {
                  
-            });
-
-
-/*
-
-        $("#tumbrl").click(function () {
-            var ref = window.open('https://www.facebook.com/dialog/share?href=https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser 
-        });
-*/
-
+            }); 
     });
 
-    function onSuccess(parameters) {
-        alert(parameters);
-    }
-
-    function onError(parameters) {
-        alert(parameters);
-    }
-
+ 
     $("#share-twitter").click(function () {
-      /*  alert("twit");*/
+   
+    });
 
-        /*window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img #1#, 'http://www.x-services.nl');
-
-        window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img #1#, 'http://www.x-services.nl')*/
+    $("#tumbrl-share").click(function () {
+        alert("tumbrl-share");
         
-        /* window.plugins.socialsharing.shareViaEmail(
-            'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
-            'Subject',
-            ['to@person1.com', 'to@person2.com'], // TO: must be null or an array
-            ['cc@person1.com'], // CC: must be null or an array
-            null, // BCC: must be null or an array
-            ['https://www.google.nl/images/srpr/logo4w.png', 'www/localimage.png'], // FILES: can be null, a string, or an array
-            onSuccess, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
-            onError // called when sh*t hits the fan
-            );*/
+        var args = {
+            toRecipients: '',
+            ccRecipients: '',
+            bccRecipients: ['', ''],
+            subject: '451 company',
+            body: '451 company',
+            bIsHtml: true
+        };
+
+        cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
     });
 
     $("#mail-share").click(function () {
-      /*  alert("mail-share");*/
+        alert("mail-share");
         
       
         
@@ -237,16 +221,7 @@
             body: '451 company'
         });
 
-/*        var args = {
-            toRecipients: '',
-            ccRecipients: '',
-            bccRecipients: ['', ''],
-            subject: '451 company',
-            body: '451 company',
-            bIsHtml: true
-        };
-
-        cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);*/
+     
         
     });
 </script>

@@ -169,9 +169,29 @@
         $1$ Email is a different beast, so I added a specific method for it #1#
         <button onclick="window.plugins.socialsharing.canShareViaEmail(function(e){alert(e)}, function(e){alert(e)})">is Email available?</button>-->
         
- 
+         <button id="openemail">openemail openemail  openemail</button>
 
         <script type="text/javascript">
+            
+            $("#openemail").click(function () {
+                alert("openemail");
+                /*cordova.plugins.email.open({
+                    to: 'max@mustermann.de',
+                    cc: 'erika@mustermann.de',
+                    bcc: ['john@doe.com', 'jane@doe.com'],
+                    subject: 'Greetings',
+                    body: 'How are you? Nice greetings from Leipzig'
+                });*/
+
+                cordova.plugins.email.open({
+                    to: 'recipient@email.com',
+                    cc: 'your@email.com',
+                    bcc: ['', ''],
+                    subject: '451 company',
+                    body: '451 company'
+                });
+
+            });
             
             $("#lock").click(function () {
                 alert("lock orientation landscape");
