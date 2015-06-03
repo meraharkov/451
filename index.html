@@ -54,24 +54,6 @@
             <!-- /.container-fluid -->
         </nav>
         <div   ng-view></div>
- 
-
-        <script type="text/javascript">
-             
-            $("#lock").click(function () {
-                alert("lock orientation landscape");
-                screen.lockOrientation('landscape');
-                /*window.shouldRotateToOrientation('landscape');*/
-            });
-
-            $("#unlock").click(function () {
-                alert("unlock Orientation");
-                screen.unlockOrientation();
-                /*  window.shouldRotateToOrientation('default');*/
-            });
-             
-        </script>
-        
 
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">
