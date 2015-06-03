@@ -91,15 +91,16 @@
                             <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
                                 <ul class="nav navbar-nav">
                                     <li id="share-facebook">
-                                        <a   >
+                                        <a>
                                             <img src="imgs/assets/button-share-facebook.png" />
                                         </a>
-                                    </li>
-                                    <li onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'https://twitter.com/sourceseek')" >
-                                        <a>
-                                            <img src="imgs/assets/button-share-twitter.png" />
-                                        </a>
-                                    </li>
+                                        <li id="share-twitter">
+                                            <!--<li onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'https://twitter.com/sourceseek')" >-->
+
+                                            <a>
+                                                <img src="imgs/assets/button-share-twitter.png" />
+                                            </a>
+                                        </li>
                                     <li id="tumbrl-share">
                                         <a>
                                             <img src="imgs/assets/button-share-tumblr.png" /></a>
@@ -168,61 +169,76 @@
     });
 
     $("#share-facebook").click(function () {
-       /* alert("share facebook");*/
 
-       /* window.plugins.socialsharing.shareViaFacebook('Message via Facebook about company 451',
-            null /* img #1#,
-            "https://www.facebook.com/SourceSeek" /* url #1#,
-            function () { console.log('share ok'); },
-            function(errormsg) {
-            
-            });*/
-
-        window.plugins.socialsharing.shareViaFacebook('Company 451',
+        window
+            .plugins
+            .socialsharing
+            .shareViaFacebook('Company 451',
             null /* img */,
-            null /* url */,
-            function() {
+            "https://www.facebook.com/SourceSeek",  /*  null url */
+            function () {
                 alert('Your post shared');
-            }, function(errormsg) {
-                 
-            }); 
+            }, function (errormsg) {
+
+            });
     });
 
- 
+
     $("#share-twitter").click(function () {
-   
+        /*  window.plugins
+              .socialsharing
+              .shareViaTwitter('Company 451 Twitter',
+                  null /* img #1#,
+                  'https://twitter.com/sourceseek');*/
+
+        window
+            .plugins
+            .socialsharing
+            .shareVia('com.apple.social.twitter',
+                'Company 451 Twitter',
+                null,
+                null,
+                'https://twitter.com/sourceseek',
+                function () {
+                    alert('Your post shared');
+                },
+                function (msg) {
+                    console.log('error: ' + msg);
+                });
+
     });
 
     $("#tumbrl-share").click(function () {
-        alert("tumbrl-share");
-        
-        var args = {
-            toRecipients: '',
-            ccRecipients: '',
-            bccRecipients: ['', ''],
-            subject: '451 company',
-            body: '451 company',
-            bIsHtml: true
-        };
 
-        cordova.exec(null, null, "EmailComposer", "showEmailComposer", [args]);
+
+        window
+             .plugins
+             .socialsharing
+             .shareVia('com.apple.social.tumblr',
+                 'Company 451 Tumbrl',
+                 null,
+                 null,
+                 'https://twitter.com/sourceseek',
+                 function () {
+                     alert('Your post shared');
+                 },
+                 function (msg) {
+                     console.log('error: ' + msg);
+                 });
     });
 
-    $("#mail-share").click(function () {
-        alert("mail-share");
-        
-      
-        
+    $("#mail-share").click(function () { 
+
         cordova.plugins.email.open({
-            to:'',/* 'recipient@email.com',*/
-            cc:'', /* 'your@email.com',*/
+            to: '',/* 'recipient@email.com',*/
+            cc: '', /* 'your@email.com',*/
             bcc: ['', ''],
             subject: '451 company',
             body: '451 company'
         });
 
-     
-        
+
+
     });
 </script>
 

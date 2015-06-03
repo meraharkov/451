@@ -169,29 +169,11 @@
         $1$ Email is a different beast, so I added a specific method for it #1#
         <button onclick="window.plugins.socialsharing.canShareViaEmail(function(e){alert(e)}, function(e){alert(e)})">is Email available?</button>-->
         
-         <button id="openemail">openemail openemail  openemail</button>
+         
 
         <script type="text/javascript">
             
-            $("#openemail").click(function () {
-                alert("openemail");
-                /*cordova.plugins.email.open({
-                    to: 'max@mustermann.de',
-                    cc: 'erika@mustermann.de',
-                    bcc: ['john@doe.com', 'jane@doe.com'],
-                    subject: 'Greetings',
-                    body: 'How are you? Nice greetings from Leipzig'
-                });*/
-
-                cordova.plugins.email.open({
-                    to: 'recipient@email.com',
-                    cc: 'your@email.com',
-                    bcc: ['', ''],
-                    subject: '451 company',
-                    body: '451 company'
-                });
-
-            });
+      
             
             $("#lock").click(function () {
                 alert("lock orientation landscape");
@@ -204,27 +186,7 @@
                 screen.unlockOrientation();
                 /*  window.shouldRotateToOrientation('default');*/
             });
-
-            function onSuccess(parameters) {
-                alert(parameters);
-            };
-
-            function onError(parameters) {
-                alert(parameters);
-            }
-
-            $("#share-facebook-btn").click(function() {
-                window.plugins.socialsharing.shareViaEmail(
-  'Message', // can contain HTML tags, but support on Android is rather limited:  http://stackoverflow.com/questions/15136480/how-to-send-html-content-with-image-through-android-default-email-client
-  'Subject',
-  ['to@person1.com', 'to@person2.com'], // TO: must be null or an array
-  ['cc@person1.com'], // CC: must be null or an array
-  null, // BCC: must be null or an array
-  ['https://www.google.nl/images/srpr/logo4w.png', 'www/localimage.png'], // FILES: can be null, a string, or an array
-  onSuccess, // called when sharing worked, but also when the user cancelled sharing via email (I've found no way to detect the difference)
-  onError // called when sh*t hits the fan
-);
-            });
+             
         </script>
         
 
