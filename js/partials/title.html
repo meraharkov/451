@@ -1,4 +1,4 @@
-﻿<div id='title-page' class="container">
+﻿<div id='title-page' class="container" onload="load()">
 
     <nav id="header-rising" class="navbar   navbar-fixed-top ">
         <div class="container-fluid">
@@ -207,11 +207,18 @@
                 });
 
     });
+    
+ 
 
     $("#tumbrl-share").click(function () {
 
 
         window
+            .plugins
+            .socialsharing
+            .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');
+
+       /* window
              .plugins
              .socialsharing
              .shareVia('com.apple.social.tumblr',
@@ -224,7 +231,7 @@
                  },
                  function (msg) {
                      console.log('error: ' + msg);
-                 });
+                 });*/
     });
 
     $("#mail-share").click(function () { 
@@ -235,11 +242,13 @@
             bcc: ['', ''],
             subject: '451 company',
             body: '451 company'
-        });
-
-
-
+        }); 
     });
+    
+    function load() {
+        alert("load");
+    }
+    
 </script>
 
 

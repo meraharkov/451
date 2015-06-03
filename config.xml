@@ -101,6 +101,8 @@
 
   <feature name="SocialSharing">
     <param name="ios-package" value="SocialSharing" />
+    <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
+    <param name="wp-package" value="SocialSharing"/>
   </feature>
   
 

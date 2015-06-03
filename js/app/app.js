@@ -10,7 +10,7 @@
             function ($routeProvider) {
 
                 $routeProvider
-               .when('/index', { templateUrl: 'js/partials/home.html' })
+                .when('/index', { templateUrl: 'js/partials/home.html' })
                 .when('/title', { templateUrl: 'js/partials/title.html', controller: 'titleCtrl' })
                .otherwise({ redirectTo: '/index' });
 
@@ -38,17 +38,17 @@ $(document).ready(function () {
     });
 
     $("#instagramm").click(function () {
-        var ref = window.open('https://www.facebook.com/SourceSeek', '_system', 'location=no');       // loads in the system browser  
+        var ref = window.open('https://instagram.com/', '_system', 'location=no');       
     });
 
     $("#twitter").click(function () {
-        var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser  
+        var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');    
     });
 
     $("#tumbrl").click(function () {
-        var ref = window.open('https://twitter.com/sourceseek', '_system', 'location=no');       // loads in the system browser 
+        var ref = window.open('https://www.tumblr.com/', '_system', 'location=no');      
     });
  
-    
+ 
 
 });
