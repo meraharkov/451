@@ -33,7 +33,6 @@
             };
 
             window.onresize = function (event) {
-               
                 $scope.$apply($scope.changeRotateVideoPopap());
             };
 

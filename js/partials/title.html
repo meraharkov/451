@@ -1,4 +1,4 @@
-﻿<div id='title-page' class="container" onload="load()">
+﻿<div id='title-page' class="container" slidetitle >
 
     <nav id="header-rising" class="navbar   navbar-fixed-top ">
         <div class="container-fluid">
@@ -86,7 +86,6 @@
                 <div class="modal-body">
                     <div class="container padding0">
                         <nav class="navbar navbar-default" role="navigation">
-
                             <!-- Collect the nav links, forms, and other content for toggling -->
                             <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
                                 <ul class="nav navbar-nav">
@@ -166,6 +165,14 @@
 
     $('#videoModel').on('hidden.bs.modal', function () {
         closevideo();
+        screen.unlockOrientation();
+        navigator.vibrate(3000);
+    });
+
+    $("#videoTrailer").click(function () {
+        alert("landscape");
+        screen.lockOrientation('landscape');
+        navigator.vibrate(3000);
     });
 
     $("#share-facebook").click(function () {
@@ -185,12 +192,6 @@
 
 
     $("#share-twitter").click(function () {
-        /*  window.plugins
-              .socialsharing
-              .shareViaTwitter('Company 451 Twitter',
-                  null /* img #1#,
-                  'https://twitter.com/sourceseek');*/
-
         window
             .plugins
             .socialsharing
@@ -204,34 +205,15 @@
                 },
                 function (msg) {
                     console.log('error: ' + msg);
-                });
-
+                }); 
     });
-    
- 
+     
 
-    $("#tumbrl-share").click(function () {
-
-
+    $("#tumbrl-share").click(function () { 
         window
             .plugins
             .socialsharing
             .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');
-
-       /* window
-             .plugins
-             .socialsharing
-             .shareVia('com.apple.social.tumblr',
-                 'Company 451 Tumbrl',
-                 null,
-                 null,
-                 'https://twitter.com/sourceseek',
-                 function () {
-                     alert('Your post shared');
-                 },
-                 function (msg) {
-                     console.log('error: ' + msg);
-                 });*/
     });
 
     $("#mail-share").click(function () { 
@@ -245,9 +227,7 @@
         }); 
     });
     
-    function load() {
-        alert("load");
-    }
+ 
     
 </script>
 
