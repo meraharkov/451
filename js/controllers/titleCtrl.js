@@ -6,7 +6,7 @@
         .module(window.appName)
         .controller('titleCtrl', ['$scope', '$timeout', function ($scope, $timeout) {
 
-            $scope.popapWidth = $(window).innerWidth();
+          /*  $scope.popapWidth = $(window).innerWidth();
             
             $scope.popapHeight = $(window).innerHeight();
            
@@ -34,7 +34,7 @@
 
             window.onresize = function (event) {
                 $scope.$apply($scope.changeRotateVideoPopap());
-            };
+            };*/
 
          /*   $timeout(function() {
                 $('#title-page')

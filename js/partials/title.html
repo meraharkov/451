@@ -1,4 +1,4 @@
-﻿<div id='title-page' class="container" slidetitle >
+﻿<div id='title-page'  slidetitle  class=" container"   >
 
     <nav id="header-rising" class="navbar   navbar-fixed-top ">
         <div class="container-fluid">
@@ -94,8 +94,7 @@
                                             <img src="imgs/assets/button-share-facebook.png" />
                                         </a>
                                         <li id="share-twitter">
-                                            <!--<li onclick="window.plugins.socialsharing.shareViaTwitter('Message and link via Twitter', null /* img */, 'https://twitter.com/sourceseek')" >-->
-
+                                            
                                             <a>
                                                 <img src="imgs/assets/button-share-twitter.png" />
                                             </a>
@@ -126,7 +125,8 @@
     </div>
 
     <div class="modal fade" id="videoModel" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog  " ng-class="changeRotateVideoPopap()" ng-style="{'width': popapWidth + 'px','height': popapHeight + 'px' }">
+        <!--<div class="modal-dialog  " ng-class="changeRotateVideoPopap()" ng-style="{'width': popapWidth + 'px','height': popapHeight + 'px' }">-->
+        <div class="modal-dialog" >
             <div class="modal-content  ">
                 <div class="modal-body  ">
 
@@ -165,14 +165,13 @@
 
     $('#videoModel').on('hidden.bs.modal', function () {
         closevideo();
+        alert("unlock landscape");
         screen.unlockOrientation();
-        navigator.vibrate(3000);
     });
 
     $("#videoTrailer").click(function () {
-        alert("landscape");
+      
         screen.lockOrientation('landscape');
-        navigator.vibrate(3000);
     });
 
     $("#share-facebook").click(function () {

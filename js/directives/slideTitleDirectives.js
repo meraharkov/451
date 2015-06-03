@@ -11,10 +11,10 @@
 
                 link: function (scope, element) {
                
-               /*         $('#title-page')
+                  /*  $('#sharedModal')
                        .prop('class', 'modal fade') // revert to default
-                       .addClass($(this).data('direction'));
-                        $('#title-page').modal('show');*/
+                       .addClass("right");
+                    $('#sharedModal').modal('show');*/
                     
                 }
             };
