@@ -39,17 +39,13 @@
     <body>
         <div   ng-view></div>
         
-          <nav id="header" class="navbar navbar-right navbar-fixed-top ">
+        <nav id="header" class="navbar navbar-right navbar-fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img class="menu-btn"
                          src='imgs/assets/button-menu@2x.png'
                          data-direction='left'
                          alt="" />
-
-                    <!--      data-toggle="modal"
-                        data-target="#menuModal"
-                        -->
                 </div>
             </div>
             <!-- /.container-fluid -->
@@ -127,6 +123,11 @@
                     </div>
                 </div>
             </div>
-        </div> 
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+<button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
     </body>
 </html>

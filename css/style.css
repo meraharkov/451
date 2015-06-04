@@ -115,19 +115,10 @@ body
     padding-left: 0!important;
     padding-right: 0!important;
     position: inherit;
-    /* overflow: hidden;*/
+    
 }
 
-
-/*
-#title-page
-{
-    padding-left: 0!important;
-    padding-right: 0!important;
-    overflow: hidden;
-     
-}*/
-
+ 
 
 #bad-moon
 {
@@ -156,14 +147,12 @@ body
     font-family: 'Avenir-Next', sans-serif;
     font-weight: 400;
     text-align: left;
-    /* font-size: 48px; */
+ 
     font-size: 5em;
     font-family: 'Avenir-Next-Condensed-bold';
-    /* padding: 0; */
+   
     margin-top: -100%;
-    /*   margin-top: -100%; 
-    text-align: center;*/
-    /*width: 100%;*/
+   
 }
 
 .subhead-text
@@ -173,7 +162,7 @@ body
 
 .home-caption
 {
-    /*font-size: 32px;*/
+  
     font-size: 0.6em;
 }
 
@@ -201,7 +190,7 @@ body
 #menuModal .modal-dialog
 {
     height: 100%;
-    /*margin-top: 0;*/
+    
     width: 100%;
     opacity: 0.8;
     margin: 0;
@@ -217,7 +206,7 @@ body
     color: #bb0a14;
     text-align: center;
     font-weight: bold;
-    /* font-size: 46px;*/
+  
     border-bottom: 2px solid #bb0a14;
     font-size: 4em;
     width: 100%;
@@ -252,21 +241,6 @@ body
 }
 
 /* slide effect */
-/*
-.modal.fade:not(.in).left .modal-dialog
-{
-    -webkit-transform: translate3d(-25%, 0, 0);
-    transform: translate3d(-25%, 0, 0);
-}
-
-.modal.fade:not(.in).bottom .modal-dialog
-{
-    -webkit-transform: translate3d(0, 125%, 0);
-    transform: translate3d(0, 125%, 0);
-}
-*/
-
-
 .modal.fade:not(.in).left .modal-dialog
 {
     -webkit-transform: translate3d(-25%, 0, 0);
@@ -521,7 +495,7 @@ body
         height: 100%;
         width: 100%;
         padding-bottom: 56.25%;
-        /*   overflow: hidden;*/
+       
         position: relative;
     }
 
