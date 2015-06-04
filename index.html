@@ -33,12 +33,13 @@
     <script src="js/app/app.js"></script>
     <script src="js/controllers/titleCtrl.js"></script>
     <script src="js/directives/slideTitleDirectives.js"></script>
- 
+    <script src="js/directives/slideHomeDirectives.js"></script>
 
 </head>
-    <body  >
-          
-        <nav id="header" class="navbar navbar-right navbar-fixed-top ">
+    <body>
+        <div   ng-view></div>
+        
+          <nav id="header" class="navbar navbar-right navbar-fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <img class="menu-btn"
@@ -53,7 +54,6 @@
             </div>
             <!-- /.container-fluid -->
         </nav>
-        <div   ng-view></div>
 
         <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog">

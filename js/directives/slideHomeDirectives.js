@@ -4,17 +4,17 @@
 
     angular
         .module(window.appName)
-        .directive('slidetitle', function () {
+        .directive('slidehome', function () {
 
             return {
                 restrict: 'A',
 
                 link: function (scope, element) {
                
-                    $('#titlePage')
+                    $('#home-page')
                        .prop('class', 'modal fade') // revert to default
-                       .addClass("right");
-                    $('#titlePage').modal('show');
+                       .addClass("left");
+                    $('#home-page').modal('show');
                     
                 }
             };
