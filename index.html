@@ -37,8 +37,35 @@
 
 </head>
     <body>
-        <div   ng-view></div>
+       <!-- <div   ng-view></div>-->
         
+        <br/>
+        <br/>
+        <br/>
+        <button id="bogusId" style="width: 300px; position: absolute;  
+  height: 50px;">message via Bogus App</button>
+          <br/>
+        <br/>
+          <br/>
+        <br/>
+        <br/>
+<button id="errColl">msg via WhatsApp (with errcallback)</button>
+   
+        <script type="text/javascript">
+            $("#bogusId").click(function() {
+                
+                    alert("bogus");
+                window.plugins.socialsharing.shareVia('bogus_app', 'Message via Bogus App', null, null, null, function() { console.log('share ok') }, function(msg) { alert('error: ' + msg) });
+
+            });
+           
+
+            $("#errColl").click(function () {
+                alert("WhatsApp")
+                window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() { console.log('share ok') }, function(errormsg) { alert(errormsg) });
+            })
+        </script>
+
         <nav id="header" class="navbar navbar-right navbar-fixed-top ">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -124,15 +151,5 @@
                 </div>
             </div>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <button onclick="window.plugins.socialsharing.shareVia('bogus_app', 'Message via Bogus App', null, null, null, function(){console.log('share ok')}, function(msg) {alert('error: ' + msg)})">message via Bogus App</button>
-          <br/>
-        <br/>
-          <br/>
-        <br/>
-        <br/>
-<button onclick="window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() {console.log('share ok')}, function(errormsg){alert(errormsg)})">msg via WhatsApp (with errcallback)</button>
-    </body>
+         </body>
 </html>
