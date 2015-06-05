@@ -161,6 +161,10 @@
     <allow-intent href="itms:*" />
     <allow-intent href="itms-apps:*" />
   </platform>
+
+
+  <preference name="DisallowOverscroll" value="true" />
+  
   
   <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
