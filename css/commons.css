@@ -18,6 +18,7 @@
     float: left;
 }
 
-.remove-scroll {
-    overflow: hidden;
+.remove-scroll 
+{
+    overflow: hidden!important;
 }

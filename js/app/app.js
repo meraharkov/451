@@ -51,13 +51,16 @@ $(document).ready(function () {
 
 
     $('#menuModal').on('shown.bs.modal', function (e) {
-        alert("modal open");
-        $(document.body).css("overflow","hidden");
+  /*      alert("modal open");*/
+     /*   $(document.body).css("overflow", "hidden");*/
+        $(document.body).addClass("remove-scroll");
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
-        alert("modal close");
-        $(document.body).removeAttr('style');
+       /* alert("modal close");*/
+
+        $(document.body).removeClass("remove-scroll");
+       /* $(document.body).removeAttr('class');*/
     });
 
 });
