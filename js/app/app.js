@@ -54,13 +54,21 @@ $(document).ready(function () {
   /*      alert("modal open");*/
      /*   $(document.body).css("overflow", "hidden");*/
         $(document.body).addClass("remove-scroll");
+        
+        $(document).on("scrollstop", function () {
+            alert("Stopped scrolling!");
+        });
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
        /* alert("modal close");*/
 
         $(document.body).removeClass("remove-scroll");
-       /* $(document.body).removeAttr('class');*/
+        /* $(document).removeAttr('class');*/
+        
+        $(document).on("scrollstart", function () {
+            alert("scrollstart scrolling!");
+        });
     });
 
 });

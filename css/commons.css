@@ -21,4 +21,5 @@
 .remove-scroll 
 {
     overflow: hidden!important;
+    -webkit-overflow-scrolling: none;
 }
