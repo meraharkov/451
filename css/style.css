@@ -1,13 +1,13 @@
 ﻿
 
-@font-face
+/*@font-face
 {
     font-family: 'Avenir';
     src: url('../css/fonts/Avenir-Next-Condensed/AvenirNextCondensed-Medium.otf');
-    /*src: url('../css/fonts/Avenir/Avenir.ttc');*/
+    /*src: url('../css/fonts/Avenir/Avenir.ttc');!1!
     font-weight: normal;
     font-style: normal;
-}
+}*/
 
 @font-face
 {
@@ -180,7 +180,7 @@ body
     min-height: 100%;
     border-radius: 0;
     border: 3px solid grey;
-    font-family: 'Avenir';
+    font-family: 'Avenir-Next-Condensed-damiBold';
 }
 
 
@@ -205,6 +205,7 @@ body
     border-bottom: 2px solid #bb0a14;
     font-size: 4em;
     width: 100%;
+    font-family: 'Avenir-Next-Condensed-bold';
 }
 
 #menuModal .close
@@ -221,6 +222,8 @@ body
     font-weight: bold;
     font-size: 3.5em;
     padding: 3%;
+    padding-bottom: 2%;
+  padding-top: 2%;
 }
 
 #menuModal .modal-header
@@ -274,7 +277,7 @@ body
     min-height: 100%;
     border-radius: 0;
     border: 3px solid grey;
-    font-family: 'Avenir';
+    font-family: 'Avenir-Next-Condensed-damiBold';
 }
 
 
@@ -299,6 +302,7 @@ body
     border-bottom: 2px solid #bb0a14;
     font-size: 4em;
     width: 100%;
+    font-family: 'Avenir-Next-Condensed-bold';
 }
 
 #socialuModal .close
@@ -332,7 +336,7 @@ body
     height: 100%;
     border-radius: 0;
     border: 3px solid grey;
-    font-family: 'Avenir';
+    font-family: 'Avenir-Next-Condensed-damiBold';
     opacity: 0.8;
 }
 
@@ -407,16 +411,17 @@ body
 
 #sharedModal .close
 {
-    display: block;
-    float: none;
-    margin: 0 auto;
-    padding: 3%;
-    border: 1px solid #bb0a14;
-    opacity: 1;
-    color: #bb0a14;
-    letter-spacing: 0.1em;
-    padding-left: 7%;
-    padding-right: 7%;
+     display: block;
+  float: none;
+  margin: 0 auto;
+    padding: 1.5%;
+  border: 2px solid #bb0a14;
+  opacity: 1;
+  color: #bb0a14;
+  letter-spacing: 0.1em;
+  padding-left: 5%;
+  padding-right: 5%;
+  font-size: 3em;
 }
 
 
@@ -598,6 +603,11 @@ body
      {
            font-size: 3em;
      }
+
+      .menu-btn
+    {
+        top: 15%;
+    }
    
 }
 
@@ -628,6 +638,13 @@ body
            font-size: 3.4em;
      }
 
+   
+      
+#sharedModal .close
+{ 
+   
+  font-size: 2.5em
+}
      
 }
 
