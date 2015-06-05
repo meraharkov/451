@@ -49,7 +49,8 @@ $(document).ready(function () {
         var ref = window.open('https://www.tumblr.com/', '_system', 'location=no');      
     });
 
-
+    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+    
     $('#menuModal').on('shown.bs.modal', function (e) {
   /*      alert("modal open");*/
      /*   $(document.body).css("overflow", "hidden");*/
@@ -58,6 +59,8 @@ $(document).ready(function () {
         $(document).on("scrollstop", function () {
             alert("Stopped scrolling!");
         });
+        
+        scroll.scrollEnabled = false;
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
@@ -69,6 +72,8 @@ $(document).ready(function () {
         $(document).on("scrollstart", function () {
             alert("scrollstart scrolling!");
         });
+        
+        scroll.scrollEnabled = true;
     });
 
 });
