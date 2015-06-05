@@ -61,6 +61,7 @@ $(document).ready(function () {
       /*  $(document).on("scrollstop", function () {
             alert("Stopped scrolling!");
         });*/
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         $(document.body).addClass("remove-scroll");
         scroll.scrollEnabled = false;
     });
@@ -74,6 +75,7 @@ $(document).ready(function () {
       /*  $(document).on("scrollstart", function () {
             alert("scrollstart scrolling!");
         });*/
+        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, true);
         $(document.body).removeClass("remove-scroll");
         scroll.scrollEnabled = true;
     });
