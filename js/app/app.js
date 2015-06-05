@@ -51,10 +51,12 @@ $(document).ready(function () {
 
 
     $('#menuModal').on('shown.bs.modal', function (e) {
+        alert("modal open");
         $(document.body).css("overflow","hidden");
     });
 
-    $('#menuModal').on('hidden.bs.modal', function(e) {
+    $('#menuModal').on('hidden.bs.modal', function (e) {
+        alert("modal close");
         $(document.body).removeAttr('style');
     });
 

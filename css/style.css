@@ -216,6 +216,9 @@ body
     font-size: 1.4em;
 }
 
+#menuModal .close img {
+    width: 55%;
+}
 #menuModal h5
 {
     color: #bb0a14;
@@ -609,6 +612,9 @@ body
         top: 15%;
     }
    
+      #menuModal .close img {
+  width: 44%;
+}
 }
 
 @media screen and (min-width:481px) and (max-width:640px)
@@ -638,6 +644,9 @@ body
            font-size: 3.4em;
      }
 
+            #menuModal .close img {
+  width: 55%;
+}
    
       
 #sharedModal .close
@@ -660,6 +669,11 @@ body
         font-size: 0.55em;
         letter-spacing: 0.39vw;
     }*/
+
+    #menuModal .close img 
+    {
+        width: 79%;
+    }
 }
 
 @media screen and (min-width:801px)
@@ -673,6 +687,11 @@ body
     {
         font-size: 0.55em;
         letter-spacing: 0.39vw;
+    }
+
+    #menuModal .close img 
+    {
+      width: 85%;
     }
 }
 
