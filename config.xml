@@ -162,7 +162,8 @@
     <allow-intent href="itms-apps:*" />
   </platform>
 
-
+  <preference name="DisallowOverscroll" value="true" />
+  
   <!--<preference name="DisallowOverscroll" value="true" />
   <preference name="UIWebViewBounce" value="false" />-->
   
