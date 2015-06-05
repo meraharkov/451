@@ -37,9 +37,9 @@
 
 </head>
     <body>
-       <!-- <div   ng-view></div>-->
+        <div ng-view></div>
         
-        <br/>
+<!--        <br/>
         <br/>
         <br/>
         <button id="bogusId" style="width: 300px;  
@@ -59,8 +59,7 @@
         <br/>
         <br/>
         
-        <button id="Button2" style="width: 300px;    
-                                                                                                            height: 50px;">tumbrl 2 </button>
+        <button id="Button2" style="width: 300px; height: 50px;">tumbrl 2 </button>-->
 
 
         <script type="text/javascript">
@@ -98,17 +97,13 @@
             });
 
             $("#Button2").click(function () {
-
-                var result = new Object();
-                
-                alert(result.toString());
-                
+                 
 
                 var result = window
             .plugins
             .socialsharing
             .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');
-               
+                alert(result.toString());
             });
             
 

@@ -48,7 +48,14 @@ $(document).ready(function () {
     $("#tumbrl").click(function () {
         var ref = window.open('https://www.tumblr.com/', '_system', 'location=no');      
     });
- 
- 
+
+
+    $('#menuModal').on('shown.bs.modal', function (e) {
+        $(document.body).css("overflow","hidden");
+    });
+
+    $('#menuModal').on('hidden.bs.modal', function(e) {
+        $(document.body).removeAttr('style');
+    });
 
 });

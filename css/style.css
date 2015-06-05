@@ -60,11 +60,10 @@ body
     margin: 0 auto;
 }
 
-#header-rising .container-fluid 
-{
-    padding: 0;
-    
-}
+    #header-rising .container-fluid
+    {
+        padding: 0;
+    }
 
 
 #header.navbar-right
@@ -91,7 +90,7 @@ body
     top: 30%;
     position: absolute;
     width: 70%;
-    right: 8%;
+    right: -17%;
 }
 
 .img-451
@@ -106,8 +105,8 @@ body
 {
     position: absolute;
     top: 14.6%;
-    left: -34%;
-   width: 22%;
+    left: -40%;
+    width: 22%;
 }
 
 #home-page
@@ -115,10 +114,9 @@ body
     padding-left: 0!important;
     padding-right: 0!important;
     position: inherit;
-    
 }
 
- 
+
 
 #bad-moon
 {
@@ -126,13 +124,14 @@ body
     font-size: 4em;
     width: 100%;
     margin-top: 4.6%!important;
-   padding: 3.7%;
-     margin-left: 0;
+    padding: 3.7%;
+    margin-left: 0;
 }
 
 #header-rising .bad-moon-header
 {
     width: 100%;
+    margin: 0;
 }
 
 
@@ -140,6 +139,8 @@ body
 {
     padding-top: 2%;
     padding-bottom: 2%;
+    padding-left: 4%;
+    padding-right: 4%;
     z-index: 10;
     background-color: rgba(187, 10, 20, 0.8);
     color: #fff;
@@ -147,12 +148,9 @@ body
     font-family: 'Avenir-Next', sans-serif;
     font-weight: 400;
     text-align: left;
- 
     font-size: 5em;
     font-family: 'Avenir-Next-Condensed-bold';
-   
     margin-top: -100%;
-   
 }
 
 .subhead-text
@@ -160,10 +158,9 @@ body
     font-family: 'Avenir-Next-Condensed-damiBold';
 }
 
-.home-caption
-{
-  
-    font-size: 0.6em;
+.home-caption {
+  font-size: 0.55em;
+  letter-spacing: 0.39vw;
 }
 
 .home-break
@@ -190,7 +187,6 @@ body
 #menuModal .modal-dialog
 {
     height: 100%;
-    
     width: 100%;
     opacity: 0.8;
     margin: 0;
@@ -206,7 +202,6 @@ body
     color: #bb0a14;
     text-align: center;
     font-weight: bold;
-  
     border-bottom: 2px solid #bb0a14;
     font-size: 4em;
     width: 100%;
@@ -434,7 +429,6 @@ body
 {
     width: 100% !important;
     height: auto !important;
-    /* max-width:854px; */
 }
 
 #videoModel
@@ -495,7 +489,6 @@ body
         height: 100%;
         width: 100%;
         padding-bottom: 56.25%;
-       
         position: relative;
     }
 
@@ -523,19 +516,14 @@ body
         width: 85%;
     }
 
-.rotateVideo90
+/*.rotateVideo90
 {
     -webkit-transform: rotate(90deg)!important;
     -moz-transform: rotate(90deg)!important;
     -ms-transform: rotate(90deg)!important;
     -o-transform: rotate(90deg)!important;
     transform: rotate(90deg)!important;
-    /*
-  margin-top: 17%!important;
-  margin-left: -16%!important;
-*/
-    /*  margin-top: 13em!important;
-  margin-left: -13em!important;*/
+ 
 }
 
 .rotateVideo
@@ -545,7 +533,7 @@ body
     -ms-transform: rotate(0deg)!important;
     -o-transform: rotate(0deg)!important;
     transform: rotate(0deg)!important;
-}
+}*/
 
 .video-link
 {
@@ -567,19 +555,22 @@ body
 {
     body
     {
-        font-size: 62%;
+        font-size: 43%;
     }
 
     .back-to-home
     {
-        top: 20.6%;
-        
+        top: 27.6%;
     }
 
-    #title-page .bad-moon-header
+    .bad-moon-header
     {
-        margin-right: 0%;
-        font-size: 0.6em;
+        padding-top: 2%;
+    }
+
+    .home-caption
+    {
+        letter-spacing: 0;
     }
 }
 
@@ -590,7 +581,7 @@ body
 {
     body
     {
-        font-size: 82%;
+        font-size: 55%;
     }
 
     .back-to-home
@@ -598,38 +589,60 @@ body
         top: 14.6%;
     }
 
-    #title-page .bad-moon-header
+     .home-label 
     {
-        margin-right: 0%;
-        font-size: 0.7em;
+        font-size: 4em;
     }
+
+     #bad-moon 
+     {
+           font-size: 3em;
+     }
+   
 }
 
 @media screen and (min-width:481px) and (max-width:640px)
 {
     body
     {
-        font-size: 100%;
+        font-size: 80%;
     }
 
-    #title-page .bad-moon-header
-    {
-        margin-right: 1%;
+    #titlePage .bad-moon-header
+    { 
         font-size: 0.9em;
     }
+
+    .home-label 
+    {
+       font-size: 4em; 
+    }
+
+     .home-caption
+    { 
+        letter-spacing: 0.39vw;
+    }
+
+      #bad-moon 
+     {
+           font-size: 3.4em;
+     }
+
+     
 }
 
 @media screen and (min-width:641px) and (max-width:800px)
 {
     body
     {
-        font-size: 100%;
+        font-size: 90%;
     }
 
-    #title-page .bad-moon-header
+   /* .home-caption
     {
-        margin-right: 1%;
-    }
+        font-size: 0.55em;
+        letter-spacing: 0.39vw;
+    }*/
 }
 
 @media screen and (min-width:801px)
@@ -639,14 +652,15 @@ body
         font-size: 100%;
     }
 
-    #title-page .bad-moon-header
+    .home-caption
     {
-        margin-right: 1%;
+        font-size: 0.55em;
+        letter-spacing: 0.39vw;
     }
 }
 
-/*Rotate Video padding*/
-
+/*
+/*Rotate Video padding!1!
 @media screen and (max-height: 480px)
 {
     .rotateVideo90
@@ -692,7 +706,7 @@ body
         margin-top: 16.4%!important;
         margin-left: -16.5%!important;
     }
-}
+}*/
 /*Rotate Video padding END*/
 #video
 {
@@ -701,7 +715,6 @@ body
 
 
 /* Title Page */
-
 #titlePage
 {
     position: inherit;

@@ -17,3 +17,7 @@
 {
     float: left;
 }
+
+.remove-scroll {
+    overflow: hidden;
+}
