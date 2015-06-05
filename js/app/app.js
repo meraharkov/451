@@ -54,27 +54,27 @@ $(document).ready(function () {
     $('#menuModal').on('shown.bs.modal', function (e) {
   /*      alert("modal open");*/
      /*   $(document.body).css("overflow", "hidden");
-        $(document.body).addClass("remove-scroll");
+       
         document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
         */
         
       /*  $(document).on("scrollstop", function () {
             alert("Stopped scrolling!");
         });*/
-        
+        $(document.body).addClass("remove-scroll");
         scroll.scrollEnabled = false;
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
        /* alert("modal close");*/
 
-     /*    $(document.body).removeClass("remove-scroll");
+     /*   
         $(document).removeAttr('class');*/
         
       /*  $(document).on("scrollstart", function () {
             alert("scrollstart scrolling!");
         });*/
-        
+        $(document.body).removeClass("remove-scroll");
         scroll.scrollEnabled = true;
     });
 
