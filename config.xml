@@ -164,7 +164,7 @@
 
 
   <preference name="DisallowOverscroll" value="true" />
-  
+  <preference name="UIWebViewBounce" value="false" />
   
   <!--
         <access origin="http://phonegap.com" />                    - allow any secure requests to http://phonegap.com/
