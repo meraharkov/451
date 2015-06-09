@@ -69,7 +69,7 @@ $(document).ready(function () {
         
 
         $(document.body).addClass("remove-scroll");
-        scroll.scrollEnabled = false;
+    /*    scroll.scrollEnabled = false;*/
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
@@ -89,7 +89,7 @@ $(document).ready(function () {
         
 
         $(document.body).removeClass("remove-scroll");
-        scroll.scrollEnabled = true;
+     /*   scroll.scrollEnabled = true;*/
     });
 
 });
