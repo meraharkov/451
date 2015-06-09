@@ -52,44 +52,22 @@ $(document).ready(function () {
     
     function preventDefault(e) {
         e.preventDefault();
-        
     };
     
     $('#menuModal').on('shown.bs.modal', function (e) {
-  /*      alert("modal open");*/
-     /*   $(document.body).css("overflow", "hidden");
-       
-        document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
-        */
-        
-      /*  $(document).on("scrollstop", function () {
-            alert("Stopped scrolling!");
-        });*/
+  
         document.addEventListener('touchmove', preventDefault, false);
-        
 
         $(document.body).addClass("remove-scroll");
-    /*    scroll.scrollEnabled = false;*/
+  
     });
 
     $('#menuModal').on('hidden.bs.modal', function (e) {
-       /* alert("modal close");*/
-
-     /*   
-        $(document).removeAttr('class');*/
-        
-      /*  $(document).on("scrollstart", function () {
-            alert("scrollstart scrolling!");
-        });*/
-        /*    document.addEventListener('touchmove', function (e) { e.preventDefault(); }, true);*/
-        /*document.ontouchstart = function (e) {
-            e.preventDefault();
-        }*/
+    
         document.removeEventListener('touchmove', preventDefault, false);
-        
 
         $(document.body).removeClass("remove-scroll");
-     /*   scroll.scrollEnabled = true;*/
+    
     });
 
 });
