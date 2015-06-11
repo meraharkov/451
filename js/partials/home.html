@@ -69,7 +69,7 @@
          
     //    YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
 
-        var videoUrl = 'https://www.youtube.com/watch?v=EKyirtVHsK0';
+        var videoUrl = 'https://www.youtube.com/watch?v=LBr7kECsjcQ';
 
         // Just play a video
         window.plugins.streamingMedia.playVideo(videoUrl);
@@ -77,10 +77,10 @@
         // Play a video with callbacks
         var options = {
             successCallback: function () {
-                console.log("Video was closed without error.");
+                alert("Video was closed without error.");
             },
             errorCallback: function (errMsg) {
-                console.log("Error! " + errMsg);
+                alert("Error! " + errMsg);
             }
         };
         window.plugins.streamingMedia.playVideo(videoUrl, options);

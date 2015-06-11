@@ -70,7 +70,7 @@ $(document).ready(function () {
     
     });
     
-    jQuery(document).on('webkitfullscreenchange', function (e) {
+  /*  jQuery(document).on('webkitfullscreenchange', function (e) {
 
         alert("webkitfullscreenchange");
 
@@ -78,7 +78,7 @@ $(document).ready(function () {
             var so = cordova.plugins.screenorientation;
             so.setOrientation(so.Orientation.LANDSCAPE);
             alert("webkitfullscreenchange LANDSCAPE set");
-            /*    so.setOrientation(so.Orientation.PORTRAIT);*/
+            /*    so.setOrientation(so.Orientation.PORTRAIT);#1#
         }
     });
     
@@ -105,5 +105,6 @@ $(document).ready(function () {
         alert(" $(window).bind('orientationchange'")
     }
     $(window).bind('orientationchange', orientationHandler);
+    */
 
 });
