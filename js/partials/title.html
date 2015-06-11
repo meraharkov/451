@@ -17,7 +17,24 @@
     });
 
     $("#videoTrailer").click(function () {
-      
+        
+        
+        if (video.webkitEnterFullScreen) {
+            alert("webkitEnterFullScreen");
+            video.webkitEnterFullScreen();
+        }
+           
+        else if (video.webkitRequestFullScreen) {
+            alert("webkitRequestFullScreen");
+            video.webkitRequestFullScreen();
+        }
+            
+        else if (video.requestFullscreen) {
+            alert("requestFullscreen");
+            video.requestFullscreen();
+        }
+           
+        
         screen.lockOrientation('landscape');
     });
 

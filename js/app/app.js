@@ -71,8 +71,23 @@ $(document).ready(function () {
     });
     
     video.addEventListener('playing', function () {
+        alert("play video");
         var so = cordova.plugins.screenorientation;
         so.setOrientation(so.Orientation.LANDSCAPE);
+        alert(".Orientation.LANDSCAPE");
     }, false);
+    
+
+    jQuery(document).on('webkitfullscreenchange', function (e) {
+
+        alert("webkitfullscreenchange");
+        
+        if (!e.currentTarget.webkitIsFullScreen) {
+            var so = cordova.plugins.screenorientation;
+            so.setOrientation(so.Orientation.LANDSCAPE);
+            alert("webkitfullscreenchange LANDSCAPE set");
+        /*    so.setOrientation(so.Orientation.PORTRAIT);*/
+        }
+    });
 
 });
