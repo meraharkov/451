@@ -12,31 +12,7 @@
     </div>
 </nav>
 
-<script type="text/javascript">
-    $(".img-451").click(function () {
-        alert("youtube");
-        
-/*        VideoPlayer.play(
-   "https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque",
-   {
-       volume: 0.5,
-       scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
-   },
-   function () {
-       alert("video completed");
-   },
-   function (err) {
-       alert("erre" + err);
-   }
-);
-        */
 
-        window.plugins.videoPlayer.play("https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque");
-        
-
-    });
-
-</script>
 
 <div class="modal fade" id="home-page" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
@@ -78,3 +54,24 @@
 
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    $("#ex-mortis").click(function () {
+        alert("youtube VideoPlayer");
+        
+        VideoPlayer.play('https://www.youtube.com/watch?v=EKyirtVHsK0');
+    });
+
+    $(".img-451").click(function () {
+        alert("youtube");
+
+
+
+        YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
+
+
+    });
+
+</script>
