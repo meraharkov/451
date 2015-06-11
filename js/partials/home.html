@@ -61,16 +61,29 @@
     $("#ex-mortis").click(function () {
         alert("youtube VideoPlayer");
         
-        VideoPlayer.play('https://www.youtube.com/watch?v=EKyirtVHsK0');
+        VideoPlayer.play('https://www.youtube.com/watch?v=37eEUsd1ASA');
     });
 
     $(".img-451").click(function () {
-        alert("youtube");
+        alert("streamingMedia youtube");
+         
+    //    YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
 
+        var videoUrl = 'https://www.youtube.com/watch?v=EKyirtVHsK0';
 
+        // Just play a video
+        window.plugins.streamingMedia.playVideo(videoUrl);
 
-        YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
-
+        // Play a video with callbacks
+        var options = {
+            successCallback: function () {
+                console.log("Video was closed without error.");
+            },
+            errorCallback: function (errMsg) {
+                console.log("Error! " + errMsg);
+            }
+        };
+        window.plugins.streamingMedia.playVideo(videoUrl, options);
 
     });
 
