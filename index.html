@@ -39,73 +39,11 @@
     <body>
         <div ng-view></div>
         
-<!--        <br/>
-        <br/>
-        <br/>
-        <button id="bogusId" style="width: 300px;  
-  height: 50px;">message via Bogus App</button>
-          <br/>
-        <br/>
-          <br/>
-        <br/>
-        <br/>
-<button id="errColl">msg via WhatsApp (with errcallback)</button>
-        <br/>
-        <br/>
-          <br/>
-        <button id="Button1" style="width: 300px;    
-                                                       height: 50px;">tumbrl</button>
-         <br/>
-        <br/>
-        <br/>
-        
-        <button id="Button2" style="width: 300px; height: 50px;">tumbrl 2 </button>-->
+ 
 
 
         <script type="text/javascript">
-            $("#bogusId").click(function() {
-                
-                    alert("bogus");
-                    window.plugins.socialsharing.shareVia('https://www.tumblr.com/', 'Message via Bogus App', null, null, null, function () { console.log('share ok') }, function (msg) { alert('error: ' + msg) });
-
-            });
-
-
-            $("#errColl").click(function() {
-                alert("WhatsApp")
-                window.plugins.socialsharing.shareViaWhatsApp('Message via WhatsApp', null /* img */, null /* url */, function() { console.log('share ok') }, function(errormsg) { alert(errormsg) });
-            });
-
-            function Test(arg) {
-                alert(" Test" + arg);
-            }
-            
-            function Test2(arg) {
-                alert(" Test2" + arg);
-            }
-
-            $("#test").click(function() {
-
-                window
-         .plugins
-         .socialsharing
-         .share('Company 451 tumbrl',
-             Test,
-             Test2,
-             'https://www.tumblr.com/');
-                
-            });
-
-            $("#Button2").click(function () {
-                 
-
-                var result = window
-            .plugins
-            .socialsharing
-            .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');
-                alert(result.toString());
-            });
-            
+             
 
         </script>
 
