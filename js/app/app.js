@@ -90,26 +90,19 @@ $(document).ready(function () {
     }, false);
     
     function updateOrientation(e) {
-        alert(e.orientation);
+        alert(" window.addEventListener( orientationchange ");
     }
     
     window.addEventListener("orientationchange", updateOrientation);
 
     function orientation(e) {
-        alert(e.orientation);
+        alert("document.addEventListener('orientationchange'");
     }
 
     document.addEventListener('orientationchange', orientation, false);
 
     function orientationHandler(event) {
-        if (event.orientation) {
-            if (event.orientation == 'portrait') {
-                //do something
-            }
-            else if (event.orientation == 'landscape') {
-                //do something
-            }
-        }
+        alert(" $(window).bind('orientationchange'")
     }
     $(window).bind('orientationchange', orientationHandler);
 

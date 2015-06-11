@@ -20,7 +20,7 @@
 
         alert("videoTrailer");
         
-        if (video.webkitEnterFullScreen) {
+     /*   if (video.webkitEnterFullScreen) {
             alert("webkitEnterFullScreen");
             video.webkitEnterFullScreen();
         }
@@ -33,10 +33,11 @@
         else if (video.requestFullscreen) {
             alert("requestFullscreen");
             video.requestFullscreen();
-        }
-           
+        }*/
         
-        screen.lockOrientation('landscape');
+        navigator.screenOrientation.set('landscape');
+        
+       /* screen.lockOrientation('landscape');*/
     });
 
     $("#share-facebook").click(function () {
