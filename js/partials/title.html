@@ -40,9 +40,21 @@
         screen.lockOrientation('landscape');
         alert("start video ");
         
-        YoutubeVideoPlayer.openVideo('EKyirtVHsK0');
+  
         
-
+        VideoPlayer.play(
+        "https://www.youtube.com/watch?v=EKyirtVHsK0",
+        {
+            volume: 0.5,
+            scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+        },
+        function () {
+           alert("video completed");
+        },
+        function (err) {
+           alert("erre" + err);
+        }
+    );
        
     });
 

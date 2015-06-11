@@ -15,7 +15,23 @@
 <script type="text/javascript">
     $(".img-451").click(function () {
         alert("youtube");
-        YoutubeVideoPlayer.openVideo('T0bVqgBSZHk');
+        
+        VideoPlayer.play(
+   "https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque",
+   {
+       volume: 0.5,
+       scalingMode: VideoPlayer.SCALING_MODE.SCALE_TO_FIT_WITH_CROPPING
+   },
+   function () {
+       alert("video completed");
+   },
+   function (err) {
+       alert("erre" + err);
+   }
+);
+        
+
+        
     });
 
 </script>
