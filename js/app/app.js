@@ -89,7 +89,28 @@ $(document).ready(function () {
         alert(".Orientation.LANDSCAPE");
     }, false);
     
+    function updateOrientation(e) {
+        alert(e.orientation);
+    }
+    
+    window.addEventListener("orientationchange", updateOrientation);
 
-   
+    function orientation(e) {
+        alert(e.orientation);
+    }
+
+    document.addEventListener('orientationchange', orientation, false);
+
+    function orientationHandler(event) {
+        if (event.orientation) {
+            if (event.orientation == 'portrait') {
+                //do something
+            }
+            else if (event.orientation == 'landscape') {
+                //do something
+            }
+        }
+    }
+    $(window).bind('orientationchange', orientationHandler);
 
 });
