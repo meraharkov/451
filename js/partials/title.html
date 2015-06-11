@@ -18,7 +18,7 @@
 
     $("#videoTrailer").click(function () {
 
-        alert("videoTrailer");
+      
         
      /*   if (video.webkitEnterFullScreen) {
             alert("webkitEnterFullScreen");
@@ -35,9 +35,15 @@
             video.requestFullscreen();
         }*/
         
-        navigator.screenOrientation.set('landscape');
         
-       /* screen.lockOrientation('landscape');*/
+        
+        screen.lockOrientation('landscape');
+        alert("start video ");
+        
+        YoutubeVideoPlayer.openVideo('EKyirtVHsK0');
+        
+
+       
     });
 
     $("#share-facebook").click(function () {
