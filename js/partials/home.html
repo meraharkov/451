@@ -16,7 +16,7 @@
     $(".img-451").click(function () {
         alert("youtube");
         
-        VideoPlayer.play(
+/*        VideoPlayer.play(
    "https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque",
    {
        volume: 0.5,
@@ -29,9 +29,11 @@
        alert("erre" + err);
    }
 );
+        */
+
+        window.plugins.videoPlayer.play("https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque");
         
 
-        
     });
 
 </script>
