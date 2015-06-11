@@ -78,11 +78,11 @@
 
 <!--  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>-->
 
- <gap:plugin  name="org.wumengye.cordova.plugin.videoplayer"/>
+<!-- <gap:plugin  name="org.wumengye.cordova.plugin.videoplayer"/>-->
   
   
 
- <!--  <widget id="com.bunkerpalace.YoutubVideoPlayerProject" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+   <widget id="com.bunkerpalace.YoutubVideoPlayerProject" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>YoutubeVideoPlayerProject</name>
     <description>
       A sample Apache Cordova application that responds to the deviceready event.
@@ -93,7 +93,6 @@
     <content src="index.html" />
     <access origin="*" />
   </widget>
-  -->
 
 
   <gap:plugin name="org.apache.cordova.battery-status" />
