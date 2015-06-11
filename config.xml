@@ -67,7 +67,7 @@
   <preference name="StatusBarBackgroundColor" value="#000000" />
   <preference name="StatusBarStyle" value="lightcontent" />
   <preference name="StatusBarOverlaysWebView" value="true" />
-  
+  <preference name="orientation" value="portrait"/>
   
   <!-- Plugins can also be added here. -->
   <gap:plugin name="com.phonegap.plugin.statusbar" />

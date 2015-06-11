@@ -69,5 +69,10 @@ $(document).ready(function () {
         $(document.body).removeClass("remove-scroll");
     
     });
+    
+    video.addEventListener('playing', function () {
+        var so = cordova.plugins.screenorientation;
+        so.setOrientation(so.Orientation.LANDSCAPE);
+    }, false);
 
 });
