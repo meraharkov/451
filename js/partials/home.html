@@ -59,9 +59,11 @@
 <script type="text/javascript">
 
     $("#ex-mortis").click(function () {
-        alert("youtube VideoPlayer");
+        alert("youtube disusered");
         
-        VideoPlayer.play('https://www.youtube.com/watch?v=37eEUsd1ASA');
+        cordova.plugins.disusered.open('https://www.youtube.com/watch?v=37eEUsd1ASA');
+        
+       // VideoPlayer.play('https://www.youtube.com/watch?v=37eEUsd1ASA'); //may be only android can open this video
     
     });
 

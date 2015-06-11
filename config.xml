@@ -84,7 +84,9 @@
 
   <gap:plugin name="com.afreire.plugins.video" version="1.2.0" /><!--  for only android -->
 
- 
+  <gap:plugin name="com.disusered.open" version="1.0.4" />
+  
+  <!--<gap:plugin name="org.wumengye.cordova.plugin.videoplayer" />-->
   
  
 
