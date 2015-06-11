@@ -70,7 +70,19 @@ $(document).ready(function () {
     
     });
     
-    video.addEventListener('playing', function () {
+    jQuery(document).on('webkitfullscreenchange', function (e) {
+
+        alert("webkitfullscreenchange");
+
+        if (!e.currentTarget.webkitIsFullScreen) {
+            var so = cordova.plugins.screenorientation;
+            so.setOrientation(so.Orientation.LANDSCAPE);
+            alert("webkitfullscreenchange LANDSCAPE set");
+            /*    so.setOrientation(so.Orientation.PORTRAIT);*/
+        }
+    });
+    
+    document.addEventListener('playing', function () {
         alert("play video");
         var so = cordova.plugins.screenorientation;
         so.setOrientation(so.Orientation.LANDSCAPE);
@@ -78,16 +90,6 @@ $(document).ready(function () {
     }, false);
     
 
-    jQuery(document).on('webkitfullscreenchange', function (e) {
-
-        alert("webkitfullscreenchange");
-        
-        if (!e.currentTarget.webkitIsFullScreen) {
-            var so = cordova.plugins.screenorientation;
-            so.setOrientation(so.Orientation.LANDSCAPE);
-            alert("webkitfullscreenchange LANDSCAPE set");
-        /*    so.setOrientation(so.Orientation.PORTRAIT);*/
-        }
-    });
+   
 
 });
