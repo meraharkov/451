@@ -78,7 +78,7 @@
 
   <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>
 
-  <gap:plugin  name="org.wumengye.cordova.plugin.videoplayer"/>
+<!--  <gap:plugin  name="org.wumengye.cordova.plugin.videoplayer"/>
   
   
 
@@ -93,7 +93,7 @@
     <content src="index.html" />
     <access origin="*" />
   </widget>
-  
+  -->
 
 
   <gap:plugin name="org.apache.cordova.battery-status" />
