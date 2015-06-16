@@ -51,9 +51,9 @@
             
 
                 $routeProvider
-                .when('/', { templateUrl: 'js/partials/home.html', controller: 'mainCtrl' })
-                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'mainCtrl' })
-                .when('/about', { templateUrl: 'js/partials/about.html', controller: 'mainCtrl' })
+                .when('/', { templateUrl: 'js/partials/home.html' })
+                .when('/title', { templateUrl: 'js/partials/title.html'})
+                .when('/about', { templateUrl: 'js/partials/about.html' })
                 .otherwise({ redirectTo: '/' });
             
 
