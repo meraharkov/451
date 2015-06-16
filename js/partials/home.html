@@ -1,93 +1,51 @@
 ﻿ 
 
-<div slidehome></div>
-<nav id="header-451" class="navbar   navbar-fixed-top ">
-    <div class="container-fluid">
-        <div class="navbar-header">
 
-            <a class="navbar-brand" href="#/index">
-                <img class="img-451" alt="Brand" src="imgs/assets/navbar-home-451@2x.png" />
-            </a>
-        </div>
-    </div>
-</nav>
+<img class="title-img-451 sroll-item" alt="Brand" src="imgs/assets/navbar-home-451@2x.png" />
+ 
+<div id="home-page" >
+ 
+                   <div class="container">
 
-
-
-<div class="modal fade" id="home-page" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="container">
-
-            <div class='row'>
-                <div class='col-xs-12 padding0'>
-                    <img class="w100Per" src="imgs/content/tile-home-badmoonrising.png" />
-                </div>
-
-                <a href="#/title">
-                    <div class='col-sm-10 col-md-10 col-lg-10 col-xs-10  col-xs-offset-1 home-label'>
-                        Bad Moon Rising
+                       <div class='row'>
+                           <div class='col-xs-12 padding0'>
+                               <img class="w100Per" src="imgs/content/tile-home-badmoonrising.png" />
      
-                        <div class="row">
-                            <div class='col-xs-12 home-caption subhead-text'>
-                                <!-- The bad meets the bone-->
-                                THEIR BARK IS WORSE THEN THEIR BIKES
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div> 
-            <div id="ex-mortis" class='row'>
-                <div class='col-xs-12 padding0'>
+                           </div>
 
-                    <img class="w100Per" src="imgs/content/tile-home-exmortis.png" />
-                </div>
-                <div class='col-sm-10 col-md-10 col-lg-10 col-xs-10  col-xs-offset-1 home-label'>
-                    Ex Mortis
+                       
+                               <div ng-click='slideView(2, "/title")' class='col-sm-10 col-md-10 col-lg-10 col-xs-10  col-xs-offset-1 home-label'>
+                                   Bad Moon Rising
      
-                <div class="row">
-                    <div class='col-xs-12 home-caption subhead-text'>Where the dead go to die</div>
-                </div>
-                </div>
-            </div>
+                                   <div class="row">
+                                       <div class='col-xs-12 home-caption subhead-text'>
+                                           <!-- The bad meets the bone-->
+                                           THEIR BARK IS WORSE THEN THEIR BIKES
+                                       </div>
+                                   </div>
+                               </div>
+                          
+                       </div> 
+                       <div id="ex-mortis" class='row'>
+                           <div class='col-xs-12 padding0'>
 
-        </div>
-
+                               <img class="w100Per" src="imgs/content/tile-home-exmortis.png" />
+                           </div>
+                           <div class='col-sm-10 col-md-10 col-lg-10 col-xs-10  col-xs-offset-1 home-label'>
+                               Ex Mortis
+     
+                               <div class="row">
+                                   <div class='col-xs-12 home-caption subhead-text'>Where the dead go to die</div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
     </div>
-</div>
-
-
 <script type="text/javascript">
 
-    $("#ex-mortis").click(function () {
-        alert("youtube disusered");
-        
-        cordova.plugins.disusered.open('https://www.youtube.com/watch?v=37eEUsd1ASA');
-        
-       // VideoPlayer.play('https://www.youtube.com/watch?v=37eEUsd1ASA'); //may be only android can open this video
     
-    });
-
-    $(".img-451").click(function () {
-        alert("streamingMedia youtube");
-         
-    //    YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
-
-        var videoUrl = 'https://www.youtube.com/watch?v=LBr7kECsjcQ';
-
-        // Just play a video
-       // window.plugins.streamingMedia.playVideo(videoUrl);
-
-        // Play a video with callbacks
-        var options = {
-            successCallback: function () {
-                alert("Video was closed without error.");
-            },
-            errorCallback: function (errMsg) {
-                alert("Error! " + errMsg);
-            }
-        };
-        window.plugins.streamingMedia.playVideo(videoUrl, options);
-
-    });
-
+       
+   
 </script>
+ 
+ 

@@ -3,16 +3,62 @@
     'use strict';
 
     window.appName = window.appName || 'comix';
-
+ //   window.slideTo = "slide-right";
+    
     angular
-        .module(window.appName, ['ngRoute'])
-        .config(['$routeProvider',
-            function ($routeProvider) {
+        .module(window.appName, ['ngRoute', 'ngAnimate'  ])
+        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
+
+            /*  
+            ORIGINAL ROUTE
+            $routeProvider
+                .when('/', { templateUrl: 'js/partials/home.html', controller: 'homeCtrl' })
+                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'titleCtrl' })
+                .when('/about', { templateUrl: 'js/partials/about.html'  })
+                .otherwise({ redirectTo: '/' });*/
+
+
+                /*     
+                $routeProvider.when('/', {
+                    template: '<div style="background: green">Root Route</div>'
+                })
+                        .when('/routeA', {
+                            template: '<div style="background:blue" >Route A</div>'
+                        })
+                        .when('/routeB', {
+                            template: '<div style="background:red">Route B</div>'
+                        })
+                        .otherwise({
+                            redirectTo: '/'
+                        });*/
+                
+/*
+                $routeProvider.when('/pg1', {
+                    templateUrl: 'js/partials/home.html',
+                    controller: 'AppCtrl'
+                });
+                $routeProvider.when('/pg2', {
+                    templateUrl: 'js/partials/title.html',
+                    controller: 'AppCtrl'
+                });
+                $routeProvider.when('js/partials/about.html', {
+                    templateUrl: 'pg3.html',
+                    controller: 'AppCtrl'
+                });
+                $routeProvider.otherwise({
+                    redirectTo: '/pg1'
+                });*/
+            
 
                 $routeProvider
-                .when('/index', { templateUrl: 'js/partials/home.html' })
-                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'titleCtrl' })
-               .otherwise({ redirectTo: '/index' });
+                .when('/', { templateUrl: 'js/partials/home.html', controller: 'mainCtrl' })
+                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'mainCtrl' })
+                .when('/about', { templateUrl: 'js/partials/about.html', controller: 'mainCtrl' })
+                .otherwise({ redirectTo: '/' });
+            
+
+               $locationProvider.html5Mode(false);
+                
 
             }]);
 
@@ -22,7 +68,7 @@
 $(document).ready(function () {
 
 
-    $('.menu-btn').click(function () {
+    $('.main-menu-btn').click(function () {
         $('#menuModal')
             .prop('class', 'modal fade') // revert to default
             .addClass($(this).data('direction'));
@@ -69,42 +115,29 @@ $(document).ready(function () {
         $(document.body).removeClass("remove-scroll");
     
     });
+  
+    var scrollFn = function () {
+        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+        //  document.getElementById('value-scroll').innerHTML = scrolled + 'px'; // <div id="value-scroll" style="position: fixed; width: 200px; height: 100px; background: white;   z-index: 1030;"></div>
+        $('.sroll-item').css("margin-top", scrolled + "px");
+
+    };
     
-  /*  jQuery(document).on('webkitfullscreenchange', function (e) {
+/*    var content = $("#home-page");*/
 
-        alert("webkitfullscreenchange");
+    $(window, $('body')).scroll(scrollFn);
+    
 
-        if (!e.currentTarget.webkitIsFullScreen) {
-            var so = cordova.plugins.screenorientation;
-            so.setOrientation(so.Orientation.LANDSCAPE);
-            alert("webkitfullscreenchange LANDSCAPE set");
-            /*    so.setOrientation(so.Orientation.PORTRAIT);#1#
-        }
+    /* check this code */
+   /* $('[data-toggle="pooper"]').click(function () {
+        $('.menu-offcanvas').toggleClass('active');
     });
-    
-    document.addEventListener('playing', function () {
-        alert("play video");
-        var so = cordova.plugins.screenorientation;
-        so.setOrientation(so.Orientation.LANDSCAPE);
-        alert(".Orientation.LANDSCAPE");
-    }, false);
-    
-    function updateOrientation(e) {
-        alert(" window.addEventListener( orientationchange ");
-    }
-    
-    window.addEventListener("orientationchange", updateOrientation);
+    $('.menu-close').click(function () {
+        $('.menu-offcanvas').toggleClass('active');
+    });
+    $('#bad_moon').click(function () {
+        window.location = 'badmoon.html';
+    });*/
 
-    function orientation(e) {
-        alert("document.addEventListener('orientationchange'");
-    }
-
-    document.addEventListener('orientationchange', orientation, false);
-
-    function orientationHandler(event) {
-        alert(" $(window).bind('orientationchange'")
-    }
-    $(window).bind('orientationchange', orientationHandler);
-    */
-
+ 
 });

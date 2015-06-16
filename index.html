@@ -1,18 +1,17 @@
 ﻿<!DOCTYPE html>
-<html ng-app="comix" lang="en">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
-	<meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-    
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
-   
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+
+  
+  
+
 
     <title>451</title>
     <meta property="og:title" content="451" />
@@ -22,119 +21,124 @@
     <meta property="og:site_name" content="451" />
     <meta property="og:description" content="Media App" />
 
+     
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
+    <link rel="stylesheet"  href="css/effects/slide.css"  media="screen"/>
+    
+    
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
     <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
-
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.min.js"></script> 
+    
 
+    <script src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.8/angular-route.min.js"></script>
+    <script src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>
+    <script src="js/vendor/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
+    
     <script src="js/app/app.js"></script>
-    <script src="js/controllers/titleCtrl.js"></script>
-    <script src="js/directives/slideTitleDirectives.js"></script>
-    <script src="js/directives/slideHomeDirectives.js"></script>
+ 
+    <script src="js/controllers/mainCtrl.js"></script>
+    <script src="js/servise/viewSlideIndex.js"></script>
+     
 
 </head>
-    <body>
-        <div ng-view></div>
-   <!--       
- <button id="youtube"> Youtube video <br/> <br/> <br/></button>
+<body ng-app="comix" ng-controller='mainCtrl'>
 
+ 
+<!--    <button ng-click='slideView(1, "/")'>Pg1</button>
+    <button ng-click='slideView(2, "/title")'>Pg2</button>
+    <button ng-click='slideView(3, "/about")'>Pg3</button>-->
 
-      <script type="text/javascript">
-            $("youtube").click(function () {
-                alert("youtube")
-                YoutubeVideoPlayer.openVideo('T0bVqgBSZHk');
-            });
+    
+    <div id="slideView" ng-view ng-class="slideDir" class="slide"></div>
 
-        </script>-->
+ 
+    
+    <img class="main-menu-btn"
+         src='imgs/assets/button-menu@2x.png'
+         data-direction='left'
+         alt="" />
+    
 
-        <nav id="header" class="navbar navbar-right navbar-fixed-top ">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <img class="menu-btn"
-                         src='imgs/assets/button-menu@2x.png'
-                         data-direction='left'
-                         alt="" />
-                </div>
-            </div>
-            <!-- /.container-fluid -->
-        </nav>
+    <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
 
-        <div   class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-
-                        <h4 class="modal-title bold">MENU 
+                    <h4 class="modal-title bold">MENU 
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                <img src="imgs/assets/button-close@2x.png" /> </button>
-                        </h4>
-                    </div>
+                                <img src="imgs/assets/button-close@2x.png" />
+                            </button>
+                    </h4>
+                </div>
 
-                    <div class="modal-body">
-                        <a data-toggle="modal"
-                           data-target="#socialuModal">
-                            <h5>SOCIAL</h5>
-                        </a>
+                <div class="modal-body">
+                    <a data-toggle="modal"
+                        data-target="#socialuModal">
+                        <h5>SOCIAL</h5>
+                    </a>
 
-                        <h5>WHERE TO BUY</h5>
+                    <h5>WHERE TO BUY</h5>
 
-                        <h5>ABOUT</h5>
-                        <br />
-                        <br />
+                    <h5>ABOUT</h5>
+                    <br />
+                    <br />
 
-                        <a id="bad-moon-menu-btn" href="#/title">
-                            <h5>BAD MOON RISING</h5>
-                        </a>
-                        <h5>EXMORTIS</h5>
-                        <h5>HUMBUG</h5>
-                    </div>
+                    <a id="bad-moon-menu-btn" ng-click='slideView(2, "/title")' >  <!--href="#/title"-->
+                        <h5>BAD MOON RISING</h5>
+                    </a>
+                    <h5>EXMORTIS</h5>
+                    <h5>HUMBUG</h5>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div class="modal fade" id="socialuModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
+    <div class="modal fade" id="socialuModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
 
-                        <h4 class="modal-title bold">SOCIAL 
+                    <h4 class="modal-title bold">SOCIAL 
                             <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                        </h4>
-                    </div>
+                    </h4>
+                </div>
 
-                    <div class="modal-body">
+                <div class="modal-body">
 
-                        <a id="facebook" >
-                            <h5>
-                                <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
-                            </h5>
-                        </a>
+                    <a id="facebook">
+                        <h5>
+                            <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
+                        </h5>
+                    </a>
 
-                        <a id="instagramm">
-                            <h5>
-                                <img src="imgs/assets/button-social-instagram-57x57.png" />
-                                INSTAGRAM 
-                            </h5>
-                        </a>
+                    <a id="instagramm">
+                        <h5>
+                            <img src="imgs/assets/button-social-instagram-57x57.png" />
+                            INSTAGRAM 
+                        </h5>
+                    </a>
 
-                        <a   id="twitter">
-                            <h5>
-                                <img src="imgs/assets/button-share-twitter.png" />
-                                TWITTER
-                            </h5>
-                        </a>
+                    <a id="twitter">
+                        <h5>
+                            <img src="imgs/assets/button-share-twitter.png" />
+                            TWITTER
+                        </h5>
+                    </a>
 
-                        <a id="tumbrl">
-                            <h5>
-                                <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
-                            </h5>
-                        </a> 
-                    </div>
+                    <a id="tumbrl">
+                        <h5>
+                            <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
+                        </h5>
+                    </a>
                 </div>
             </div>
         </div>
-         </body>
+    </div>
+</body>
 </html>

@@ -60,10 +60,10 @@ body
     margin: 0 auto;
 }
 
-    #header-rising .container-fluid
-    {
-        padding: 0;
-    }
+#header-rising .container-fluid
+{
+    padding: 0;
+}
 
 
 #header.navbar-right
@@ -84,30 +84,33 @@ body
 {
     margin-right: 0!important;
 }
-
-.menu-btn
-{
-    top: 30%;
-    position: absolute;
-    width: 70%;
-    right: -17%;
+.main-menu-btn {
+     position: fixed;
+      z-index: 1030;
+      right: 5%;
+      top: 4%;
+      width: 10%;
 }
 
-.img-451
-{
+.back-to-home {
+    left: 5%;
+    top: 4%;
     position: absolute;
-    top: 0;
-    left: 39%;
-    width: 100%;
+  /*  position: fixed;*/
+    z-index: 1030;
+      width: 10%;
 }
 
-.back-to-home
-{
-    position: absolute;
-    top: 14.6%;
-    left: -40%;
-    width: 22%;
+.title-img-451
+ {
+      position: absolute;
+   /*   position: fixed;*/
+      z-index: 1030;
+      left: 37%;
+      width: 26%;
 }
+
+ 
 
 #home-page
 {
@@ -121,11 +124,15 @@ body
 #bad-moon
 {
     text-align: center;
-    font-size: 4em;
-    width: 100%;
-    margin-top: 4.6%!important;
-    padding: 3.7%;
-    margin-left: 0;
+  font-size: 5em;
+  width: 58%;
+  margin-top: 0;
+  padding: 3.5%;
+ 
+  left: 13.5%;
+ 
+  z-index: 1030;
+  position: absolute;
 }
 
 #header-rising .bad-moon-header
@@ -263,6 +270,7 @@ body
 /* Slide effect end*/
 
 
+ 
 
 
 .show-video
@@ -566,10 +574,10 @@ body
         font-size: 43%;
     }
 
-    .back-to-home
+  /*  .back-to-home
     {
         top: 27.6%;
-    }
+    }*/
 
     .bad-moon-header
     {
@@ -592,11 +600,11 @@ body
         font-size: 55%;
     }
 
-    .back-to-home
+ /*   .back-to-home
     {
         top: 14.6%;
     }
-
+*/
      .home-label 
     {
         font-size: 4em;
@@ -607,10 +615,10 @@ body
            font-size: 3em;
      }
 
-      .menu-btn
+/*      .menu-btn
     {
         top: 15%;
-    }
+    }*/
    
       #menuModal .close img {
   width: 44%;
