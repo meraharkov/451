@@ -98,7 +98,7 @@ body
 {
     left: -28%;
     top: 21%;
-    position: inherit;
+    position: absolute;
     /* background: url(../imgs/assets/button-back@2x.png) no-repeat; */
     z-index: 1030;
     width: 17.3%;
@@ -106,8 +106,8 @@ body
 
 .title-img-451
 {
-    position: absolute;
-    /*   position: fixed;*/
+  /*  position: absolute;*/
+       position: fixed;
     z-index: 1030;
     left: 37%;
     width: 26%;
@@ -133,7 +133,7 @@ body
     padding: 3.5%;
     left: 13.5%;
     z-index: 1030;
-    position: absolute;
+    position: fixed;
 }
 
 #header-rising .bad-moon-header

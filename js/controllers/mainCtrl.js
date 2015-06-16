@@ -6,6 +6,9 @@
         .module(window.appName)
         .controller('mainCtrl', ['$scope', '$location', 'viewSlideIndex', function ($scope, $location, viewSlideIndex) {
 
+            $scope.isHomePage = false;
+            $scope.isTitlePage = false;
+            
 
             $scope.slideView = function(index, url) {
                  
