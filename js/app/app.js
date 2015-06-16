@@ -57,8 +57,7 @@
                 .otherwise({ redirectTo: '/' });
             
 
-               $locationProvider.html5Mode(false);
-                
+               $locationProvider.html5Mode(false); 
 
             }]);
 
@@ -119,13 +118,11 @@ $(document).ready(function () {
     var scrollFn = function () {
         var scrolled = window.pageYOffset || document.documentElement.scrollTop;
         //  document.getElementById('value-scroll').innerHTML = scrolled + 'px'; // <div id="value-scroll" style="position: fixed; width: 200px; height: 100px; background: white;   z-index: 1030;"></div>
-        $('.sroll-item').css("margin-top", scrolled + "px");
-
+        $('.sroll-item').css("margin-top", scrolled + "px"); 
     };
-    
-/*    var content = $("#home-page");*/
+     
 
-    $(window, $('body')).scroll(scrollFn);
+//    $(window, $('body')).scroll(scrollFn);
     
 
     /* check this code */

@@ -12,6 +12,12 @@
 
             $scope.slideView = function(index, url) {
                  
+                var scrolled = window.pageYOffset || document.documentElement.scrollTop;
+                
+                $('.sroll-item').css("position", 'absolute');
+                $('.sroll-item').css("margin-top", scrolled + "px");
+                
+
                 if (viewSlideIndex.getViewIndex() > index) {
                     $scope.slideDir = 'slide-right';
                 } else {
