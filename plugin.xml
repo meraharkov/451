@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+<!--<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
     xmlns:android="http://schemas.android.com/apk/res/android"
     id="cordova-plugin-screen-orientation"
     version="1.3.6">
@@ -28,6 +28,7 @@
 
     <framework src="MessageUI.framework" weak="true" />
   </platform>
+
 
   
   <platform name="ios">
@@ -68,12 +69,12 @@
             <feature name="YoikScreenOrientation">
                 <param name="android-package" value="net.yoik.cordova.plugins.screenorientation.YoikScreenOrientation" />
             </feature>
-          <feature name="SamplePlugin"> <!--new plugin-->
+          <feature name="SamplePlugin"> ~1~new plugin@1@
             <param name="android-package" value="com.usefulio.plugin.SamplePlugin"/>
           </feature>
         </config-file>
 
-      <!--new plugin source-file -->
+      ~1~new plugin source-file @1@
       <source-file src="src/android/com/usefulio/plugin/SamplePlugin.java" target-dir="src/com/usefulio/plugin" />
       
         <js-module src="www/screenorientation.android.js" name="screenorientation.android">
@@ -103,4 +104,35 @@
         <source-file src="src/wp/YoikScreenOrientation.cs" />
     </platform>
 
+</plugin>-->
+
+
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        id="com.phonegap.plugins.video"
+        version="1.0.0">
+  <engines>
+    <engine name="cordova-android" version=">=3.0.0"/>
+  </engines>
+
+  <name>VideoPlayer</name>
+  <description>The video player allows you to display videos from your PhoneGap application.</description>
+  <author>Simon MacDonald</author>
+  <keywords>android, video player</keywords>
+  <license>MIT</license>
+
+  <js-module src="3.0.0/www/video.js" name="VideoPlayer">
+    <clobbers target="VideoPlayer" />
+  </js-module>
+
+  <platform name="android">
+    <source-file src="3.0.0/src/com/phonegap/plugins/video/VideoPlayer.java" target-dir="src/com/phonegap/plugins/video" />
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="VideoPlayer" >
+        <param name="android-package" value="com.phonegap.plugins.video.VideoPlayer"/>
+      </feature>
+    </config-file>
+  </platform>
+
 </plugin>
+ 
