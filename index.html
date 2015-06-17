@@ -51,6 +51,45 @@
     <button ng-click='slideView(2, "/title")'>Pg2</button>
     <button ng-click='slideView(3, "/about")'>Pg3</button>-->
     
+    
+    <button id="disusered">disusered plugins <br/> </button>
+    <button id="streamingMedia"> streaming Media <br/> </button>
+    
+    
+    <script>
+        $("#disusered").click(function () {
+            alert("youtube disusered");
+
+            cordova.plugins.disusered.open('https://www.youtube.com/watch?v=37eEUsd1ASA');
+
+            // VideoPlayer.play('https://www.youtube.com/watch?v=37eEUsd1ASA'); //may be only android can open this video
+
+        });
+
+        $("#streamingMedia").click(function () {
+            alert("streamingMedia youtube");
+
+            //    YoutubeVideoPlayer.openVideo('https://www.youtube.com/watch?v=EKyirtVHsK0');
+
+            var videoUrl = 'https://www.youtube.com/watch?v=LBr7kECsjcQ';
+
+            // Just play a video
+            // window.plugins.streamingMedia.playVideo(videoUrl);
+
+            // Play a video with callbacks
+            var options = {
+                successCallback: function () {
+                    alert("Video was closed without error.");
+                },
+                errorCallback: function (errMsg) {
+                    alert("Error! " + errMsg);
+                }
+            };
+            window.plugins.streamingMedia.playVideo(videoUrl, options);
+
+        });
+
+    </script>
 
     <div id="slideView" ng-view ng-class="slideDir" class="slide"> </div>
     
