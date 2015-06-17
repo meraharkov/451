@@ -78,8 +78,10 @@
 
  
 
-  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>
-  
+<!--  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>-->
+  <gap:plugin name="com.dawsonloudon.videoplayer" version="1.0.0" />
+
+  <gap:plugin name="com.photokandy.videothumbnail" version="1.0.1" />
   
 
 <!--  <gap:plugin name="com.moust.cordova.videoplayer" version="1.0.0" /> ~1~  for only android @1@
