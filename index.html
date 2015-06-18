@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/effects/slide.css"  type="text/css" media="screen"/>
-    <link rel="stylesheet" href="css/effects/video.css" type="text/css" media="screen"  />
+ 
     
 
     
@@ -44,54 +44,75 @@
     
      <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
     <link rel="stylesheet" href="http://mediaelementjs.com/js/mejs-2.9.2/mediaelementplayer.min.css" />
-    
-    <script type="text/javascript">
-        MediaElementPlayer.prototype.enterFullScreen_org = MediaElementPlayer.prototype.enterFullScreen;
-        MediaElementPlayer.prototype.enterFullScreen = function () {
-            alert("full screen mode");
-            this.enterFullScreen_org();
-        };
-
-
-        MediaElementPlayer.prototype.exitFullScreen_org = MediaElementPlayer.prototype.exitFullScreen;
-        MediaElementPlayer.prototype.exitFullScreen = function () {
-            // Your code here
-            this.exitFullScreen_org();
-        };
-    </script>
+ 
    
 </head>
 <body ng-app="comix" ng-controller='mainCtrl'>
+ 
+  <!--   <div id="player"></div>-->
 
-     <video id="video"  preload="none">
-                            <source type="video/youtube" src="http://www.youtube.com/watch?v=Lt6CUH9bVzI" />
-                        </video>
+    <script>
+        // 2. This code loads the IFrame Player API code asynchronously.
+       /* var tag = document.createElement('script');
+
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // 3. This function creates an <iframe> (and YouTube player)
+        //    after the API code downloads.
+        var player;
+        function onYouTubeIframeAPIReady() {
+            player = new YT.Player('player', {
+                height: '768',
+                width: '1024',
+                videoId: 'M7lc1UVf-VE',
+                events: {
+                    'onReady': onPlayerReady,
+                    'onStateChange': onPlayerStateChange
+                }
+            });
+        }
+
+        // 4. The API will call this function when the video player is ready.
+        function onPlayerReady(event) {
+            event.target.playVideo();
+        }
+
+        // 5. The API calls this function when the player's state changes.
+        //    The function indicates that when playing a video (state=1),
+        //    the player should play for six seconds and then stop.
+        var done = false;
+        function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.PLAYING && !done) {
+                setTimeout(stopVideo, 6000);
+                done = true;
+            }
+        }
+        function stopVideo() {
+            player.stopVideo();
+        }*/
+    </script>
+
+
     
     <script>
-       
-        
-        var player = new MediaElementPlayer('#video', {
-            enableAutosize: true,
-            features: ['playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'fullscreen'],
-            alwaysShowControls: true,
-            iPadUseNativeControls: true,
-            // force iPhone's native controls
-            iPhoneUseNativeControls: true,
-        });
-        
-        player.enterFullScreen();
-        
+  /*      var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/player_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-       /* var myVideo = $('#video').mediaelementplayer({
-            enableAutosize: true,
-            features: ['playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'fullscreen'],
-            alwaysShowControls: true,
-            iPadUseNativeControls: true,
-            // force iPhone's native controls
-            iPhoneUseNativeControls: true,
-        });
-
-        myVideo.enterFullScreen();*/
+        // Replace the 'ytplayer' element with an <iframe> and
+        // YouTube player after the API code downloads.
+        var player;
+        function onYouTubePlayerAPIReady() {
+            player = new YT.Player('#video', {
+                height: '258',
+                width: '422',
+                videoId: 'atI4JKFQYoU'
+            });
+        }
+        */
         
         $("#disusered").click(function () {
             alert("youtube disusered");
@@ -133,8 +154,9 @@
 
     </script>
 
-   <!-- <div id="slideView" ng-view ng-class="slideDir" class="slide"> </div>
-    -->
+    <div id="slideView" ng-view ng-class="slideDir" class="slide"> </div>
+    
+
     <img class="main-menu-btn"
          src='imgs/assets/button-menu@2x.png'
          data-direction='left'
