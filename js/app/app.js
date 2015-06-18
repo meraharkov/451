@@ -115,26 +115,9 @@ $(document).ready(function () {
     
     });
   
-    var scrollFn = function () {
-        var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-        //  document.getElementById('value-scroll').innerHTML = scrolled + 'px'; // <div id="value-scroll" style="position: fixed; width: 200px; height: 100px; background: white;   z-index: 1030;"></div>
-        $('.sroll-item').css("margin-top", scrolled + "px"); 
-    };
-     
 
-//    $(window, $('body')).scroll(scrollFn);
+/*    var player = new MediaElementPlayer('#player1');*/
+ 
     
 
-    /* check this code */
-   /* $('[data-toggle="pooper"]').click(function () {
-        $('.menu-offcanvas').toggleClass('active');
-    });
-    $('.menu-close').click(function () {
-        $('.menu-offcanvas').toggleClass('active');
-    });
-    $('#bad_moon').click(function () {
-        window.location = 'badmoon.html';
-    });*/
-
- 
 });

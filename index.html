@@ -21,8 +21,10 @@
     <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
-    <link rel="stylesheet"  href="css/effects/slide.css"  media="screen"/>
+    <link rel="stylesheet" href="css/effects/slide.css"  type="text/css" media="screen"/>
+    <link rel="stylesheet" href="css/effects/video.css" type="text/css" media="screen"  />
     
+
     
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
@@ -40,21 +42,74 @@
     <script src="js/controllers/mainCtrl.js"></script>
     <script src="js/servise/viewSlideIndex.js"></script>
      
-
+    <!--
+        <script src="js/vendor/plugin/mediaelement.js"></script>
+        <script src="js/vendor/plugin/testforfiles.js"></script>-->
+    
+     <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="http://mediaelementjs.com/js/mejs-2.9.2/mediaelementplayer.min.css" />
+   
 </head>
 <body ng-app="comix" ng-controller='mainCtrl'>
 
  
  
-    
+<!--
+    <video controls="controls" 
+           class="video-stream" 
+           x-webkit-airplay="allow" 
+           data-youtube-id="N9oxmRT2YWw" 
+           src="http://v20.lscache8.c.youtube.com/videoplayback?sparams=id%2Cexpire%2Cip%2Cipbits%2Citag%2Cratebypass%2Coc%3AU0hPRVRMVV9FSkNOOV9MRllD&amp;itag=43&amp;ipbits=0&amp;signature=D2BCBE2F115E68C5FF97673F1D797F3C3E3BFB99.59252109C7D2B995A8D51A461FF9A6264879948E&amp;sver=3&amp;ratebypass=yes&amp;expire=1300417200&amp;key=yt1&amp;ip=0.0.0.0&amp;id=37da319914f6616c"></video>
+-->
+
+
     <!--    <button  ng-click='slideView(1, "/")' >Pg1</button>
     <button ng-click='slideView(2, "/title")'>Pg2</button>
     <button ng-click='slideView(3, "/about")'>Pg3</button>-->
     
     
-    <button id="disusered">disusered plugins <br/> </button>
-    <button id="streamingMedia"> streaming Media <br/> </button>
+ <!--   <button id="disusered" style="width: 200px; height: 70px;">disusered plugins <br/> </button>
+
+    <button id="streamingMedia"  style="width: 200px; height: 70px;"> streaming Media <br/> </button>
     
+    <button id="videoPlayId"  style="width: 200px; height: 70px;"> videoPlayId Media <br/> </button>-->
+    
+    <br/>
+    <br/>
+      <br/>
+    <!-- <video width="360" height="203" id="player1" src="media/echo-hereweare.mp4" type="video/mp4" controls="controls"></video>-->
+<!--     <video width="360" height="203" id="player1" src="https://www.youtube.com/watch?v=Np1mTuS4IT8" type="video/mp4" controls="controls"></video>-->
+
+<!--<input type="button" id="pp" value="toggle" />
+<span id="time"></span>-->
+	
+    <!-- <video controls="true">
+             <source src="www.youtube.com/watch?v=3bGNuRtlqAQ" type="video/mp4" />
+         </video>
+    
+        <video src="youtu.be/MLeIBFYY6UY" controls="true"></video>
+    
+    
+        <video width="640" height="360" id="player1" preload="none">
+            <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI" />
+        </video>
+    
+    
+        <video width="640" height="360" id="Video1" preload="none">
+            <source type="video/youtube" src="http://www.youtube.com/watch?v=nOEw9iiopwI" />
+        </video>
+    
+    
+        <video id="youtube1" width="640" height="360">
+            <source src="http://www.youtube.com/watch?v=nOEw9iiopwI" type="video/youtube" >
+        </video>
+        -->
+    
+      
+
+	
+   
+
     
     <script>
         $("#disusered").click(function () {
@@ -87,6 +142,12 @@
             };
             window.plugins.streamingMedia.playVideo(videoUrl, options);
 
+        });
+
+        $("#videoPlayId").click(function() {
+            alert(window.plugins);
+            alert(window.plugins.videoPlayer);
+            window.plugins.videoPlayer.play("https://www.youtube.com/watch?v=en_sVVjWFKk");
         });
 
     </script>

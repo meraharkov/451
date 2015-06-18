@@ -141,10 +141,13 @@
                             <img src="imgs/assets/button-back.png" />
                         </button>
 
-                        <iframe id="video"
+                        <!--<iframe id="video"
                             class="fl-left"
-                            src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+                            src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen></iframe>-->
 
+                        <video id="video"  preload="none">
+                            <source type="video/youtube" src="https://youtube.com/embed/T0bVqgBSZHk" />
+                        </video>
 
                     </div>
                 </div>
@@ -227,4 +230,5 @@
         });
     });
 
+    var player = new MediaElementPlayer('#video');
 </script>
