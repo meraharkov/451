@@ -74,7 +74,7 @@
   <gap:plugin name="org.apache.cordova.inappbrowser" version="0.5.2" />
   <gap:plugin name="net.yoik.cordova.plugins.screenorientation" version="1.3.1" />
   <gap:plugin name="de.appplant.cordova.plugin.email-composer" version="0.8.2" />
-  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>
+  <!--<gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>-->
  
 
 <!--  <gap:plugin name="VideoPlayer" value="com.phonegap.plugins.video.VideoPlayer"/>-->
