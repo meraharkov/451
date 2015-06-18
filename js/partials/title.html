@@ -230,5 +230,14 @@
         });
     });
 
-    var player = new MediaElementPlayer('#video');
+    // vvar player = new MediaElementPlayer('#video');
+    
+    $('#video').mediaelementplayer({
+        enableAutosize: true,
+        features: ['playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'fullscreen'],
+        alwaysShowControls: true,
+        iPadUseNativeControls: true,
+        // force iPhone's native controls
+        iPhoneUseNativeControls: true,
+    });
 </script>
