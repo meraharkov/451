@@ -114,10 +114,6 @@ $(document).ready(function () {
         $(document.body).removeClass("remove-scroll");
     
     });
-  
-
-/*    var player = new MediaElementPlayer('#player1');*/
- 
     
 
 });
