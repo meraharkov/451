@@ -158,6 +158,19 @@
 
 
 <script type="text/javascript">
+
+
+    
+    var myVideo = $('#video').mediaelementplayer({
+        enableAutosize: true,
+        features: ['playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'fullscreen'],
+        alwaysShowControls: true,
+        iPadUseNativeControls: true,
+        // force iPhone's native controls
+        iPhoneUseNativeControls: true,
+    });
+    
+
     function closevideo() {
 
         $("iframe").each(function () {
@@ -173,6 +186,7 @@
     });
 
     $("#videoTrailer").click(function () {
+        myVideo.enterFullScreen();
         screen.lockOrientation('landscape');
     });
 
@@ -182,13 +196,13 @@
             .plugins
             .socialsharing
             .shareViaFacebook('Company 451',
-            null /* img */,
-            "https://www.facebook.com/SourceSeek",  /*  null url */
-            function () {
-                alert('Your post shared');
-            }, function (errormsg) {
+                null /* img */,
+                "https://www.facebook.com/SourceSeek",  /*  null url */
+                function () {
+                    alert('Your post shared');
+                }, function (errormsg) {
 
-            });
+                });
     });
 
 
@@ -231,13 +245,6 @@
     });
 
     // vvar player = new MediaElementPlayer('#video');
-    
-    $('#video').mediaelementplayer({
-        enableAutosize: true,
-        features: ['playpause', 'progress', 'current', 'duration', 'tracks', 'volume', 'fullscreen'],
-        alwaysShowControls: true,
-        iPadUseNativeControls: true,
-        // force iPhone's native controls
-        iPhoneUseNativeControls: true,
-    });
+
+
 </script>
