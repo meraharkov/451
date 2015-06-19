@@ -10,20 +10,26 @@ function onYouTubeIframeAPIReady()
     player = new YT.Player('player', {
         height: heightPlayer,
         width: widthPlayer,
-        videoId:'T0bVqgBSZHk',// 'M7lc1UVf-VE',
+        videoId: 'T0bVqgBSZHk',// 'M7lc1UVf-VE',
+ 
+        
         playerVars: {
+            'autohide':1,
             'autoplay': 1,
-            'color': 'white',
-            'fs': 0, //hide full screen button
+           'controls': 0,
+            //'color':'white',
+            //'theme':'light',
+           'showinfo': 0,//hide title link about video on top iframe
             'modestbranding': 1, //hide YouTube logo
-            'enablejsapi': 1,//turn on APi Javascript
-            'showinfo': 0,//hide title link about video on top iframe
-            'controls': 0,
+            'fs': 0, //hide full screen button           
+            'enablejsapi': 1,//turn on APi Javascript 
             'playsinline': 0,//show video in full screen page
             'rel': 0 // don*t show other video after this video
         },
         events: {
-            'onReady': onPlayerReady
+            'onReady': onPlayerReady,
+            'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
+            'onStateChange': onPlayerStateChange,
         }
     });
 }
@@ -43,6 +49,13 @@ function onPlayerReady(event) {
     event.target.playVideo();
     player.setVolume(100);
 };
+
+function onPlayerStateChange(event) {
+}
+
+function onPlayerPlaybackQualityChange(event) {
+    
+}
 
 function closevideo() {
   

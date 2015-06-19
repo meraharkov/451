@@ -783,4 +783,13 @@ body
     height: 0;
 }
 
- 
+ .block-youtube-logo 
+ {
+      background: transparent;
+      position: absolute;
+      width: 20%;
+      height: 8%;
+      bottom: 0;
+      right: 0;
+
+ }
