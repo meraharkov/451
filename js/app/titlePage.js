@@ -5,8 +5,9 @@
 var player;
 function onYouTubeIframeAPIReady()
 {
-    var widthPlayer = window.innerWidth;
-    var heightPlayer = window.innerHeight;
+    var widthPlayer = window.innerWidth+1;
+    var heightPlayer = window.innerHeight + 1;
+    alert(widthPlayer + " " + heightPlayer)
     player = new YT.Player('player', {
         height: heightPlayer,
         width: widthPlayer,
