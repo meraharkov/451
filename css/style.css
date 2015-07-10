@@ -177,13 +177,6 @@ body
     height: 10px;
 }
 
-
-
-#ex-mortis
-{
-    margin-top: 10px;
-}
-
 #menuModal .modal-content
 {
     min-height: 100%;
@@ -440,7 +433,7 @@ body
 }
 
 
-#videoTrailer
+.videoTrailer
 {
     display: initial;
 }

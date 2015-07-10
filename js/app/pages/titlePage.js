@@ -61,11 +61,11 @@ function onPlayerPlaybackQualityChange(event) {
 function closevideo() {
   
     $("iframe").each(function () {
+        alert("close")
         var src = $(this).attr('src');
         $(this).attr('src', src);
     });
 }
-
 
 $('#videoModel').on('hidden.bs.modal', function () {
     closevideo();
@@ -73,10 +73,14 @@ $('#videoModel').on('hidden.bs.modal', function () {
     screen.unlockOrientation();
 });
 
-$("#videoTrailer").click(function () {
+/*
+ 
+
+$(".videoTrailer").click(function () {
+    alert("!");
     loadIframeYoutubePlayer();
     screen.lockOrientation('landscape');
-});
+});*/
 
 $("#share-facebook").click(function () {
 

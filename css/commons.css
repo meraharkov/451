@@ -24,4 +24,10 @@
     -webkit-overflow-scrolling: none;
 }
 
- 
+.mrT10 {
+    margin-top: 10px;
+}
+
+.mrB10 {
+    margin-bottom: 10px;
+}

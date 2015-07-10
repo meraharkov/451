@@ -22,107 +22,41 @@
     <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="css/effects/slide.css"  type="text/css" media="screen"/>
- 
-    
-
     
     <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
     <script src="js/vendor/jquery/jquery-ui.min.js"></script>
     <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
     
-
     <script src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.8/angular-route.min.js"></script>
     <script src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>
     <script src="js/vendor/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
     
     <script src="js/app/app.js"></script>
- 
-    <script src="js/controllers/mainCtrl.js"></script>
+
+    <script src="js/repository/serverApi.js"></script>
+    <script src="js/repository/packageRepository.js"></script>
+    <script src="js/services/homeServiceModel.js"></script>
     <script src="js/servise/viewSlideIndex.js"></script>
-    
-     <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
+
+    <script src="js/controllers/mainCtrl.js"></script>
+     <script src="js/controllers/titleCtrl.js"></script>
+
+  
+     
+    <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
     <link rel="stylesheet" href="http://mediaelementjs.com/js/mejs-2.9.2/mediaelementplayer.min.css" />
 
    
 </head>
-<body ng-app="comix" ng-controller='mainCtrl'>
+<body ng-app="comix"  >
    
-  <!--  <div id="player"></div>
-
-    <script>
-        
-
-        // 3. This function creates an <iframe> (and YouTube player)
-        //    after the API code downloads.
-        var player;
-        function onYouTubeIframeAPIReady() {
-            var widthPlayer = window.innerWidth;
-            var heightPlayer = window.innerHeight;
-            player = new YT.Player('player', {
-                height: heightPlayer,
-                width: widthPlayer,
-                videoId: 'T0bVqgBSZHk',// 'M7lc1UVf-VE',
-
-
-                playerVars: {
-                    'autohide': 1,
-                    'autoplay': 1,
-                    'controls': 0,
-                    //'color':'white',
-                    //'theme':'light',
-              //      'showinfo': 0,//hide title link about video on top iframe
-                    'modestbranding': true, //hide YouTube logo
-                    'fs': 0, //hide full screen button           
-                    'enablejsapi': 1,//turn on APi Javascript 
-                    'playsinline': 0,//show video in full screen page
-                    'rel': 0 // don*t show other video after this video
-                },
-                events: {
-                    'onReady': onPlayerReady,
-                    'onPlaybackQualityChange': onPlayerPlaybackQualityChange,
-                    'onStateChange': onPlayerStateChange,
-                }
-            });
-            
-            player.addEventListener('ended', function () {
-                window.location = 'http://www.google.com';
-            });
-        }
-
-       // iframe.contentWindow.document.body
-
-        function loadIframeYoutubePlayer() {
-
-            var tag = document.createElement('script');
-
-            tag.src = "https://www.youtube.com/iframe_api";
-            var firstScriptTag = document.getElementsByTagName('script')[0];
-            firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-           
-        }
-
-        // 4. The API will call this function when the video player is ready.
-        function onPlayerReady(event) {
-            event.target.playVideo();
-            player.setVolume(100);
-            
-            
-        };
-
-        function onPlayerStateChange(event) {
-            var tt = event;
-        }
-
-        function onPlayerPlaybackQualityChange(event) {
-            var tt = event;
-        }
-
-        loadIframeYoutubePlayer();
-    </script> -->
    
-    <div id="slideView" ng-view ng-class="slideDir" class="slide"> </div>
+    <div id="slideView" ng-view ng-class="slideDir" > </div>
+
+    
+    
 
     <img class="main-menu-btn"
          src='imgs/assets/button-menu@2x.png'
@@ -169,7 +103,7 @@
                 <div class="modal-header">
 
                     <h4 class="modal-title bold">SOCIAL 
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     </h4>
                 </div>
 
@@ -204,5 +138,6 @@
             </div>
         </div>
     </div>
+        
 </body>
 </html>

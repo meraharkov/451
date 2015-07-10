@@ -3,52 +3,13 @@
     'use strict';
 
     window.appName = window.appName || 'comix';
- //   window.slideTo = "slide-right";
-    
+   // window.serviceLink = "http://web421.newlinetechnologies.net/";
+    window.serviceLink =  "http://localhost:50038/";
+
     angular
         .module(window.appName, ['ngRoute', 'ngAnimate'  ])
-        .config(['$routeProvider', '$locationProvider', function ($routeProvider, $locationProvider) {
-
-            /*  
-            ORIGINAL ROUTE
-            $routeProvider
-                .when('/', { templateUrl: 'js/partials/home.html', controller: 'homeCtrl' })
-                .when('/title', { templateUrl: 'js/partials/title.html', controller: 'titleCtrl' })
-                .when('/about', { templateUrl: 'js/partials/about.html'  })
-                .otherwise({ redirectTo: '/' });*/
-
-
-                /*     
-                $routeProvider.when('/', {
-                    template: '<div style="background: green">Root Route</div>'
-                })
-                        .when('/routeA', {
-                            template: '<div style="background:blue" >Route A</div>'
-                        })
-                        .when('/routeB', {
-                            template: '<div style="background:red">Route B</div>'
-                        })
-                        .otherwise({
-                            redirectTo: '/'
-                        });*/
-                
-/*
-                $routeProvider.when('/pg1', {
-                    templateUrl: 'js/partials/home.html',
-                    controller: 'AppCtrl'
-                });
-                $routeProvider.when('/pg2', {
-                    templateUrl: 'js/partials/title.html',
-                    controller: 'AppCtrl'
-                });
-                $routeProvider.when('js/partials/about.html', {
-                    templateUrl: 'pg3.html',
-                    controller: 'AppCtrl'
-                });
-                $routeProvider.otherwise({
-                    redirectTo: '/pg1'
-                });*/
-            
+        .config(['$routeProvider', '$locationProvider',  
+            function ($routeProvider, $locationProvider ) {
 
                 $routeProvider
                 .when('/', { templateUrl: 'js/partials/home.html' })
@@ -56,7 +17,6 @@
                 .when('/about', { templateUrl: 'js/partials/about.html' })
                 .otherwise({ redirectTo: '/' });
             
-
                $locationProvider.html5Mode(false); 
 
             }]);
