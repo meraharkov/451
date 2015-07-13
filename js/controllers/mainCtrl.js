@@ -16,20 +16,6 @@
 
                                homeServiceModel.self.SelectedPage = page;
                                viewSlideIndex.slideView(index, url);
-
-                          /* var scrolled = window.pageYOffset || document.documentElement.scrollTop;
-
-                               $('.sroll-item').css("position", 'absolute');
-                               $('.sroll-item').css("margin-top", scrolled + "px");
-
-                               if (viewSlideIndex.getViewIndex() > index) {
-                                   $rootScope.slideDir = 'slide-right';
-                               } else {
-                                   $rootScope.slideDir = 'slide-left';
-                               }
-                               ;
-                               viewSlideIndex.setViewIndex(index);
-                               $location.url(url);*/
                            };
 
                            $scope.$watch(function () {

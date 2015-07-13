@@ -20,15 +20,29 @@
                                return window.serviceLink + url;
                            };
 
-
                             
-
+                           //http://blog.oxrud.com/posts/creating-youtube-directive/
                            $scope.showVideo = function(link) {
-                               loadIframeYoutubePlayer(); 
-                               screen.lockOrientation('landscape');
+                               $scope.yt.videoid = link;
+                              // $scope.$apply();
                            };
 
-                            
+
+                           $scope.yt = {
+                               width: 600,
+                               height: 480,
+                               videoid: "M7lc1UVf-VE",
+                           };
+
+                           $scope.closevideo = function() {
+
+                               $("iframe").each(function() {
+
+                                   var src = $(this).attr('src');
+                                   $(this).attr('src', src);
+                               });
+                           };
+
                        }]);
 
 }(window, window.angular));
