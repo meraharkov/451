@@ -9,13 +9,15 @@
             var _self = this;
 
             this.player = {};
-
-
+            this.tag = null;
+            this.firstScriptTag = null;
+            
             this.loadYoutubePlayer = function(element, scope) {
-                var tag = document.createElement('script');
-                tag.src = "https://www.youtube.com/iframe_api";
-                var firstScriptTag = document.getElementsByTagName('script')[0];
-                firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                this.tag = document.createElement('script');
+                this.tag.src = "https://www.youtube.com/iframe_api";
+                
+                this.firstScriptTag = document.getElementsByTagName('script')[0];
+                this.firstScriptTag.parentNode.insertBefore(this.tag, this.firstScriptTag);
 
                 /*   var player;*/
 

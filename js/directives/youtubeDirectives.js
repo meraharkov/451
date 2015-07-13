@@ -7,6 +7,7 @@
         .directive('youtube', ['$window', 'youtubeServiceModel', function ($window, youtubeServiceModel) {
          
             var isInitialized = false;
+            var player, tag, firstScriptTag;
             
             return {
                 restrict: "E",
@@ -20,12 +21,17 @@
                 template: '<div></div>',
 
                 link: function (scope, element) {
-                    /*var tag = document.createElement('script');
-                    tag.src = "https://www.youtube.com/iframe_api";
-                    var firstScriptTag = document.getElementsByTagName('script')[0];
-                    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-                    var player;
+                   /* if (!isInitialized) { }*/
+                        tag = document.createElement('script');
+                        tag.src = "https://www.youtube.com/iframe_api";
+                        firstScriptTag = document.getElementsByTagName('script')[0];
+                        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+                        isInitialized = true;
+                   
+                   
+
+                 
 
                     $window.onYouTubeIframeAPIReady = function() {
 
@@ -44,21 +50,45 @@
                             height: scope.height,
                             width: scope.width,
                             videoId: scope.videoid,
-                        });
-                    };*/
+                            events: {
+                                'onStateChange': function(event) {
 
-                   /* if (!isInitialized) {*/
-                        youtubeServiceModel.self.loadYoutubePlayer(element, scope);
-                   /*     isInitialized = true;
-                    }*/
-                   
+                                    var message = {
+                                        event: "",
+                                        data: ""
+                                    };
+
+                                    switch (event.data) {
+                                    case YT.PlayerState.PLAYING:
+                                        message.data = "PLAYING";
+                                        break;
+                                    case YT.PlayerState.ENDED:
+                                        message.data = "ENDED";
+                                        break;
+                                    case YT.PlayerState.UNSTARTED:
+                                        message.data = "NOT PLAYING";
+                                        break;
+                                    case YT.PlayerState.PAUSED:
+                                        message.data = "PAUSED";
+                                        break;
+                                    case YT.PlayerState.CUED:
+                                        message.data = "CUED";
+                                        break;
+                                    };
+
+                                    scope.$emit(message.event, message.data);
+                                }
+                            }
+                        });
+                    };
+                    
 
                     scope.$watch('videoid', function (newValue, oldValue) {
                         if (newValue == oldValue) {
                             return;
                         }
 
-                        youtubeServiceModel.self.player.cueVideoById(scope.videoid);
+                        player.cueVideoById(scope.videoid);
 
                     });
 
@@ -67,7 +97,7 @@
                             return;
                         }
 
-                        youtubeServiceModel.self.player.setSize(scope.width, scope.height);
+                         player.setSize(scope.width, scope.height);
 
                     });
                 }

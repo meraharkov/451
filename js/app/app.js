@@ -7,7 +7,7 @@
   // window.serviceLink =  "http://localhost:50038/";
 
     angular
-        .module(window.appName, ['ngRoute', 'ngAnimate'  ])
+        .module(window.appName, ['ngRoute', 'ngAnimate', 'youtubePlayer'  ])
         .config(['$routeProvider', '$locationProvider',  
             function ($routeProvider, $locationProvider ) {
 

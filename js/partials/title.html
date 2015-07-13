@@ -147,9 +147,24 @@
                                  <source type="video/youtube" src="http://www.youtube.com/watch?v=Lt6CUH9bVzI" />
                              </video>-->
                         
-                         <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>
+                       <!--  <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>-->
                          
-                        
+                          <div youtube-video video-id="{{player1.videoId}}" media-content-url="{{player1.mediaContentUrl}}"
+        width="{{player1.width}}" height="{{player1.height}}"
+        video-parameters="player1.videoParameters"
+        on-ready="onReady(event)"
+        on-state-change="onStateChange(event)"
+        on-playback-quality-change="onPlaybackQualityChange(event)"
+        on-playback-rate-change="onPlaybackRateChange(event)"
+        on-error="onError(event)"
+        on-api-change="onApiChange(event)"
+        on-controller-ready="onControllerReady(controller)"
+        on-api-loading-failure="onApiLoadingFailure(controller)"></div>
+
+    <br>
+    <hr>
+ 
+
                          <div id="player"></div>
                         <div class="block-youtube-logo" ></div>
                     </div>
@@ -159,5 +174,5 @@
     </div>
 </div>
 </div> 
-<!--<script src="js/app/pages/titlePage.js"></script>-->
+
  
