@@ -1,8 +1,10 @@
-document.addEventListener("deviceready", init, false);
+//document.addEventListener("deviceready", init, false);
 function init() {
    alert("init")
     //This alias is a read-only pointer to the app itself
     window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
+
+
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
     alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
 }
@@ -25,14 +27,14 @@ function gotFile(fileEntry) {
 
         document.querySelector("#status").innerHTML = s;
         console.dir(file);
-        alert(file);
+        
     });
 }
 
 
 function onRequestFileSystemSuccess(fileSystem) {
-    alert("onRequestFileSystemSuccess")
-    alert("fileSystem.root")
+     
+    alert(fileSystem.root)
     var entry = fileSystem.root;
     entry.getDirectory("example", { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
 }
@@ -45,4 +47,41 @@ function onGetDirectorySuccess(dir) {
 function onGetDirectoryFail(error) {
     alert("Error creating directory " + error.code);
     console.log("Error creating directory " + error.code);
+}
+/*=====================*/
+document.addEventListener("deviceready", showFileSystem, false);
+
+function successReadEntries() {
+    alert("successReadEntries")
+    var s = "";
+    var i;
+    for (i = 0; i < entries.length; i++) {
+        s += "<div onclick='callDerictory(" + entries[i].name +  ")'>  " + entries[i].name + " </div> <br/>";
+    }
+
+    document.querySelector("#status").innerHTML = s;
+}
+
+function callDerictory(directory) {
+    alert(directory);
+}
+
+function failRreadEntries() {
+    alert("Failed to list directory contents: " + error.code);
+}
+
+function showFileSystem() {
+
+    alert("showFileSystem");
+
+    var directoryReader = dirEntry.createReader();
+
+    directoryReader.readEntries(successReadEntries, failRreadEntries);
+}
+
+function createFolder(passToFolder, nameFolder) {
+    var entry = fileSystem.root;
+    var derictory = passToFolder + nameFolder;
+    alert(derictory)
+    entry.getDirectory(derictory, { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
 }
