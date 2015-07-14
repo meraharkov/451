@@ -74,7 +74,7 @@ $(document).ready(function () {
     });
     
     //Global instance of DirectoryEntry for our data
-    var DATADIR;
+   /* var DATADIR;
     var knownfiles = [];
 
     //Loaded my file system, now let's get a directory entry for where I'll store my crap
@@ -140,9 +140,58 @@ $(document).ready(function () {
             $("#status").html("");
         }, "json");
 
-    }
+    }*/
 
    
-        document.addEventListener("deviceready", onDeviceReady, true);
+    document.addEventListener("deviceready", onDeviceReady, true);
+    
+    
+
+    // device APIs are available
+    function onDeviceReady() {
+
+        alert("onDeviceReady");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+    }
+
+    function gotFS(fileSystem) {
+        
+        alert(fileSystem.name);
+        alert(fileSystem.root.name);
+        
+
+        fileSystem.root.getFile("readme.txt", null, gotFileEntry, fail);
+    }
+
+    function gotFileEntry(fileEntry) {
+        fileEntry.file(gotFile, fail);
+    }
+
+    function gotFile(file) {
+        readDataUrl(file);
+        readAsText(file);
+    }
+
+    function readDataUrl(file) {
+        var reader = new FileReader();
+        reader.onloadend = function (evt) {
+            alert("Read as data URL");
+            alert(evt.target.result);
+        };
+        reader.readAsDataURL(file);
+    }
+
+    function readAsText(file) {
+        var reader = new FileReader();
+        reader.onloadend = function (evt) {
+            alert("Read as text");
+            alert(evt.target.result);
+        };
+        reader.readAsText(file);
+    }
+
+    function fail(error) {
+        alert(error.code);
+    } 
     
 });
