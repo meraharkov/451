@@ -26,7 +26,7 @@
     <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
     <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
  
-       <!-- <script src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
+    <!-- <script src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
     <script src="http://code.angularjs.org/1.2.8/angular-route.min.js"></script>
     <script src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>-->
     
@@ -50,18 +50,21 @@
     
     
     <!--Creates a JavaScript object that mimics HTML5 MediaElement API
-* for browsers that don't understand HTML5 or can't play the provided codec
-* Can play MP4 (H.264), Ogg, WebM, FLV, WMV, WMA, ACC, and MP3-->
+    * for browsers that don't understand HTML5 or can't play the provided codec
+    * Can play MP4 (H.264), Ogg, WebM, FLV, WMV, WMA, ACC, and MP3-->
 <!--    <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
     <link rel="stylesheet" href="http://mediaelementjs.com/js/mejs-2.9.2/mediaelementplayer.min.css" />-->
 
-   
 </head>
 <body ng-app="comix"  >
    
-    <div id="slideView" ng-view ng-class="slideDir" > </div>
+  <!--  <div id="slideView" ng-view ng-class="slideDir" > </div>-->
 
+    <div id="status"></div>
+
+    <div id="photos"></div>
     
+
     <img class="main-menu-btn"
          src='imgs/assets/button-menu@2x.png'
          data-direction='left'

@@ -25,8 +25,7 @@
 
 
 $(document).ready(function () {
-
-
+     
     $('.main-menu-btn').click(function () {
         $('#menuModal')
             .prop('class', 'modal fade') // revert to default
@@ -71,7 +70,79 @@ $(document).ready(function () {
     
         document.removeEventListener('touchmove', preventDefault, false);
 
-        $(document.body).removeClass("remove-scroll");
+        $(document.body).removeClass("remove-scroll"); 
+    });
     
-    }); 
+    //Global instance of DirectoryEntry for our data
+    var DATADIR;
+    var knownfiles = [];
+
+    //Loaded my file system, now let's get a directory entry for where I'll store my crap
+    function onFSSuccess(fileSystem) {
+        fileSystem.root.getDirectory("Android/data/com.camden.imagedownloaddemo", { create: true }, gotDir, onError);
+    }
+
+    //The directory entry callback
+    function gotDir(d) {
+        alert("got dir");
+        DATADIR = d;
+        var reader = DATADIR.createReader();
+        reader.readEntries(function (d) {
+            gotFiles(d);
+            appReady();
+        }, onError);
+    }
+
+    //Result of reading my directory
+    function gotFiles(entries) {
+        alert("The dir has " + entries.length + " entries.");
+        for (var i = 0; i < entries.length; i++) {
+            console.log(entries[i].name + ' dir? ' + entries[i].isDirectory);
+            knownfiles.push(entries[i].name);
+            renderPicture(entries[i].fullPath);
+        }
+    }
+
+    function renderPicture(path) {
+        $("#photos").append("<img src='file://" + path + "'>");
+        alert("<img src='file://" + path + "'>");
+    }
+
+    function onError(e) {
+        alert("ERROR");
+        alert(JSON.stringify(e));
+    }
+
+    function onDeviceReady() {
+        //what do we have in cache already?
+        $("#status").html("Checking your local cache....");
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onFSSuccess, null);
+    }
+
+    function appReady() {
+        $("#status").html("Ready to check remote files...");
+        $.get("http://www.raymondcamden.com/demos/2012/jan/17/imagelister.cfc?method=listimages", {}, function (res) {
+            if (res.length > 0) {
+                $("#status").html("Going to sync some images...");
+                for (var i = 0; i < res.length; i++) {
+                    if (knownfiles.indexOf(res[i]) == -1) {
+                        console.log("need to download " + res[i]);
+                        var ft = new FileTransfer();
+                        var dlPath = DATADIR.fullPath + "/" + res[i];
+                        console.log("downloading crap to " + dlPath);
+                        ft.download("http://www.raymondcamden.com/demos/2012/jan/17/" + escape(res[i]), dlPath, function () {
+                            renderPicture(dlPath);
+                            console.log("Successful download");
+                        }, onError);
+                    }
+                }
+            }
+            $("#status").html("");
+        }, "json");
+
+    }
+
+    function init() {
+        document.addEventListener("deviceready", onDeviceReady, true);
+    }
 });
