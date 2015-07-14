@@ -142,7 +142,7 @@ $(document).ready(function () {
 
     }
 
-    function init() {
+   
         document.addEventListener("deviceready", onDeviceReady, true);
-    }
+    
 });
