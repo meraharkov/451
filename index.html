@@ -1,150 +1,20 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <meta name="format-detection" content="telephone=no" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title></title>
+		<meta name="description" content="">
+		<meta name="viewport" content="width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/app.css" />
+		<meta name="format-detection" content="telephone=no">
+	</head>
+	<body>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-
-    <title>451</title>
-    <meta property="og:title" content="451" />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="http://" />
-    <meta property="og:image" content="http://" />
-    <meta property="og:site_name" content="451" />
-    <meta property="og:description" content="Media App" />
-    
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/commons.css" type="text/css" media="screen" />
-    <link rel="stylesheet" href="css/effects/slide.css"  type="text/css" media="screen"/>
-    
-    <script src="js/vendor/jquery/jquery-2.1.4.min.js"></script>
-    <script src="js/vendor/jquery/jquery-ui.min.js"></script>
-    <script src="js/vendor/cordova/cordova.3.4.0.js"></script>
-    <script src="js/vendor/bootstrap/bootstrap.min.js"></script>
- 
-    <!-- <script src="http://code.angularjs.org/1.2.8/angular.min.js"></script>
-    <script src="http://code.angularjs.org/1.2.8/angular-route.min.js"></script>
-    <script src="http://code.angularjs.org/1.2.8/angular-animate.min.js"></script>-->
-    
-    <script src="https://code.angularjs.org/1.3.5/angular.min.js"></script>
-   <script src="https://code.angularjs.org/1.3.5/angular-route.min.js"></script>
-    <script src="https://code.angularjs.org/1.3.5/angular-animate.min.js"></script>
-    
-    <script src="js/vendor/bootstrap/ui-bootstrap-tpls-0.13.0.min.js"></script>
-    <script src="js/directives/angularYoutubePlayer.js"></script>
-
-    <script src="js/app/app.js"></script>
-
-    <script src="js/repository/serverApi.js"></script>
-    <script src="js/repository/packageRepository.js"></script>
-
-    <script src="js/services/homeServiceModel.js"></script>
-    <script src="js/servise/viewSlideIndex.js"></script>
-
-    <script src="js/controllers/mainCtrl.js"></script>
-    <script src="js/controllers/titleCtrl.js"></script>
-    
-    
-    <!--Creates a JavaScript object that mimics HTML5 MediaElement API
-    * for browsers that don't understand HTML5 or can't play the provided codec
-    * Can play MP4 (H.264), Ogg, WebM, FLV, WMV, WMA, ACC, and MP3-->
-<!--    <script src="http://mediaelementjs.com/js/mejs-2.9.2/mediaelement-and-player.min.js"></script>
-    <link rel="stylesheet" href="http://mediaelementjs.com/js/mejs-2.9.2/mediaelementplayer.min.css" />-->
-
-</head>
-<body ng-app="comix"    >
-   
-  <!--  <div id="slideView" ng-view ng-class="slideDir" > </div>-->
-
-    <div id="status"></div>
-
-    <div id="photos"></div>
-    
-
-    <img class="main-menu-btn"
-         src='imgs/assets/button-menu@2x.png'
-         data-direction='left'
-         alt="" />
-     
-    <div class="modal fade" id="menuModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h4 class="modal-title bold">MENU 
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
-                                <img src="imgs/assets/button-close@2x.png" />
-                            </button>
-                    </h4>
-                </div>
-
-                <div class="modal-body">
-                    <a data-toggle="modal"
-                        data-target="#socialuModal">
-                        <h5>SOCIAL</h5>
-                    </a>
-
-                    <h5>WHERE TO BUY</h5>
-
-                    <h5>ABOUT</h5>
-                    <br />
-                    <br />
-
-                    <a id="bad-moon-menu-btn" ng-click='slideView(2, "/title")' >  <!--href="#/title"-->
-                        <h5>BAD MOON RISING</h5>
-                    </a>
-                    <h5>EXMORTIS</h5>
-                    <h5>HUMBUG</h5>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="socialuModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-
-                    <h4 class="modal-title bold">SOCIAL 
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    </h4>
-                </div>
-
-                <div class="modal-body">
-
-                    <a id="facebook">
-                        <h5>
-                            <img src="imgs/assets/button-share-facebook.png" />FACEBOOK
-                        </h5>
-                    </a>
-
-                    <a id="instagramm">
-                        <h5>
-                            <img src="imgs/assets/button-social-instagram-57x57.png" />
-                            INSTAGRAM 
-                        </h5>
-                    </a>
-
-                    <a id="twitter">
-                        <h5>
-                            <img src="imgs/assets/button-share-twitter.png" />
-                            TWITTER
-                        </h5>
-                    </a>
-
-                    <a id="tumbrl">
-                        <h5>
-                            <img src="imgs/assets/button-share-tumblr.png" />TUMBLR
-                        </h5>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-        
-</body>
+	<h2>My App</h2>
+	<div id="status"></div>
+	
+	<script src="js/cordova.3.4.0.js"></script>	
+	<script src="js/app.js"></script>
+	</body>
 </html>
