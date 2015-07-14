@@ -10,8 +10,7 @@
                        function ($scope,   viewSlideIndex, homeServiceModel) {
   
                            $scope.Page = homeServiceModel.self.SelectedPage;
-                            
-                           
+                         
                            $scope.slideView = function (index, url) {
                                viewSlideIndex.slideView(index, url);
                            };
@@ -20,26 +19,34 @@
                                return window.serviceLink + url;
                            };
 
-                            
-                           //http://blog.oxrud.com/posts/creating-youtube-directive/
-                           $scope.showVideo = function(link) {
-                               $scope.yt.videoid = link;
-                               $scope.player1.videoId = link;
-                              // $scope.$apply();
+                           $scope.player = {
+                               width:    window.innerWidth + 1,     //'640',
+                               height:   window.innerHeight + 1, //'390',
+                               videoId: 'i9MHigUZKEM',
+                               playerVars: {
+                                    'autohide':1,
+                                    'autoplay': 1,//start play by onload
+                                   'controls': 0,
+                                   'showinfo': 0,//hide title link about video on top iframe
+                                    'modestbranding': 1, //hide YouTube logo
+                                    'fs': 0, //hide full screen button           
+                                    'enablejsapi': 1,//turn on APi Javascript 
+                                    'playsinline': 0,//show video in full screen page
+                                    'rel': 0 // don*t show other video after this video
+                               },
+                               videoParameters: {
+                                   'startSeconds': 1
+                               }
+                           };
+ 
+                           $scope.showVideo = function (link) {
+                               $scope.player.videoId = link;
                            };
                            
                            
-
-                           $scope.yt = {
-                               width: 600,
-                               height: 480,
-                               videoid: "M7lc1UVf-VE",
-                           };
-
                            $scope.closevideo = function() {
 
                                $("iframe").each(function() {
-
                                    var src = $(this).attr('src');
                                    $(this).attr('src', src);
                                });
@@ -49,8 +56,7 @@
                            $scope.onReady = function (event) {
                                console.log('onReady');
                                console.log(event);
-                               // var player = event.target;
-                               // player.playVideo();
+                               event.target.playVideo();
                            };
                            $scope.onStateChange = function (event) {
                                console.log('onStateChange');
@@ -82,13 +88,8 @@
                                console.log(controller);
                                // controller.reload(); // try load youtube api again
                            };
-
-                           $scope.player1 = {
-                               width: '640',
-                               height: '390',
-                               videoId: 'i9MHigUZKEM',
-                               videoParameters: {}
-                           };
+ 
+                          
                             
 
                        }]);

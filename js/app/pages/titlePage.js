@@ -73,14 +73,12 @@ $('#videoModel').on('hidden.bs.modal', function () {
     screen.unlockOrientation();
 });
 
-/*
  
 
 $(".videoTrailer").click(function () {
-    alert("!");
     loadIframeYoutubePlayer();
     screen.lockOrientation('landscape');
-});*/
+});
 
 $("#share-facebook").click(function () {
 

@@ -135,36 +135,37 @@
                 <div class="content">
 
                     <div class="embed-container">
-                        <button ng-click="closevideo()" type="button" class="close fl-left" data-dismiss="modal" aria-hidden="true">
+                        <button ng-click="closevideo()" 
+                                type="button"
+                                class="close fl-left"
+                                data-dismiss="modal"
+                                aria-hidden="true">
                             <img src="imgs/assets/button-back.png" />
                         </button>
-
-                        <!--<iframe id="video"
-                            class="fl-left"
-                            src="https://youtube.com/embed/T0bVqgBSZHk?wmode=opaque" frameborder="0" allowfullscreen></iframe>-->
-
-                        <!-- <video id="video"  preload="none">
-                                 <source type="video/youtube" src="http://www.youtube.com/watch?v=Lt6CUH9bVzI" />
-                             </video>-->
+                     
                         
-                       <!--  <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>-->
+                        <!--  <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>-->
                          
-                          <div youtube-video video-id="{{player1.videoId}}" media-content-url="{{player1.mediaContentUrl}}"
-        width="{{player1.width}}" height="{{player1.height}}"
-        video-parameters="player1.videoParameters"
-        on-ready="onReady(event)"
-        on-state-change="onStateChange(event)"
-        on-playback-quality-change="onPlaybackQualityChange(event)"
-        on-playback-rate-change="onPlaybackRateChange(event)"
-        on-error="onError(event)"
-        on-api-change="onApiChange(event)"
-        on-controller-ready="onControllerReady(controller)"
-        on-api-loading-failure="onApiLoadingFailure(controller)"></div>
-
-    <br>
-    <hr>
- 
-
+                        <div youtube-video
+                             video-id="{{player.videoId}}"
+                             media-content-url="{{player.mediaContentUrl}}"
+                             width="{{player.width}}"
+                             height="{{player.height}}"
+                             video-parameters="player.videoParameters"
+                             player-vars="player.playerVars"
+                             on-ready="onReady(event)"
+                             on-state-change="onStateChange(event)"
+                             on-playback-quality-change="onPlaybackQualityChange(event)"
+                             on-playback-rate-change="onPlaybackRateChange(event)"
+                             on-error="onError(event)"
+                             on-api-change="onApiChange(event)"
+                             on-controller-ready="onControllerReady(controller)"
+                             on-api-loading-failure="onApiLoadingFailure(controller)"
+                            >
+                            
+                        </div>
+                        <br>
+                        <hr>
                          <div id="player"></div>
                         <div class="block-youtube-logo" ></div>
                     </div>
@@ -176,3 +177,70 @@
 </div> 
 
  
+<script type="text/javascript">
+
+    $('#videoModel').on('hidden.bs.modal', function () {
+       screen.unlockOrientation();
+    });
+
+
+
+    $(".videoTrailer").click(function () {
+        loadIframeYoutubePlayer();
+        screen.lockOrientation('landscape');
+    });
+
+    $("#share-facebook").click(function () {
+
+        window
+            .plugins
+            .socialsharing
+            .shareViaFacebook('Company 451',
+                null /* img */,
+                "https://www.facebook.com/SourceSeek",  /*  null url */
+                function () {
+                    alert('Your post shared');
+                }, function (errormsg) {
+
+                });
+    });
+
+
+    $("#share-twitter").click(function () {
+        window
+            .plugins
+            .socialsharing
+            .shareVia('com.apple.social.twitter',
+                'Company 451 Twitter',
+                null,
+                null,
+                'https://twitter.com/sourceseek',
+                function () {
+                    alert('Your post shared');
+                },
+                function (msg) {
+                    console.log('error: ' + msg);
+                });
+    });
+
+
+    $("#tumbrl-share").click(function () {
+        /*  window
+              .plugins
+              .socialsharing
+              .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');*/
+
+        var ref = window.open('http://tumblr.com/widgets/share/tool?canonicalUrl=https://www.facebook.com/SourceSeek', '_system', 'location=no');
+    });
+
+    $("#mail-share").click(function () {
+
+        cordova.plugins.email.open({
+            to: '',/* 'recipient@email.com',*/
+            cc: '', /* 'your@email.com',*/
+            bcc: ['', ''],
+            subject: '451 company',
+            body: '451 company'
+        });
+    });
+</script>
