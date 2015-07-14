@@ -73,6 +73,13 @@ function failRreadEntries() {
 function showFileSystem() {
 
     alert("showFileSystem");
+    var path = cordova.file.applicationDirectory;
+
+    alert(path);
+
+    var dirEntry = new DirectoryEntry('', path);
+
+    alert('is it? ' + dirEntry.isDirectory);
 
     var directoryReader = dirEntry.createReader();
 
