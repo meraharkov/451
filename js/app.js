@@ -129,7 +129,12 @@ function showFileSystem() {
   //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 }
 alert("before document.addEventListener ")
-document.addEventListener("deviceready", showFileSystem, false);
+ 
+
+function init() {
+    alert("Init")
+    document.addEventListener("deviceready", showFileSystem, false);
+}
 
 alert("after document.addEventListener ")
 
