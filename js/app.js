@@ -49,7 +49,7 @@ function onGetDirectoryFail(error) {
     console.log("Error creating directory " + error.code);
 }
 /*=====================*/
-document.addEventListener("deviceready", showFileSystem, false);
+
 
 function successReadEntries(entries) {
     alert("successReadEntries")
@@ -124,18 +124,14 @@ function showFileSystem() {
 
 
     //var directoryReader = dirEntry.createReader();      
-
     //directoryReader.readEntries(successReadEntries, failRreadEntries);
-
-    //alert("after directoryReader.readEntries")
-
-   
-
+    //alert("after directoryReader.readEntries")  
   //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
-
-
-     
 }
+alert("before document.addEventListener ")
+document.addEventListener("deviceready", showFileSystem, false);
+
+alert("after document.addEventListener ")
 
 //function createFolder(passToFolder, nameFolder) {
 //    var entry = fileSystem.root;
