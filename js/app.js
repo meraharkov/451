@@ -99,6 +99,25 @@ function failMetadata(error) {
 function showFileSystem() {
 
     alert("showFileSystem");
+    
+    var directoryReader = fileSystem.root.createReader();
+
+
+    // Get a list of all the entries in the directory
+    //directoryReader.readEntries(successReadEntries, failRreadEntries);
+    directoryReader.readEntries(function (entries) {
+        alert(" readEntries TRUE");
+        for (i = 0; i < entries.length; i++) {
+            s += "<div onclick='callDerictory(" + entries[i].name + ")'>  " + entries[i].name + " </div> <br/>";
+        }
+
+    }
+        , function () {
+            alert(" readEntries FALSE  ")
+        });
+
+
+
     var path = cordova.file.applicationDirectory;
 
     alert(path);
@@ -111,32 +130,22 @@ function showFileSystem() {
 
     alert("dirEntry fullPath " + dirEntry.fullPath)
 
-  //  dirEntry.getMetadata(successMetadata, failMetadata);
+ 
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
-    var directoryReader = fileSystem.root.createReader();
-
-
-    // Get a list of all the entries in the directory
-    directoryReader.readEntries(successReadEntries, failRreadEntries);
-
+   
    
 
     //var directoryReader = dirEntry.createReader();      
-    //directoryReader.readEntries(successReadEntries, failRreadEntries);
+   
     //alert("after directoryReader.readEntries")  
   //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 }
-alert("before document.addEventListener ")
- 
 
-function init() {
-    alert("Init")
-    document.addEventListener("deviceready", showFileSystem, false);
-}
 
-alert("after document.addEventListener ")
+   // document.addEventListener("deviceready", showFileSystem, false);
+
 
 //function createFolder(passToFolder, nameFolder) {
 //    var entry = fileSystem.root;
