@@ -186,17 +186,17 @@ function showFileSystem() {
        var fileSystem = LocalFileSystem.PERSISTENT;
 
        for (i = 0; i < entries.length; i++) {
-           s += "<div onclick='callDerictory(" + entries[i].name + ")'>  " + entries[i].name + " </div> <br/>";
+           s += "<div>" + entries[i].name + "</div> <br/>";
        }
 
 
-       for (i = 0; i < entries.length; i++) {
+       //for (i = 0; i < entries.length; i++) {
 
-           var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
-           alert(dataDir.toString());
+       //    var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
+       //    alert(dataDir.toString());
 
 
-       }
+       //}
 
 
        document.querySelector("#status").innerHTML = s;
