@@ -144,7 +144,7 @@ function showFileSystem() {
 }
 
 
-   // document.addEventListener("deviceready", showFileSystem, false);
+   document.addEventListener("deviceready", showFileSystem, false);
 
 
 //function createFolder(passToFolder, nameFolder) {
