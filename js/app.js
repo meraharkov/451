@@ -1,6 +1,6 @@
 //document.addEventListener("deviceready", init, false);
 function init() {
-   alert("init")
+    alert("init")
     //This alias is a read-only pointer to the app itself
     window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "www/index.html", gotFile, fail);
 
@@ -27,20 +27,20 @@ function gotFile(fileEntry) {
 
         document.querySelector("#status").innerHTML = s;
         console.dir(file);
-        
+
     });
 }
 
 
 function onRequestFileSystemSuccess(fileSystem) {
-     
+
     alert(fileSystem.root)
     var entry = fileSystem.root;
     entry.getDirectory("example", { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
 }
 
 function onGetDirectorySuccess(dir) {
-   
+
     alert("dir :" + dir.name);
 }
 
@@ -57,9 +57,9 @@ function successReadEntries(entries) {
     var i;
 
     var fileSystem = LocalFileSystem.PERSISTENT;
-     
+
     for (i = 0; i < entries.length; i++) {
-        s += "<div onclick='callDerictory(" + entries[i].name +  ")'>  " + entries[i].name + " </div> <br/>";
+        s += "<div onclick='callDerictory(" + entries[i].name + ")'>  " + entries[i].name + " </div> <br/>";
     }
 
 
@@ -68,10 +68,10 @@ function successReadEntries(entries) {
         var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
         alert(dataDir.toString());
 
-        
+
     }
 
-   
+
     document.querySelector("#status").innerHTML = s;
 }
 
@@ -79,8 +79,7 @@ function callDerictory(directory) {
     alert(directory);
 }
 
-function failRreadEntries()
-{
+function failRreadEntries() {
     alert("Failed to list directory contents: " + error.code);
 }
 
@@ -93,13 +92,13 @@ function failMetadata(error) {
     alert(error.code);
 }
 
- 
- 
+
+
 
 function showFileSystem() {
 
     alert("showFileSystem");
-    
+
     var directoryReader = fileSystem.root.createReader();
 
 
@@ -129,21 +128,21 @@ function showFileSystem() {
 
     alert("dirEntry fullPath " + dirEntry.fullPath)
 
- 
+
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
-   
-   
+
+
 
     //var directoryReader = dirEntry.createReader();      
-   
+
     //alert("after directoryReader.readEntries")  
-  //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+    //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 }
 
 
-  // document.addEventListener("deviceready", showFileSystem, false);
+// document.addEventListener("deviceready", showFileSystem, false);
 
 
 //function createFolder(passToFolder, nameFolder) {
@@ -154,6 +153,9 @@ function showFileSystem() {
 //}
 
 /* working code ==================================================================================================================*/
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
 function onFileSystemError(error) {
     var msg = 'file system error: ' + error.code;
     navigator.notification.alert(msg, null, 'File System Error');
@@ -183,7 +185,7 @@ var getFileSystemRoot = (function () {
 }()); // execute immediately
 
 
-function removeFile( fileName) {
+function removeFile(fileName) {
     var root = getFileSystemRoot();
     var remove_file = function (entry) {
         entry.remove(function () {
@@ -199,121 +201,135 @@ function removeFile( fileName) {
 function removeDirectory(directoryName) {
     var root = getFileSystemRoot();
 
-         root.getDirectory(
-             directoryName,
-            { create: true, exclusive: false },
-            function (entry) {
-                entry.removeRecursively(function () {
-                    console.log("Remove Recursively Succeeded");
-                }, fail);
-            }, fail);
-    
+    root.getDirectory(
+        directoryName,
+       { create: true, exclusive: false },
+       function (entry) {
+           entry.removeRecursively(function () {
+               console.log("Remove Recursively Succeeded");
+           }, fail);
+       }, fail);
+
 }
 
-var fileSystemGlobal;
-
-document.addEventListener("deviceready", onDeviceReady, false);
 
 
-   function onDeviceReady() {
+function onDeviceReady() {
 
-       alert("deviceready")
-       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
-   }
-  
-
-   function gotFS(fileSystem) {
-       
-       alert("gotFS");
-
-       fileSystemGlobal = fileSystem;
-
-       alert(fileSystem.name);
-       alert(fileSystem.root.name);
+    alert("deviceready")
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
 
 
-       var reader = fileSystem.root.createReader();
+function successRemove(entry) {
+    console.log("Removal succeeded");
+}
 
-       reader.readEntries(gotList, fail);
+function failRemove(error) {
+    alert('Error removing file: ' + error.code);
+}
 
-       fileSystem.root.getDirectory("Content", { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
+var removeFile = function (fileEntry) {
+    fileEntry.remove(successRemove, failRemove);
+}
 
-       fileSystem.root.getDirectory( "Content",
-                    {create:false, exclusive: false},
-                    function(directory) {
-                        alert("into directory content " + directory.name)
-                        var fileName = "temp.txt";
+var removeDeletedImage = function (imageURI) {
+    window.resolveLocalFileSystemURI(imageURI, removeFile, onFileSystemError);
+}
 
-                        alert("try remove file" + fileName);
-                        removeFile(fileName);
+function gotFS(fileSystem) {
 
-                       
-                        var remove_file = function (entry) {
-                            entry.remove(function () {
-                                navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
-                            }, onFileSystemError);
-                        };
+    alert("gotFS");
+    alert(fileSystem.name);
+    alert(fileSystem.root.name);
 
-                        // retrieve a file and truncate it
-                        directory.getFile(fileName, { create: false }, remove_file, onFileSystemError);
 
-                    },
-                    onFileSystemError);
+    var reader = fileSystem.root.createReader();
 
-       var fileName = "Lighthouse.jpg";
-       alert("try remove file " + fileName);
-       removeFile(fileName);
+    reader.readEntries(gotList, fail);
 
-       var folderName = "Temp";
-       alert("try remove folderName " + folderName);
+    var fileName = "Lighthouse.jpg";
+    removeDeletedImage(fileName);
 
-       removeDirectory(folderName);
-   }
+    fileSystem.root.getDirectory("Content", { create: true }, onGetDirectorySuccess, onGetDirectoryFail);
 
-   function successMove(entry) {
-       //I do my insert with "entry.fullPath" as for the path
-       alert("entry.fullPath");
-       alert(entry.fullPath);
-   }
+    fileSystem.root.getDirectory("Content",
+                 { create: true, exclusive: false },
+                 function (directory) {
+                     alert("into directory content " + directory.name)
+                     var fileName = "temp.txt";
 
+                     alert("try remove file" + fileName);
+                     removeFile(fileName);
+
+
+                     var remove_file = function (entry) {
+                         entry.remove(function () {
+                             navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
+                         }, onFileSystemError);
+                     };
+
+                     // retrieve a file and truncate it
+                     directory.getFile(fileName, { create: false }, remove_file, onFileSystemError);
+
+                 },
+                 onFileSystemError);
+
+    var fileName = "Lighthouse.jpg";
+    alert("try remove file " + fileName);
+    removeFile(fileName);
+
+    var folderName = "Temp";
+    alert("try remove folderName " + folderName);
+
+    removeDirectory(folderName);
+}
+
+
+function gotList(entries) {
    
-
-   function gotList(entries) {
-       //var i;
-       //for (i = 0; i < entries.length; i++) {
-       //    if (entries[i].name.indexOf(".svg") != -1) {
-       //        uploadPhoto(entries[i].fullPath);
-       //    }
-       //}
-
-       alert("gotList")
-       var s = "";
-       var i;
-
-       var fileSystem = LocalFileSystem.PERSISTENT;
-       alert("count entities" + entries.length)
-
-       for (i = 0; i < entries.length; i++) {
-           s += "<div>" + entries[i].name + "</div> <br/>";
-       }
-
-
-       //for (i = 0; i < entries.length; i++) {
-
-       //    var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
-       //    alert(dataDir.toString());
-
-
-       //}
-
-
-       document.querySelector("#status").innerHTML = s;
-
-   }
-
+    alert("gotList")
+    var s = "";
+    var i;
  
-   function uploadPhoto(imageURI) {
-       var options = new FileUploadOptions();
-       var ft = new FileTransfer();
-       ft.upload(imageURI, "http://192.168.1.54:8080/POC/fileUploader", win, fail, options);
-   }
+    alert("count entities" + entries.length)
+    
+    for (i = 0; i < entries.length; i++) {
+         alert(entries[i].name);
+        if (entries[i].isDirectory == true) {
+            var directoryReaderIn = entries[i].createReader();
+            directoryReaderIn.readEntries(gotList, onFileSystemError);
+        }
+        alert(" entries[i].isFile " + entries[i].isFile)
+        if (entries[i].isFile == true) {
+            alert("call uploadFile")
+            entries[i].file(uploadFile, onFileSystemError);
+        }
+    }
+
+    document.querySelector("#status").innerHTML = s;
+}
+
+
+function uploadPhoto(imageURI) {
+
+    alert("uploadPhoto " + imageURI)
+    var options = new FileUploadOptions();
+    var ft = new FileTransfer();
+    ft.upload(imageURI, "http://localhost:50038/Content/6.12.15/ExMortis/EXMORT_Screencap001.png", win, failuploadPhoto, options);
+
+
+    var target = ""; //the url to upload on server
+    var ft = new FileTransfer(), path = "file://" + file.fullPath, name = file.name;
+    ft.upload(path, target, win, fail, { fileName: name }); 
+}
+
+function win(r) {
+    alert("Code = " + r.responseCode);
+    alert("Response = " + r.response);
+    alert("Sent = " + r.bytesSent);
+}
+
+function failuploadPhoto(codeError) {
+    alert("fail failuploadPhoto" + codeError)
+}
