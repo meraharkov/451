@@ -145,7 +145,13 @@
     <param name="android-package" value="nl.xservices.plugins.SocialSharing" />
     <param name="wp-package" value="SocialSharing"/>
   </feature>
-  
+
+  <feature name="File">
+    <param name="android-package" value="org.apache.cordova.FileUtils" />
+  </feature>
+  <feature name="FileTransfer">
+    <param name="android-package" value="org.apache.cordova.FileTransfer" />
+  </feature>
 
   <!-- Define app icon for each platform. -->
   <icon src="icon.png" />
