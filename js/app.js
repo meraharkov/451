@@ -144,7 +144,7 @@ function showFileSystem() {
 }
 
 
-   document.addEventListener("deviceready", showFileSystem, false);
+  // document.addEventListener("deviceready", showFileSystem, false);
 
 
 //function createFolder(passToFolder, nameFolder) {
@@ -153,3 +153,59 @@ function showFileSystem() {
 //    alert(derictory)
 //    entry.getDirectory(derictory, { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
 //}
+
+
+
+   document.addEventListener("deviceready", onDeviceReady, false);
+   function onDeviceReady() {
+
+       alert(" window.requestFileSystem")
+       window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+   }
+  
+
+   function gotFS(fileSystem) {
+
+       alert("gotFS")
+       var reader = fileSystem.root.createReader();
+       reader.readEntries(gotList, fail);
+   }
+
+   function gotList(entries) {
+       //var i;
+       //for (i = 0; i < entries.length; i++) {
+       //    if (entries[i].name.indexOf(".svg") != -1) {
+       //        uploadPhoto(entries[i].fullPath);
+       //    }
+       //}
+
+       alert("gotList")
+       var s = "";
+       var i;
+
+       var fileSystem = LocalFileSystem.PERSISTENT;
+
+       for (i = 0; i < entries.length; i++) {
+           s += "<div onclick='callDerictory(" + entries[i].name + ")'>  " + entries[i].name + " </div> <br/>";
+       }
+
+
+       for (i = 0; i < entries.length; i++) {
+
+           var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
+           alert(dataDir.toString());
+
+
+       }
+
+
+       document.querySelector("#status").innerHTML = s;
+
+   }
+
+ 
+   function uploadPhoto(imageURI) {
+       var options = new FileUploadOptions();
+       var ft = new FileTransfer();
+       ft.upload(imageURI, "http://192.168.1.54:8080/POC/fileUploader", win, fail, options);
+   }
