@@ -51,14 +51,27 @@ function onGetDirectoryFail(error) {
 /*=====================*/
 document.addEventListener("deviceready", showFileSystem, false);
 
-function successReadEntries() {
+function successReadEntries(entries) {
     alert("successReadEntries")
     var s = "";
     var i;
+
+    var fileSystem = LocalFileSystem.PERSISTENT;
+     
     for (i = 0; i < entries.length; i++) {
         s += "<div onclick='callDerictory(" + entries[i].name +  ")'>  " + entries[i].name + " </div> <br/>";
     }
 
+
+    for (i = 0; i < entries.length; i++) {
+
+        var dataDir = fileSystem.root.getDirectory(entries[i].name, { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
+        alert(dataDir.toString());
+
+        
+    }
+
+   
     document.querySelector("#status").innerHTML = s;
 }
 
@@ -66,9 +79,22 @@ function callDerictory(directory) {
     alert(directory);
 }
 
-function failRreadEntries() {
+function failRreadEntries()
+{
     alert("Failed to list directory contents: " + error.code);
 }
+
+
+function successMetadata(metadata) {
+    alert("Last Modified: " + metadata.modificationTime);
+}
+
+function failMetadata(error) {
+    alert(error.code);
+}
+
+ 
+ 
 
 function showFileSystem() {
 
@@ -81,14 +107,29 @@ function showFileSystem() {
 
     alert('is it? ' + dirEntry.isDirectory);
 
-    var directoryReader = dirEntry.createReader();
+    alert("dirEntry name " + dirEntry.name)
+
+    alert("dirEntry fullPath " + dirEntry.fullPath)
+
+    dirEntry.getMetadata(successMetadata, failMetadata); directoryReader
+
+    var directoryReader = dirEntry.createReader();      
 
     directoryReader.readEntries(successReadEntries, failRreadEntries);
+
+    alert("after directoryReader.readEntries")
+
+   
+
+  //  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+
+
+     
 }
 
-function createFolder(passToFolder, nameFolder) {
-    var entry = fileSystem.root;
-    var derictory = passToFolder + nameFolder;
-    alert(derictory)
-    entry.getDirectory(derictory, { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
-}
+//function createFolder(passToFolder, nameFolder) {
+//    var entry = fileSystem.root;
+//    var derictory = passToFolder + nameFolder;
+//    alert(derictory)
+//    entry.getDirectory(derictory, { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
+//}
