@@ -111,13 +111,23 @@ function showFileSystem() {
 
     alert("dirEntry fullPath " + dirEntry.fullPath)
 
-    dirEntry.getMetadata(successMetadata, failMetadata); directoryReader
+    dirEntry.getMetadata(successMetadata, failMetadata);
 
-    var directoryReader = dirEntry.createReader();      
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
+    var directoryReader = fileSystem.root.createReader();
+
+
+    // Get a list of all the entries in the directory
     directoryReader.readEntries(successReadEntries, failRreadEntries);
 
-    alert("after directoryReader.readEntries")
+
+
+    //var directoryReader = dirEntry.createReader();      
+
+    //directoryReader.readEntries(successReadEntries, failRreadEntries);
+
+    //alert("after directoryReader.readEntries")
 
    
 
