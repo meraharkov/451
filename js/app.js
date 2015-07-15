@@ -40,8 +40,8 @@ function onRequestFileSystemSuccess(fileSystem) {
 }
 
 function onGetDirectorySuccess(dir) {
-    console.log("Created dir " + dir.name);
-    alert("Created dir " + dir.name);
+   
+    alert("dir :" + dir.name);
 }
 
 function onGetDirectoryFail(error) {
@@ -110,7 +110,6 @@ function showFileSystem() {
         for (i = 0; i < entries.length; i++) {
             s += "<div onclick='callDerictory(" + entries[i].name + ")'>  " + entries[i].name + " </div> <br/>";
         }
-
     }
         , function () {
             alert(" readEntries FALSE  ")
@@ -154,22 +153,130 @@ function showFileSystem() {
 //    entry.getDirectory(derictory, { create: true, exclusive: false }, onGetDirectorySuccess, onGetDirectoryFail);
 //}
 
+/* working code ==================================================================================================================*/
+function onFileSystemError(error) {
+    var msg = 'file system error: ' + error.code;
+    navigator.notification.alert(msg, null, 'File System Error');
+}
 
 
-   document.addEventListener("deviceready", onDeviceReady, false);
+// retrieves root file system entry
+var getFileSystemRoot = (function () {
+
+    // private
+    var root;
+
+    // one-time retrieval of the root file system entry
+    var init = function () {
+        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
+            function (fileSystem) {
+                root = fileSystem.root;
+            },
+            onFileSystemError);
+    };
+    document.addEventListener("deviceready", init, true);
+
+    // public function returns private root entry
+    return function () {
+        return root;
+    };
+}()); // execute immediately
+
+
+function removeFile( fileName) {
+    var root = getFileSystemRoot();
+    var remove_file = function (entry) {
+        entry.remove(function () {
+            navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
+        }, onFileSystemError);
+    };
+
+    // retrieve a file and truncate it
+    root.getFile(fileName, { create: false }, remove_file, onFileSystemError);
+}
+
+
+function removeDirectory(directoryName) {
+    var root = getFileSystemRoot();
+
+         root.getDirectory(
+             directoryName,
+            { create: true, exclusive: false },
+            function (entry) {
+                entry.removeRecursively(function () {
+                    console.log("Remove Recursively Succeeded");
+                }, fail);
+            }, fail);
+    
+}
+
+var fileSystemGlobal;
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+
    function onDeviceReady() {
 
-       alert(" window.requestFileSystem")
+       alert("deviceready")
        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
    }
   
 
    function gotFS(fileSystem) {
+       
+       alert("gotFS");
 
-       alert("gotFS")
+       fileSystemGlobal = fileSystem;
+
+       alert(fileSystem.name);
+       alert(fileSystem.root.name);
+
+
        var reader = fileSystem.root.createReader();
+
        reader.readEntries(gotList, fail);
+
+       fileSystem.root.getDirectory("Content", { create: false }, onGetDirectorySuccess, onGetDirectoryFail);
+
+       fileSystem.root.getDirectory( "Content",
+                    {create:false, exclusive: false},
+                    function(directory) {
+                        alert("into directory content " + directory.name)
+                        var fileName = "temp.txt";
+
+                        alert("try remove file" + fileName);
+                        removeFile(fileName);
+
+                       
+                        var remove_file = function (entry) {
+                            entry.remove(function () {
+                                navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
+                            }, onFileSystemError);
+                        };
+
+                        // retrieve a file and truncate it
+                        directory.getFile(fileName, { create: false }, remove_file, onFileSystemError);
+
+                    },
+                    onFileSystemError);
+
+       var fileName = "Lighthouse.jpg";
+       alert("try remove file " + fileName);
+       removeFile(fileName);
+
+       var folderName = "Temp";
+       alert("try remove folderName " + folderName);
+
+       removeDirectory(folderName);
    }
+
+   function successMove(entry) {
+       //I do my insert with "entry.fullPath" as for the path
+       alert("entry.fullPath");
+       alert(entry.fullPath);
+   }
+
+   
 
    function gotList(entries) {
        //var i;
@@ -184,6 +291,7 @@ function showFileSystem() {
        var i;
 
        var fileSystem = LocalFileSystem.PERSISTENT;
+       alert("count entities" + entries.length)
 
        for (i = 0; i < entries.length; i++) {
            s += "<div>" + entries[i].name + "</div> <br/>";
