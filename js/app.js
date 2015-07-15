@@ -111,7 +111,7 @@ function showFileSystem() {
 
     alert("dirEntry fullPath " + dirEntry.fullPath)
 
-    dirEntry.getMetadata(successMetadata, failMetadata);
+  //  dirEntry.getMetadata(successMetadata, failMetadata);
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
@@ -121,7 +121,7 @@ function showFileSystem() {
     // Get a list of all the entries in the directory
     directoryReader.readEntries(successReadEntries, failRreadEntries);
 
-
+   
 
     //var directoryReader = dirEntry.createReader();      
     //directoryReader.readEntries(successReadEntries, failRreadEntries);
