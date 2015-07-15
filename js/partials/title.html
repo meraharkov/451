@@ -1,0 +1,246 @@
+﻿ 
+<!--<div class="back-to-home sroll-item"  ng-click='slideView(1, "/")' style="display: block">
+    
+</div>-->
+
+
+<div id="title-page" ng-controller="titleCtrl">
+     
+    <div   id="bad-moon" class='col-sm-10 col-md-10 col-lg-10 col-xs-10  col-xs-offset-1 home-label sroll-item' ngCloak>
+        
+         <img class="back-to-home  " ng-click='slideView(1, "/")' alt="" src="imgs/assets/button-back@2x.png" />
+         
+        {{ Page.Name}}
+        <!--Bad Moon Rising-->
+    </div>
+
+
+    <div class=" container">
+        <div class='row mrB10' ng-repeat="content in Page.ContentPage" >
+            <div class='col-xs-12 padding0'>
+                <!--   <img class="w100Per" src="imgs/content/tile-badmoonrising-seriestrailer.png" />-->
+                <img class="w100Per"  ng-src="{{getImage(content.LinkToImage)}}" />
+            </div>
+
+            <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
+                <a class="video-link"
+                   data-toggle="modal"
+                   data-target="#videoModel">
+                    <div class="videoTrailer" ng-click="showVideo(content.LinkToVideo)"><!--Series Trailer -->{{ content.Title }} </div>
+                </a>
+
+
+
+                <a data-toggle="modal"
+                   data-target="#sharedModal">
+                    <img class="show-video" src="imgs/assets/button-share@2x.png" />
+                </a>
+
+                <div class="row">
+                    <div class='col-xs-12 home-caption subhead-text' ngCloak> {{ content.SubCaption }}<!--See how it begins--></div>
+                </div>
+            </div>
+        </div>
+        <!-- END ROW Contnet-Cell -->
+
+       <!-- <div class='row'>
+            <div class='col-xs-12 home-break padding0'></div>
+        </div>-->
+
+     <!--   <div class='row'>
+            <div class='col-xs-12 padding0'>
+                <img class="w100Per" src="imgs/content/tile-badmoonrising-imaginationtoburn.png" />
+            </div>
+            <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
+                IMAGINATION TO BURN
+     
+                <div class="row">
+                    <div class='col-xs-12 home-caption subhead-text'>Interview with Scott Rosenburg</div>
+                </div>
+            </div>
+        </div>-->
+        <!-- END ROW Contnet-Cell -->
+<!--
+        <div class='row'>
+            <div class='col-xs-12 padding0 home-break'></div>
+        </div>-->
+        <!-- END ROW Contnet-Cell -->
+
+
+    <!--    <div class='row'>
+            <div class='col-xs-12 padding0'>
+                <img class="w100Per" src="imgs/content/tile-badmoonrising-characterart.png" />
+            </div>
+            <div class='col-xs-10 col-xs-offset-1 home-label title-label'>
+                Character Art
+     
+                <div class="row">
+                    <div class='col-xs-12 home-caption subhead-text'>Get Familiar</div>
+                </div>
+
+            </div>
+        </div>-->
+        <!-- END ROW Contnet-Cell -->
+
+
+    </div>
+
+
+
+
+<div class="modal fade" id="sharedModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="container padding0">
+                    <nav class="navbar navbar-default" role="navigation">
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse navbar-ex1-collapse padding0 ">
+                            <ul class="nav navbar-nav">
+                                <li id="share-facebook">
+                                    <a>
+                                        <img src="imgs/assets/button-share-facebook.png" />
+                                    </a>
+                                    <li id="share-twitter">
+                                        <a>
+                                            <img src="imgs/assets/button-share-twitter.png" />
+                                        </a>
+                                    </li>
+                                <li id="tumbrl-share">
+                                    <a>
+                                        <img src="imgs/assets/button-share-tumblr.png" /></a>
+                                </li>
+                                <li id="mail-share">
+                                    <a>
+                                        <img src="imgs/assets/button-share-email.png" /></a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                    </nav>
+                </div>
+                <div class="clearfix"></div>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">CANCEL</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="videoModel" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content  ">
+            <div class="modal-body  ">
+
+                <div class="content">
+
+                    <div class="embed-container">
+                        <button ng-click="closevideo()" 
+                                type="button"
+                                class="close fl-left"
+                                data-dismiss="modal"
+                                aria-hidden="true">
+                            <img src="imgs/assets/button-back.png" />
+                        </button>
+                     
+                        
+                        <!--  <youtube width="{{yt.width}}" height="{{yt.height}}" videoid="{{yt.videoid}}"></youtube>-->
+                         
+                        <div youtube-video
+                             video-id="{{player.videoId}}"
+                             media-content-url="{{player.mediaContentUrl}}"
+                             width="{{player.width}}"
+                             height="{{player.height}}"
+                             video-parameters="player.videoParameters"
+                             player-vars="player.playerVars"
+                             on-ready="onReady(event)"
+                             on-state-change="onStateChange(event)"
+                             on-playback-quality-change="onPlaybackQualityChange(event)"
+                             on-playback-rate-change="onPlaybackRateChange(event)"
+                             on-error="onError(event)"
+                             on-api-change="onApiChange(event)"
+                             on-controller-ready="onControllerReady(controller)"
+                             on-api-loading-failure="onApiLoadingFailure(controller)"
+                            >
+                            
+                        </div>
+                        <br>
+                        <hr>
+                         <div id="player"></div>
+                        <div class="block-youtube-logo" ></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div> 
+
+ 
+<script type="text/javascript">
+
+    $('#videoModel').on('hidden.bs.modal', function () {
+       screen.unlockOrientation();
+    });
+
+
+
+    $(".videoTrailer").click(function () {
+        loadIframeYoutubePlayer();
+        screen.lockOrientation('landscape');
+    });
+
+    $("#share-facebook").click(function () {
+
+        window
+            .plugins
+            .socialsharing
+            .shareViaFacebook('Company 451',
+                null /* img */,
+                "https://www.facebook.com/SourceSeek",  /*  null url */
+                function () {
+                    alert('Your post shared');
+                }, function (errormsg) {
+
+                });
+    });
+
+
+    $("#share-twitter").click(function () {
+        window
+            .plugins
+            .socialsharing
+            .shareVia('com.apple.social.twitter',
+                'Company 451 Twitter',
+                null,
+                null,
+                'https://twitter.com/sourceseek',
+                function () {
+                    alert('Your post shared');
+                },
+                function (msg) {
+                    console.log('error: ' + msg);
+                });
+    });
+
+
+    $("#tumbrl-share").click(function () {
+        /*  window
+              .plugins
+              .socialsharing
+              .share('Company 451 tumbrl', null, null, 'https://www.tumblr.com/');*/
+
+        var ref = window.open('http://tumblr.com/widgets/share/tool?canonicalUrl=https://www.facebook.com/SourceSeek', '_system', 'location=no');
+    });
+
+    $("#mail-share").click(function () {
+
+        cordova.plugins.email.open({
+            to: '',/* 'recipient@email.com',*/
+            cc: '', /* 'your@email.com',*/
+            bcc: ['', ''],
+            subject: '451 company',
+            body: '451 company'
+        });
+    });
+</script>
