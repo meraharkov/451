@@ -1,10 +1,10 @@
-﻿document.addEventListener("deviceready", onDeviceReady, true);
+﻿alert("file maneger Js file");
+
+document.addEventListener("deviceready", onDeviceReady, true);
 
 function onDeviceReady() {
 
-    alert("onDeviceReady");    
-    
-
+    alert("onDeviceReady");  
     alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
     window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, fail);
 
