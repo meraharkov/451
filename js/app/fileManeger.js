@@ -1,6 +1,18 @@
-﻿alert("file maneger Js file");
+﻿
 
-document.addEventListener("deviceready", onDeviceReady, true);
+/*document.addEventListener("deviceready", onDeviceReady, true);*/
+
+document.addEventListener("deviceready", onDeviceReady, false);
+
+alert("file maneger Js file ");
+
+/*
+function onDeviceReady() {
+
+    alert("deviceready")
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+}
+*/
 
 function onDeviceReady() {
 
