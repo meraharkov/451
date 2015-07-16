@@ -158,10 +158,10 @@ function failuploadPhoto(codeError) {
 }
 
 function deleteFile(fileName) {
-    alert("deleteFile");
+    alert("deleteFile" + fileName);
     alert(window.fileSystemGlobal.root);
     
-    window.fileSystemGlobal.root.getFile(fileName, { create: false, exclusive: false }, removeFile, removeFileError);
+    window.fileSystemGlobal.root.getFile(fileName, { create: true, exclusive: false }, removeFile, removeFileError);
      
 }
 
