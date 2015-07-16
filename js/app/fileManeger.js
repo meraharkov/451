@@ -10,16 +10,16 @@ function failresolveLocalFileSystemURL(code) {
 function onDeviceReady() {
 
     alert("onDeviceReady");
-  //  removeFileVer2("temp2.txt");
+  //  removeFileVer2("temp2.txt"); doesn*t work
 
     deleteFile("temp.txt");
     
-    getFolder("Content");
+  /*  getFolder("Content");
     
     alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
     window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
       
-    downloadImage();
+    downloadImage();*/
 }
 
 // retrieves root file system entry
