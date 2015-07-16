@@ -30,7 +30,7 @@ function onRequestFileSystemSuccess(fileSystem) {
 }
 
 // retrieves root file system entry
-var getFileSystemRoot = (function () {
+/*var getFileSystemRoot = (function () {
     alert("getFileSystemRoot");
     // private
     var root;
@@ -52,7 +52,7 @@ var getFileSystemRoot = (function () {
     return function () {
         return root;
     };
-}()); // execute immediately
+}()); // execute immediately*/
  
 function gotFile(fileEntry) {
     alert("gotFile");
