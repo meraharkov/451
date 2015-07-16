@@ -183,8 +183,11 @@ function removeFileVer2(fileName) {
     alert("removeFileVer2");
     
     var root = getFileSystemRoot();
+    
     var remove_file = function (entry) {
+        alert("remove_file func")
         entry.remove(function () {
+            alert("remove inside");
             navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
         }, removeErrorVer2);
     };
