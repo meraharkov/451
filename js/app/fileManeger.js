@@ -1,6 +1,6 @@
 ﻿ 
 document.addEventListener("deviceready", onDeviceReady, false);
-window.fileSistemGlodal = null;
+window.fileSystemGlobal = null;
 
 function failresolveLocalFileSystemURL(code) {
     alert("failresolveLocalFileSystemURL code" + code);
@@ -18,7 +18,8 @@ function onDeviceReady() {
 function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
     alert(fileSystem.root);
-    window.fileSistemGlodal = fileSystem;
+    
+    window.fileSystemGlobal = fileSystem;
     deleteFile("temp.txt");
     
     /*  getFolder("Content");
@@ -160,7 +161,7 @@ function deleteFile(fileName) {
     alert("deleteFile");
     alert(window.fileSystemGlobal.root);
     
-    window.fileSystemGlobal.root.getFile("readme.txt", { create: false, exclusive: false }, removeFile, removeFileError);
+    window.fileSystemGlobal.root.getFile(fileName, { create: false, exclusive: false }, removeFile, removeFileError);
      
 }
 
