@@ -22,9 +22,9 @@ function onRequestFileSystemSuccess(fileSystem) {
     window.fileSystemGlobal = fileSystem;
     deleteFile("temp.txt");
     
-    /*  getFolder("Content");
+      getFolder("Content");
    
-   alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
+ /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
      
    downloadImage();*/
@@ -80,9 +80,9 @@ function gotFile(fileEntry) {
 }
 
 function getFolder(nameFolder) {
-    alert("getFolder");
+    alert("getFolder" + nameFolder);
     
-    var fileSystem = getFileSystemRoot();
+    var fileSystem = window.fileSystemGlobal;
     
     fileSystem.root.getDirectory(nameFolder,
                  { create: true, exclusive: false },
@@ -172,7 +172,8 @@ function removeFile(fileEntry) {
 }
 
 function successRemove(entry) {
-    console.log("Removal succeeded");
+    alert("Removal succeeded");
+    alert(entry);
 }
 
 function failRemove(error) {
