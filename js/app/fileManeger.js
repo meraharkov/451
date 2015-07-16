@@ -26,7 +26,7 @@ function onRequestFileSystemSuccess(fileSystem) {
 
    // deleteFile("temp.txt"); work is good 
  
-    deleteFolder("Content"); // не работает var dirForDelete = cordova.file.applicationDirectory + "Content"; 
+   //  deleteFolder("Content"); work is good 
     
    getFolder("Content");
    
@@ -86,6 +86,7 @@ function gotFile(fileEntry) {
 }
 
 function getFolder(nameFolder) {
+    
     alert("getFolder" + nameFolder);
     
     var fileSystem = window.fileSystemGlobal;
@@ -219,7 +220,7 @@ function onFileSystemError(code) {
 
 function downloadImage() {
     alert("downloadImage");
-
+/*
     var url = 'http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png';
     var filePath = cordova.file.applicationDirectory + "imgs";
     alert("filePath" + filePath);
@@ -240,6 +241,18 @@ function downloadImage() {
         },
         false,
         null
-    );
+    );*/
+    
+
+    var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
+    var imagePath = fs.root.fullPath + "/EXMORT_Screencap001.png";
+    var fileTransfer = new FileTransfer();
+    fileTransfer.download(url, imagePath, function (entry) {
+        alert("download complete: " + entry.fullPath); // entry is fileEntry object
+    }, function (error) {
+        alert("download error source " + error.source);
+        alert("download error target " + error.target);
+        alert("upload error code" + error.code);
+    });
 }
 
