@@ -21,8 +21,13 @@ function onRequestFileSystemSuccess(fileSystem) {
     
     window.fileSystemGlobal = fileSystem;
     deleteFile("temp.txt");
+
+
+    alert(cordova.file.applicationDirectory);
+    var dirForDelete = cordova.file.applicationDirectory + "Content";
+    deleteFolder(dirForDelete);
     
-      getFolder("Content");
+   getFolder("Content");
    
  /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
@@ -30,30 +35,29 @@ function onRequestFileSystemSuccess(fileSystem) {
    downloadImage();*/
 }
 
-// retrieves root file system entry
-/*var getFileSystemRoot = (function () {
-    alert("getFileSystemRoot");
-    // private
-    var root;
+function deleteFolderError(error) {
+    alert("deleteFolderError " + error.code);
+}
 
-    // one-time retrieval of the root file system entry
-    var init = function () {
-        alert("init ");
-        window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
-            function (fileSystem) {
-                root = fileSystem.root;
-                alert("root " + fileSystem.root);
-            },
-            onFileSystemError);
-    };
-    init();
-    //document.addEventListener("deviceready", init, true);
+function removeRecursivelyError(error) {
+    alert("removeRecursivelyError " + error.code);
+}
 
-    // public function returns private root entry
-    return function () {
-        return root;
-    };
-}()); // execute immediately*/
+function deleteFolder(folderName) {
+    alert("deleteFolder");
+    var fileSystem = window.fileSystemGlobal;
+    
+    fileSystem.root.getDirectory(
+                 folderName,
+                { create: true, exclusive: false },
+                function (entry) {
+                    alert("Remove Folder");
+                    
+                    entry.removeRecursively(function () {
+                        alert("Remove Folder Succeeded");
+                    }, removeRecursivelyError);
+                }, deleteFolderError);
+}
  
 function gotFile(fileEntry) {
     alert("gotFile");
@@ -90,8 +94,8 @@ function getFolder(nameFolder) {
                      alert("into directory: " + directory.name);
                      
                      // Get a directory reader
-                     var path = cordova.file.applicationDirectory + "/" + nameFolder;
-                     
+                     var path = cordova.file.applicationDirectory + "/" + directory.name;
+                     alert(path);
                      var dirEntry = new DirectoryEntry(directory.name, path);
                      var directoryReader = dirEntry.createReader();
 
@@ -192,7 +196,7 @@ function removeFileVer2(fileName) {
     var root = getFileSystemRoot();
     
     var remove_file = function (entry) {
-        alert("remove_file func")
+        alert("remove_file func");
         entry.remove(function () {
             alert("remove inside");
             navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
