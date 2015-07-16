@@ -24,11 +24,9 @@ function onRequestFileSystemSuccess(fileSystem) {
     downloadImage();
     
 
-   // deleteFile("temp.txt"); work is good
-     
-    alert(cordova.file.applicationDirectory);
-    var dirForDelete = cordova.file.applicationDirectory + "Content";
-    deleteFolder(dirForDelete);
+   // deleteFile("temp.txt"); work is good 
+ 
+    deleteFolder("Content"); // не работает var dirForDelete = cordova.file.applicationDirectory + "Content"; 
     
    getFolder("Content");
    
@@ -100,8 +98,7 @@ function getFolder(nameFolder) {
                      // Get a directory reader
                      var path = cordova.file.applicationDirectory + directory.name;
                      alert(path);
-                     var dirEntry = new DirectoryEntry(directory.name, path);
-                     var directoryReader = dirEntry.createReader();
+                     var directoryReader = fileSystem.root.createReader();
 
                      // Get a list of all the entries in the directory
                      directoryReader.readEntries(readEntriesSuccess, readEntriesFail);
@@ -224,7 +221,7 @@ function downloadImage() {
     alert("downloadImage");
 
     var url = 'http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png';
-    var filePath = cordova.file.applicationDirectory;
+    var filePath = cordova.file.applicationDirectory + "imgs";
     alert("filePath" + filePath);
 
     var fileTransfer = new FileTransfer();
