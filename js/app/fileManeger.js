@@ -46,7 +46,8 @@ var getFileSystemRoot = (function () {
             },
             onFileSystemError);
     };
-    document.addEventListener("deviceready", init, true);
+    init();
+    //document.addEventListener("deviceready", init, true);
 
     // public function returns private root entry
     return function () {
