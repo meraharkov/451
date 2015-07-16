@@ -24,7 +24,7 @@ function onRequestFileSystemSuccess(fileSystem) {
 
 
     alert(cordova.file.applicationDirectory);
-    var dirForDelete = cordova.file.applicationDirectory + "Content";
+    var dirForDelete = cordova.file.applicationDirectory + "/Content";
     deleteFolder(dirForDelete);
     
    getFolder("Content");
@@ -47,6 +47,7 @@ function deleteFolder(folderName) {
     alert("deleteFolder");
     var fileSystem = window.fileSystemGlobal;
     
+    alert(folderName);
     fileSystem.root.getDirectory(
                  folderName,
                 { create: true, exclusive: false },
