@@ -1,30 +1,31 @@
-﻿
-
-/*document.addEventListener("deviceready", onDeviceReady, true);*/
-
+﻿ 
 document.addEventListener("deviceready", onDeviceReady, false);
 
 alert("file maneger Js file ");
 
-/*
-function onDeviceReady() {
-
-    alert("deviceready")
-    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, gotFS, fail);
+function failresolveLocalFileSystemURL(code) {
+    alert("failresolveLocalFileSystemURL code" + code);
 }
-*/
 
 function onDeviceReady() {
 
-    alert("onDeviceReady");  
-    alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
-    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, fail);
-
-    getFolder("Content");
+    alert("onDeviceReady");
+    removeFileVer2("temp2.txt");
 
     deleteFile("temp.txt");
+    
+    getFolder("Content");
+    
+    
+    
+    alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
+    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
 
-    removeFileVer2("temp2.txt");
+ 
+
+   
+
+   
 
     downloadImage();
 }
@@ -76,7 +77,8 @@ function gotFile(fileEntry) {
 }
 
 function getFolder(nameFolder) {
-
+    alert("getFolder");
+    
     var fileSystem = getFileSystemRoot();
     
     fileSystem.root.getDirectory(nameFolder,
@@ -223,3 +225,4 @@ function downloadImage( ) {
         null
     );
 }
+
