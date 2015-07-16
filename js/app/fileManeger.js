@@ -10,7 +10,7 @@ function failresolveLocalFileSystemURL(code) {
 function onDeviceReady() {
 
     alert("onDeviceReady");
-    removeFileVer2("temp2.txt");
+  //  removeFileVer2("temp2.txt");
 
     deleteFile("temp.txt");
     
