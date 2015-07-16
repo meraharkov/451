@@ -1,7 +1,6 @@
 ﻿ 
 document.addEventListener("deviceready", onDeviceReady, false);
-
-alert("file maneger Js file ");
+window.fileSistemGlodal = null;
 
 function failresolveLocalFileSystemURL(code) {
     alert("failresolveLocalFileSystemURL code" + code);
@@ -12,14 +11,22 @@ function onDeviceReady() {
     alert("onDeviceReady");
   //  removeFileVer2("temp2.txt"); doesn*t work
 
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+
+}
+
+function onRequestFileSystemSuccess(fileSystem) {
+    alert("onRequestFileSystemSuccess");
+    alert(fileSystem.root);
+    window.fileSistemGlodal = fileSystem;
     deleteFile("temp.txt");
     
-  /*  getFolder("Content");
-    
-    alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
-    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
-      
-    downloadImage();*/
+    /*  getFolder("Content");
+   
+   alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
+   window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
+     
+   downloadImage();*/
 }
 
 // retrieves root file system entry
@@ -151,7 +158,10 @@ function failuploadPhoto(codeError) {
 
 function deleteFile(fileName) {
     alert("deleteFile");
-    window.resolveLocalFileSystemURI(fileName, removeFile, removeFileError);
+    alert(window.fileSystemGlobal.root);
+    
+    window.fileSystemGlobal.root.getFile("readme.txt", { create: false, exclusive: false }, removeFile, removeFileError);
+     
 }
 
 function removeFile(fileEntry) {
@@ -168,8 +178,8 @@ function failRemove(error) {
     alert('Error removing file: ' + error.code);
 }
 
-function removeFileError(code) {
-    alert("removeFileError code" + code);
+function removeFileError(error) {
+    alert("removeFileError code" + error.code);
 }
 
 
