@@ -20,11 +20,14 @@ function onRequestFileSystemSuccess(fileSystem) {
     alert(fileSystem.root);
     
     window.fileSystemGlobal = fileSystem;
-    deleteFile("temp.txt");
+    
+    downloadImage();
+    
 
-
+   // deleteFile("temp.txt"); work is good
+     
     alert(cordova.file.applicationDirectory);
-    var dirForDelete = cordova.file.applicationDirectory + "/Content";
+    var dirForDelete = cordova.file.applicationDirectory + "Content";
     deleteFolder(dirForDelete);
     
    getFolder("Content");
@@ -32,7 +35,7 @@ function onRequestFileSystemSuccess(fileSystem) {
  /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
      
-   downloadImage();*/
+   */
 }
 
 function deleteFolderError(error) {
@@ -95,7 +98,7 @@ function getFolder(nameFolder) {
                      alert("into directory: " + directory.name);
                      
                      // Get a directory reader
-                     var path = cordova.file.applicationDirectory + "/" + directory.name;
+                     var path = cordova.file.applicationDirectory + directory.name;
                      alert(path);
                      var dirEntry = new DirectoryEntry(directory.name, path);
                      var directoryReader = dirEntry.createReader();
@@ -177,7 +180,7 @@ function removeFile(fileEntry) {
 }
 
 function successRemove(entry) {
-    alert("Removal succeeded");
+    alert("File Removal succeeded ");
     alert(entry);
 }
 
@@ -217,7 +220,9 @@ function onFileSystemError(code) {
 }
 
 
-function downloadImage( ) {
+function downloadImage() {
+    alert("downloadImage");
+
     var url = 'http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png';
     var filePath = cordova.file.applicationDirectory;
     alert("filePath" + filePath);
