@@ -32,15 +32,17 @@ function onDeviceReady() {
 
 // retrieves root file system entry
 var getFileSystemRoot = (function () {
-
+    alert("getFileSystemRoot");
     // private
     var root;
 
     // one-time retrieval of the root file system entry
     var init = function () {
+        alert("init ");
         window.requestFileSystem(LocalFileSystem.PERSISTENT, 0,
             function (fileSystem) {
                 root = fileSystem.root;
+                alert("root " + fileSystem.root);
             },
             onFileSystemError);
     };
