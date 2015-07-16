@@ -16,17 +16,9 @@ function onDeviceReady() {
     
     getFolder("Content");
     
-    
-    
     alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
     window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
-
- 
-
-   
-
-   
-
+      
     downloadImage();
 }
 
