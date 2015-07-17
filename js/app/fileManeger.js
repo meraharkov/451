@@ -24,7 +24,7 @@ function onRequestFileSystemSuccess(fileSystem) {
     DownloadFile(
         "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
         "Content",
-        "EXMORT_Screencap001.png");
+        "EXMORT_Screencap001");
     
     // downloadImage();
 
