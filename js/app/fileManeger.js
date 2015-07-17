@@ -253,8 +253,14 @@ function download(URL, Folder_Name, File_Name) {
 
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
+        window.FS = fileSystem;
         
-   
+        var printDirPath = function(entry) {
+            alert("Dir path - " + entry.fullPath);
+        };
+
+
+        createDirectory("Package/Image", printDirPath);
 
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
@@ -328,4 +334,39 @@ function filetransfer(download_link, fp) {
                       false,
                       null
                 );
+}
+
+
+function createDirectory(path, success) {
+
+    alert("createDirectory");
+    
+    var dirs = path.split("/").reverse();
+    var root = window.FS.root;
+    alert(root);
+     
+    var createDir = function (dir) {
+        alert("create dir " + dir);
+        root.getDirectory(dir, {
+            create: true,
+            exclusive: false
+        }, successCB, failCB);
+    };
+
+    var successCB = function (entry) {
+        alert("dir created " + entry.fullPath);
+        root = entry;
+        if (dirs.length > 0) {
+            createDir(dirs.pop());
+        } else {
+            alert("all dir created");
+            success(entry);
+        }
+    };
+
+    var failCB = function () {
+        alert("failed to create dir " + dir);
+    };
+
+    createDir(dirs.pop());
 }
