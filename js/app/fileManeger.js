@@ -260,15 +260,20 @@ function download(URL, Folder_Name, File_Name) {
                      alert("into directory: " + directory.name);
 
 
-                     var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
+                  /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
                      fp = fp + Folder_Name + "/";// + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
-                     alert("fp " + fp);
-                     alert("filetransfer");
+                     alert("fp " + fp);*/
+             
                      var fileTransfer = new FileTransfer();
                      
                      var download_link = encodeURI(URL);
                      alert("download_link " + download_link);
+                    
+                     
+
+                     var fp = fileSystem.root.toURL();
+                     alert("fp " + fp);
                      
                      // File download function with URL and local path
                      fileTransfer.download(download_link, fp,
