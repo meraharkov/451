@@ -246,8 +246,8 @@ function downloadFile() {
                                                "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
                                                sPath + "theFile.pdf",
                                                function (theFile) {
-                                                   console.log("download complete: " + theFile.toURI());
-                                                   showLink(theFile.toURI());
+                                                   alert("download complete: " + theFile.toURI());
+                                                   
                                                },
                                                function (error) {
                                                    console.log("download error source " + error.source);
