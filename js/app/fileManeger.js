@@ -258,10 +258,10 @@ function download(URL, Folder_Name, File_Name) {
 
       var createDirectorySuccess = function(entry) {
             alert("Dir path - " + entry.fullPath);
-
+            alert(folderName + " == " + entry.fullPath);
             if (entry.fullPath == folderName) {
-
-                alert(folderName + "==" + entry.fullPath);
+                alert("start download");
+                
 
                 var fileTransfer = new FileTransfer();
 
