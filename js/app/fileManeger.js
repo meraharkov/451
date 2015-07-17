@@ -245,7 +245,7 @@ function DownloadFile(URL, Folder_Name, File_Name) {
 }
 
 
-function download(URL, Folder_Name, File_Name) {
+function download(URL, Folder_Name, ) {
     alert("download");
 
     //step to request a file system 
@@ -254,42 +254,51 @@ function download(URL, Folder_Name, File_Name) {
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
         window.FS = fileSystem;
+        var folderName = "Package/Image";
         
-        var printDirPath = function(entry) {
+        var createDirectorySuccess = function (entry) {
             alert("Dir path - " + entry.fullPath);
+            
+            if (entry.fullPath == folderName) {
+
+                alert(folderName + "==" + entry.fullPath);
+                
+                var fileTransfer = new FileTransfer();
+
+                var download_link = encodeURI(URL);
+                alert("download_link " + download_link);
+
+                var fp = fileSystem.root.fullPath + entry.fullPath + File_Name;
+
+                alert("fp " + fp);
+
+                // File download function with URL and local path
+                fileTransfer.download(download_link, fp,
+                                    function (entry) {
+                                        alert("download complete: " + entry.fullPath);
+                                    },
+                                 function (error) {
+                                     //Download abort errors or download failed errors
+                                     alert("download error source " + error.source);
+                                     alert("download error target " + error.target);
+                                     alert("upload error code" + error.code);
+                                 },
+                                  false,
+                                    {}
+                );
+            }
         };
 
+        
 
-        createDirectory("Package/Image", printDirPath);
+        createDirectory(folderName, createDirectorySuccess);
 
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
                      fp = fp + Folder_Name + "/";// + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
                      alert("fp " + fp);    var fp = fileSystem.root.toURL();*/
              
-                     var fileTransfer = new FileTransfer();
-                     
-                     var download_link = encodeURI(URL);
-                     alert("download_link " + download_link);
                     
-                     var fp = fileSystem.root.fullPath;
-         
-                     alert("fp " + fp);
-                     
-                     // File download function with URL and local path
-                     fileTransfer.download(download_link, fp,
-                                         function (entry) {
-                                             alert("download complete: " + entry.fullPath);
-                                         },
-                                      function (error) {
-                                          //Download abort errors or download failed errors
-                                          alert("download error source " + error.source);
-                                          alert("download error target " + error.target);
-                                          alert("upload error code" + error.code);
-                                      },
-                                       false,
-                                         {}
-                     );
               
           
  
