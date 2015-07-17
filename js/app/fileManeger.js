@@ -20,17 +20,19 @@ function onRequestFileSystemSuccess(fileSystem) {
     alert(fileSystem.root);
     
     window.fileSystemGlobal = fileSystem;
-    
-    downloadImage();
-    
 
-   // deleteFile("temp.txt"); work is good 
- 
-   //  deleteFolder("Content"); work is good 
+    downloadFile();
     
-  // getFolder("Content");
-   
- /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
+    // downloadImage();
+
+
+    // deleteFile("temp.txt"); work is good 
+
+    //  deleteFolder("Content"); work is good 
+
+    // getFolder("Content");
+
+    /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
      
    */
@@ -192,31 +194,8 @@ function removeFileError(error) {
 
  
 
-function downloadImage() {
-    alert("downloadImage");
-/*
-    var url = 'http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png';
-    var filePath = cordova.file.applicationDirectory + "imgs";
-    alert("filePath" + filePath);
-
-    var fileTransfer = new FileTransfer();
-    var uri = encodeURI(url);
-
-    fileTransfer.download(
-        uri,
-        filePath,
-        function (entry) {
-            alert("download complete: " + entry.fullPath);
-        },
-        function (error) {
-            alert("download error source " + error.source);
-            alert("download error target " + error.target);
-            alert("upload error code" + error.code);
-        },
-        false,
-        null
-    );*/
-    
+/*function downloadImage() {
+    alert("downloadImage"); 
 
     var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
     alert("url " + url);
@@ -240,5 +219,49 @@ function downloadImage() {
         alert("download error target " + error.target);
         alert("upload error code" + error.code);
     });
+}*/
+
+
+function downloadFile() {
+    alert("downloadFile");
+    
+    window.requestFileSystem(
+                 LocalFileSystem.PERSISTENT, 0,
+                 function onFileSystemSuccess(fileSystem) {
+                     alert("onFileSystemSuccess");
+                     
+                     fileSystem.root.getFile(
+                                 "temp.txt", { create: true, exclusive: false },
+                                 function gotFileEntry(fileEntry) {
+                                     alert("gotFileEntry");
+                                     
+                                     var sPath = fileEntry.fullPath.replace("temp.txt", "");
+
+                                     alert("sPath" + sPath);
+                                     
+                                     var fileTransfer = new FileTransfer();
+                                     fileEntry.remove();
+
+                                     fileTransfer.download(
+                                               "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
+                                               sPath + "theFile.pdf",
+                                               function (theFile) {
+                                                   console.log("download complete: " + theFile.toURI());
+                                                   showLink(theFile.toURI());
+                                               },
+                                               function (error) {
+                                                   console.log("download error source " + error.source);
+                                                   console.log("download error target " + error.target);
+                                                   console.log("upload error code: " + error.code);
+                                               }
+                                               );
+                                 },
+                                 fail);
+                 },
+                 fail);
+
 }
 
+function fail(evt) {
+    alert(evt.target.error.code);
+}
