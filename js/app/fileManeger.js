@@ -268,7 +268,7 @@ function download(URL, Folder_Name, File_Name) {
                 var download_link = encodeURI(URL);
                 alert("download_link " + download_link);
 
-                var fp = fileSystem.root.fullPath + entry.fullPath + File_Name;
+                var fp = fileSystem.root.toURL() + entry.fullPath + File_Name;
 
                 alert("fp " + fp);
 
