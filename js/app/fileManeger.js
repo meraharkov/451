@@ -268,9 +268,10 @@ function download(URL, Folder_Name, File_Name) {
                 var download_link = encodeURI(URL);
                 alert("download_link " + download_link);
 
-                // var fp = fileSystem.root.toURL() + entry.fullPath + File_Name; //important workin code
+                var fp = fileSystem.root.toURL() + entry.fullPath + File_Name; //important workin code
 
-                var fp = cordova.file.applicationDirectory +'www/'+ entry.fullPath + File_Name;
+               
+               // var fp = cordova.file.applicationDirectory +'www/'+ entry.fullPath + File_Name;
 
                 alert("fp " + fp);
 
@@ -278,6 +279,17 @@ function download(URL, Folder_Name, File_Name) {
                 fileTransfer.download(download_link, fp,
                     function(entry) {
                         alert("download complete: " + entry.fullPath);
+                       
+                        $("#Image-1").attr("src", entry.fullPath);
+
+                        var srcUrl = "/" + entry.fullPath;
+                        $("#Image-2").attr("src", srcUrl);
+
+
+                        var srcUrl3 = fileSystem.root.toURL() +  entry.fullPath;
+                        $("#Image-3").attr("src", srcUrl3);
+
+
                     },
                     function(error) {
                         //Download abort errors or download failed errors
@@ -345,10 +357,7 @@ function filetransfer(download_link, fp) {
 function createDirectory(path, success) {
 
     alert("createDirectory");
-    
-    var pathTemp = cordova.file.applicationDirectory + 'www/' + path;
-    alert(pathTemp);
-
+     
     var dirs = pathTemp.split("/").reverse();
 
     //var dirs = path.split("/").reverse();
