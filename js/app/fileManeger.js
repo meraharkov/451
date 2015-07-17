@@ -28,7 +28,7 @@ function onRequestFileSystemSuccess(fileSystem) {
  
    //  deleteFolder("Content"); work is good 
     
-   getFolder("Content");
+  // getFolder("Content");
    
  /*  alert("cordova.file.applicationDirectory" + cordova.file.applicationDirectory);
    window.resolveLocalFileSystemURL(cordova.file.applicationDirectory + "versionApp.txt", gotFile, failresolveLocalFileSystemURL);
@@ -190,33 +190,7 @@ function removeFileError(error) {
     alert("removeFileError code" + error.code);
 }
 
-
-function removeFileVer2(fileName) {
-
-    alert("removeFileVer2");
-    
-    var root = getFileSystemRoot();
-    
-    var remove_file = function (entry) {
-        alert("remove_file func");
-        entry.remove(function () {
-            alert("remove inside");
-            navigator.notification.alert(entry.toURI(), null, 'Entry deleted');
-        }, removeErrorVer2);
-    };
-
-    // retrieve a file and truncate it
-    root.getFile(fileName, { create: false }, remove_file, onFileSystemError);
-}
-
-function removeErrorVer2(code) {
-    alert("removeErrorVer2 code" + code);
-}
-
-function onFileSystemError(code) {
-    alert("onFileSystemError code" + code);
-}
-
+ 
 
 function downloadImage() {
     alert("downloadImage");
@@ -245,8 +219,9 @@ function downloadImage() {
     
 
     var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
-    var imagePath = fs.root.fullPath + "/EXMORT_Screencap001.png";
+    var imagePath = fs.root.fullPath + "/Content/EXMORT_Screencap001.png";
     var fileTransfer = new FileTransfer();
+    
     fileTransfer.download(url, imagePath, function (entry) {
         alert("download complete: " + entry.fullPath); // entry is fileEntry object
     }, function (error) {
