@@ -21,7 +21,10 @@ function onRequestFileSystemSuccess(fileSystem) {
     
     window.fileSystemGlobal = fileSystem;
 
-    downloadFile();
+    DownloadFile(
+        "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
+        "Content",
+        "EXMORT_Screencap001.png");
     
     // downloadImage();
 
@@ -194,7 +197,7 @@ function removeFileError(error) {
 
  
 
-/*function downloadImage() {
+function downloadImage() {
     alert("downloadImage"); 
 
     var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
@@ -219,49 +222,88 @@ function removeFileError(error) {
         alert("download error target " + error.target);
         alert("upload error code" + error.code);
     });
-}*/
-
-
-function downloadFile() {
-    alert("downloadFile");
-    
-    window.requestFileSystem(
-                 LocalFileSystem.PERSISTENT, 0,
-                 function onFileSystemSuccess(fileSystem) {
-                     alert("onFileSystemSuccess");
-                     
-                     fileSystem.root.getFile(
-                                 "temp.txt", { create: true, exclusive: false },
-                                 function gotFileEntry(fileEntry) {
-                                     alert("gotFileEntry");
-                                     
-                                     var sPath = fileEntry.fullPath.replace("temp.txt", "");
-
-                                     alert("sPath" + sPath);
-                                     
-                                     var fileTransfer = new FileTransfer();
-                                     alert("fileTransfer" + fileTransfer);
-
-                                     fileTransfer.download(
-                                               "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
-                                               sPath + "theFile.pdf",
-                                               function (theFile) {
-                                                   alert("download complete: " + theFile.toURI());
-                                                   
-                                               },
-                                               function (error) {
-                                                   alert("download error source " + error.source);
-                                                   alert("download error target " + error.target);
-                                                   alert("upload error code: " + error.code);
-                                               }
-                                               );
-                                 },
-                                 fail);
-                 },
-                 fail);
-
 }
 
-function fail(evt) {
-    alert(evt.target.error.code);
+
+function DownloadFile(URL, Folder_Name, File_Name) {
+    alert("DownloadFile");
+    //Parameters mismatch check
+    if (URL == null && Folder_Name == null && File_Name == null) {
+        alert("URL == null && Folder_Name == null && File_Name == null");
+        return;
+    }
+    else {
+        //checking Internet connection availablity
+        var networkState = navigator.connection.type;
+        if (networkState == Connection.NONE) {
+            alert("networkState == Connection.NONE");
+            return;
+        } else {
+            download(URL, Folder_Name, File_Name); //If available download function call
+        }
+    }
+}
+
+
+function download(URL, Folder_Name, File_Name) {
+    alert("download");
+    
+    //step to request a file system 
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSystemSuccess, fileSystemFail);
+
+    function fileSystemSuccess(fileSystem) {
+        alert("fileSystemSuccess");
+        
+        var download_link = encodeURI(URL);
+
+        alert("download_link " + download_link);
+        
+       var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
+       alert("ext " + ext);
+        
+        var directoryEntry = fileSystem.root; // to get root path of directory
+        directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
+        var rootdir = fileSystem.root;
+        var fp = rootdir.fullPath; // Returns Fulpath of local directory
+
+        fp = fp + "/" + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
+
+        alert("fp " + fp);
+        
+        // download function call
+        filetransfer(download_link, fp);
+    }
+
+    function onDirectorySuccess(parent) {
+
+        alert("onDirectorySuccess");
+        // Directory created successfuly
+    }
+
+    function onDirectoryFail(error) {
+        //Error while creating directory
+        alert("Unable to create new directory: " + error.code);
+    }
+
+    function fileSystemFail(evt) {
+        //Unable to access file system
+        alert(evt.target.error.code);
+    }
+}
+
+function filetransfer(download_link, fp) {
+    alert("filetransfer");
+    var fileTransfer = new FileTransfer();
+    // File download function with URL and local path
+    fileTransfer.download(download_link, fp,
+                        function (entry) {
+                            alert("download complete: " + entry.fullPath);
+                        },
+                     function (error) {
+                         //Download abort errors or download failed errors
+                         alert("download error source " + error.source);
+                         //alert("download error target " + error.target);
+                         //alert("upload error code" + error.code);
+                     }
+                );
 }
