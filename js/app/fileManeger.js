@@ -9,7 +9,7 @@ function failresolveLocalFileSystemURL(code) {
 function onDeviceReady() {
 
     alert("onDeviceReady");
-    //  removeFileVer2("temp2.txt"); doesn*t work
+ 
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
@@ -253,65 +253,42 @@ function download(URL, Folder_Name, File_Name) {
 
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
-
-      
-
+        
         fileSystem.root.getDirectory(Folder_Name,
                  { create: true, exclusive: false },
                  function (directory) {
                      alert("into directory: " + directory.name);
 
-                     fileSystem.getFile(File_Name, { create: true, exclusive: false }, function gotFileEntry(fileEntry) {
 
-                         alert("gotFileEntry");
-                         
-                         var path = fileEntry.fullPath.replace(File_Name, "");
-                         alert("path");
-                         
-                         fileEntry.remove();
-                        /*
-                         fileTransfer.download(FILE_DOWNLOAD_URL, path + "" + your - savedName, function (theFile) {
-                             alert("File Downloaded Successfully " + theFile.toURI());
-                         }, function (error) {
-                             alert("File Transfer failed" + error.message);
-                         });*/
-                         
-                         var download_link = encodeURI(URL);
-
-                         alert("download_link " + download_link);
-
-                         //var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
-                         //alert("ext " + ext);
-
-                         //var directoryEntry = fileSystem.root; // to get root path of directory
-                         //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
-                        // var rootdir = fileSystem.root;
-                         var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
-                         alert("fp " + fp);
-                         fp = fp + Folder_Name + "/" + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
-                         alert("fp " + fp);
-                         
-                         var fileTransfer = new FileTransfer();
-                         // File download function with URL and local path
-                         fileTransfer.download(download_link, fp,
-                                             function (entry) {
-                                                 alert("download complete: " + entry.fullPath);
-                                             },
-                                          function (error) {
-                                              //Download abort errors or download failed errors
-                                              alert("download error source " + error.source);
-                                              alert("download error target " + error.target);
-                                              alert("upload error code" + error.code);
-                                          }
-                                     );
-                                 });
+                     var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
+                     alert("fp " + fp);
+                     fp = fp + Folder_Name + "/" + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
+                     alert("fp " + fp);
+                     alert("filetransfer");
+                     var fileTransfer = new FileTransfer();
                      
-
-                    
+                     var download_link = encodeURI(URL);
+                     alert("download_link " + download_link);
                      
-                 },
-                 getDirectoryError);
-        
+                     // File download function with URL and local path
+                     fileTransfer.download(download_link, fp,
+                                         function (entry) {
+                                             alert("download complete: " + entry.fullPath);
+                                         },
+                                      function (error) {
+                                          //Download abort errors or download failed errors
+                                          alert("download error source " + error.source);
+                                          alert("download error target " + error.target);
+                                          alert("upload error code" + error.code);
+                                      },
+                                       false,
+                                       null
+                                 );
+              
+                 },getDirectoryError);
+ 
+ 
+ 
 
         // download function call
        // filetransfer(download_link, fp);
