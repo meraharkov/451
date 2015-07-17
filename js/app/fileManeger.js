@@ -254,11 +254,7 @@ function download(URL, Folder_Name, File_Name) {
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
         
-        fileSystem.root.getDirectory(Folder_Name,
-                 { create: true, exclusive: false },
-                 function (directory) {
-                     alert("into directory: " + directory.name);
-
+   
 
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
@@ -271,7 +267,7 @@ function download(URL, Folder_Name, File_Name) {
                      alert("download_link " + download_link);
                     
                      var fp = fileSystem.root.fullPath;
-                     fp = fp + "/bestsongs/" + File_Name;
+         
                      alert("fp " + fp);
                      
                      // File download function with URL and local path
@@ -289,7 +285,7 @@ function download(URL, Folder_Name, File_Name) {
                                          {}
                      );
               
-                 },getDirectoryError);
+          
  
  
  
