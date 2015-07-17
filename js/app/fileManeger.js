@@ -346,12 +346,18 @@ function createDirectory(path, success) {
 
     alert("createDirectory");
     
-    var dirs = path.split("/").reverse();
-    var root = window.FS.root;
+    var pathTemp = cordova.file.applicationDirectory + 'www/' + path;
+    alert(pathTemp);
+
+    var dirs = pathTemp.split("/").reverse();
+
+    //var dirs = path.split("/").reverse();
+    var root = window.FS.root; //cordova.file.applicationDirectory +'www/'
     alert(root);
      
     var createDir = function (dir) {
         alert("create dir " + dir);
+
         root.getDirectory(dir, {
             create: true,
             exclusive: false
