@@ -264,7 +264,7 @@ function download(URL, Folder_Name, File_Name) {
         //var directoryEntry = fileSystem.root; // to get root path of directory
         //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
         var rootdir = fileSystem.root;
-        var fp = rootdir.fullPath; // Returns Fulpath of local directory
+        var fp = cordova.file.applicationDirectory + "/www/" //rootdir.fullPath; // Returns Fulpath of local directory
         alert("fp " + fp);
         fp = fp + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
 
