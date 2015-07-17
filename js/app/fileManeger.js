@@ -263,16 +263,15 @@ function download(URL, Folder_Name, File_Name) {
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
                      fp = fp + Folder_Name + "/";// + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
-                     alert("fp " + fp);*/
+                     alert("fp " + fp);    var fp = fileSystem.root.toURL();*/
              
                      var fileTransfer = new FileTransfer();
                      
                      var download_link = encodeURI(URL);
                      alert("download_link " + download_link);
                     
-                     
-
-                     var fp = fileSystem.root.toURL();
+                     var fp = fileSystem.root.fullPath;
+                     fp = fp + "/bestsongs/" + File_Name;
                      alert("fp " + fp);
                      
                      // File download function with URL and local path
@@ -287,8 +286,8 @@ function download(URL, Folder_Name, File_Name) {
                                           alert("upload error code" + error.code);
                                       },
                                        false,
-                                       null
-                                 );
+                                         {}
+                     );
               
                  },getDirectoryError);
  
