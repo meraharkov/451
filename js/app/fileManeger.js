@@ -261,8 +261,8 @@ function download(URL, Folder_Name, File_Name) {
        var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
        alert("ext " + ext);
         
-        var directoryEntry = fileSystem.root; // to get root path of directory
-        directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
+        //var directoryEntry = fileSystem.root; // to get root path of directory
+        //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
         var rootdir = fileSystem.root;
         var fp = rootdir.toUrl(); // rootdir.fullPath; // Returns Fulpath of local directory
 
