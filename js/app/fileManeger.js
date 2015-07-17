@@ -256,10 +256,10 @@ function download(URL, Folder_Name, File_Name) {
         window.FS = fileSystem;
         var folderName = "Package/Image";
 
-      var createDirectorySuccess = function(entry) {
+        var createDirectorySuccess = function (entry) {
+            alert("createDirectorySuccess")
             alert("Dir path - " + entry.fullPath);
-            alert("/"+folderName + " == " + entry.fullPath);
-            if ("/" + folderName == entry.fullPath) {
+      
                 alert("start download");
                 
 
@@ -286,7 +286,7 @@ function download(URL, Folder_Name, File_Name) {
                     false,
                     {}
                 );
-            }
+             
         };
     
         
