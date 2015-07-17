@@ -1,4 +1,4 @@
-﻿ 
+﻿
 document.addEventListener("deviceready", onDeviceReady, false);
 window.fileSystemGlobal = null;
 
@@ -9,7 +9,7 @@ function failresolveLocalFileSystemURL(code) {
 function onDeviceReady() {
 
     alert("onDeviceReady");
-  //  removeFileVer2("temp2.txt"); doesn*t work
+    //  removeFileVer2("temp2.txt"); doesn*t work
 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 
@@ -18,14 +18,14 @@ function onDeviceReady() {
 function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
     alert(fileSystem.root);
-    
+
     window.fileSystemGlobal = fileSystem;
 
     DownloadFile(
         "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
         "Content",
         "EXMORT_Screencap001");
-    
+
     // downloadImage();
 
 
@@ -52,20 +52,20 @@ function removeRecursivelyError(error) {
 function deleteFolder(folderName) {
     alert("deleteFolder");
     var fileSystem = window.fileSystemGlobal;
-    
+
     alert(folderName);
     fileSystem.root.getDirectory(
                  folderName,
                 { create: true, exclusive: false },
                 function (entry) {
                     alert("Remove Folder");
-                    
+
                     entry.removeRecursively(function () {
                         alert("Remove Folder Succeeded");
                     }, removeRecursivelyError);
                 }, deleteFolderError);
 }
- 
+
 function gotFile(fileEntry) {
     alert("gotFile");
     fileEntry.file(function (file) {
@@ -76,12 +76,12 @@ function gotFile(fileEntry) {
         s += "<b>lastModifiedDate:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
         s += "<b>size:</b> " + file.size + "<br/>";
         document.querySelector("#status").innerHTML = s;
-        
-        
+
+
         var reader = new FileReader();
 
-        reader.onloadend = function(e) {
-           var strFile = "Text is: " + this.result;
+        reader.onloadend = function (e) {
+            var strFile = "Text is: " + this.result;
             document.querySelector("#textArea").innerHTML = this.result;
         };
         reader.readAsText(file);
@@ -91,16 +91,16 @@ function gotFile(fileEntry) {
 }
 
 function getFolder(nameFolder) {
-    
+
     alert("getFolder" + nameFolder);
-    
+
     var fileSystem = window.fileSystemGlobal;
-    
+
     fileSystem.root.getDirectory(nameFolder,
                  { create: true, exclusive: false },
                  function (directory) {
                      alert("into directory: " + directory.name);
-                     
+
                      // Get a directory reader
                      var path = cordova.file.applicationDirectory + directory.name;
                      alert(path);
@@ -120,7 +120,7 @@ function getDirectoryError(code) {
 function readEntriesSuccess(entries) {
 
     alert("count entities" + entries.length);
-    
+
     if (entries.length == 0) {
         alert("Try to Upload Image ");
         entries.file(uploadPhoto, uploadFileError);
@@ -128,18 +128,18 @@ function readEntriesSuccess(entries) {
 
     var i;
     for (i = 0; i < entries.length; i++) {
-       
+
         if (entries[i].isDirectory == true) {
             alert("Directory" + entries[i].name);
             var directoryReaderIn = entries[i].createReader();
             directoryReaderIn.readEntries(readEntriesSuccess, readEntriesFail);
         }
-       
+
         if (entries[i].isFile == true) {
-            alert("File name: " + entries[i].name); 
+            alert("File name: " + entries[i].name);
         }
     }
-    
+
 }
 
 function readEntriesFail(error) {
@@ -152,7 +152,7 @@ function uploadPhoto(imageURI) {
     var options = new FileUploadOptions();
     var ft = new FileTransfer();
     ft.upload(imageURI, "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png", win, failuploadPhoto, options);
-     
+
     /*var target = ""; //the url to upload on server
     var ft = new FileTransfer(), path = "file://" + file.fullPath, name = file.name;
     ft.upload(path, target, win, fail, { fileName: name });*/
@@ -171,9 +171,9 @@ function failuploadPhoto(codeError) {
 function deleteFile(fileName) {
     alert("deleteFile" + fileName);
     alert(window.fileSystemGlobal.root);
-    
+
     window.fileSystemGlobal.root.getFile(fileName, { create: true, exclusive: false }, removeFile, removeFileError);
-     
+
 }
 
 function removeFile(fileEntry) {
@@ -195,10 +195,10 @@ function removeFileError(error) {
     alert("removeFileError code" + error.code);
 }
 
- 
+
 
 function downloadImage() {
-    alert("downloadImage"); 
+    alert("downloadImage");
 
     var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
     alert("url " + url);
@@ -208,13 +208,13 @@ function downloadImage() {
     var imagePath = fs.root.fullPath + "/Content/EXMORT_Screencap001.png";
     alert(imagePath)
     var fileTransfer = new FileTransfer();
-    
+
     var options = new FileUploadOptions();
     options.fileKey = "file";
     options.fileName = "EXMORT_Screencap001.png";
     options.mimeType = "image/png";
-     
-    
+
+
     fileTransfer.download(uri, imagePath, function (entry) {
         alert("download complete: " + entry.fullPath); // entry is fileEntry object
     }, function (error) {
@@ -247,29 +247,29 @@ function DownloadFile(URL, Folder_Name, File_Name) {
 
 function download(URL, Folder_Name, File_Name) {
     alert("download");
-    
+
     //step to request a file system 
     window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, fileSystemSuccess, fileSystemFail);
 
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
-        
+
         var download_link = encodeURI(URL);
 
         alert("download_link " + download_link);
-        
-       var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
-       alert("ext " + ext);
-        
+
+        var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
+        alert("ext " + ext);
+
         //var directoryEntry = fileSystem.root; // to get root path of directory
         //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
         var rootdir = fileSystem.root;
-        var fp = rootdir.toUrl(); // rootdir.fullPath; // Returns Fulpath of local directory
-
-        fp = fp + "/" + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
+        var fp = rootdir.fullPath; // Returns Fulpath of local directory
+        alert("fp " + fp);
+        fp = fp + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
 
         alert("fp " + fp);
-        
+
         // download function call
         filetransfer(download_link, fp);
     }
@@ -302,8 +302,10 @@ function filetransfer(download_link, fp) {
                      function (error) {
                          //Download abort errors or download failed errors
                          alert("download error source " + error.source);
-                          alert("download error target " + error.target);
+                         alert("download error target " + error.target);
                          alert("upload error code" + error.code);
-                     }
+                     },
+                      false,
+                      null
                 );
 }
