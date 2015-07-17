@@ -240,7 +240,7 @@ function downloadFile() {
                                      alert("sPath" + sPath);
                                      
                                      var fileTransfer = new FileTransfer();
-                                     fileEntry.remove();
+                                     alert("fileTransfer" + fileTransfer);
 
                                      fileTransfer.download(
                                                "http://www.w3.org/2011/web-apps-ws/papers/Nitobi.pdf",
@@ -250,9 +250,9 @@ function downloadFile() {
                                                    
                                                },
                                                function (error) {
-                                                   console.log("download error source " + error.source);
-                                                   console.log("download error target " + error.target);
-                                                   console.log("upload error code: " + error.code);
+                                                   alert("download error source " + error.source);
+                                                   alert("download error target " + error.target);
+                                                   alert("upload error code: " + error.code);
                                                }
                                                );
                                  },
