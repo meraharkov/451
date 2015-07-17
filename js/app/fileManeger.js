@@ -24,7 +24,7 @@ function onRequestFileSystemSuccess(fileSystem) {
     DownloadFile(
         "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
         "Content",
-        "EXMORT_Screencap001");
+        "EXMORT_Screencap001.png");
 
     // downloadImage();
 
@@ -254,24 +254,67 @@ function download(URL, Folder_Name, File_Name) {
     function fileSystemSuccess(fileSystem) {
         alert("fileSystemSuccess");
 
-        var download_link = encodeURI(URL);
+      
 
-        alert("download_link " + download_link);
+        fileSystem.root.getDirectory(Folder_Name,
+                 { create: true, exclusive: false },
+                 function (directory) {
+                     alert("into directory: " + directory.name);
 
-        var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
-        alert("ext " + ext);
+                     fileSystem.getFile(File_Name, { create: true, exclusive: false }, function gotFileEntry(fileEntry) {
 
-        //var directoryEntry = fileSystem.root; // to get root path of directory
-        //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
-        var rootdir = fileSystem.root;
-        var fp = cordova.file.applicationDirectory + "/www/" //rootdir.fullPath; // Returns Fulpath of local directory
-        alert("fp " + fp);
-        fp = fp + Folder_Name + "/" + File_Name + "." + ext; // fullpath and name of the file which we want to give
+                         alert("gotFileEntry");
+                         
+                         var path = fileEntry.fullPath.replace(File_Name, "");
+                         alert("path");
+                         
+                         fileEntry.remove();
+                        /*
+                         fileTransfer.download(FILE_DOWNLOAD_URL, path + "" + your - savedName, function (theFile) {
+                             alert("File Downloaded Successfully " + theFile.toURI());
+                         }, function (error) {
+                             alert("File Transfer failed" + error.message);
+                         });*/
+                         
+                         var download_link = encodeURI(URL);
 
-        alert("fp " + fp);
+                         alert("download_link " + download_link);
+
+                         //var ext = download_link.substr(download_link.lastIndexOf('.') + 1); //Get extension of URL
+                         //alert("ext " + ext);
+
+                         //var directoryEntry = fileSystem.root; // to get root path of directory
+                         //directoryEntry.getDirectory(Folder_Name, { create: true, exclusive: false }, onDirectorySuccess, onDirectoryFail); // creating folder in sdcard
+                        // var rootdir = fileSystem.root;
+                         var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
+                         alert("fp " + fp);
+                         fp = fp + Folder_Name + "/" + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
+                         alert("fp " + fp);
+                         
+                         var fileTransfer = new FileTransfer();
+                         // File download function with URL and local path
+                         fileTransfer.download(download_link, fp,
+                                             function (entry) {
+                                                 alert("download complete: " + entry.fullPath);
+                                             },
+                                          function (error) {
+                                              //Download abort errors or download failed errors
+                                              alert("download error source " + error.source);
+                                              alert("download error target " + error.target);
+                                              alert("upload error code" + error.code);
+                                          }
+                                     );
+                                 });
+                     
+
+                    
+                     
+                 },
+                 getDirectoryError);
+        
 
         // download function call
-        filetransfer(download_link, fp);
+       // filetransfer(download_link, fp);
     }
 
     function onDirectorySuccess(parent) {
