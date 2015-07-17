@@ -219,10 +219,21 @@ function downloadImage() {
     
 
     var url = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
+    alert("url " + url);
+    var uri = encodeURI(url);
+    alert(uri);
+
     var imagePath = fs.root.fullPath + "/Content/EXMORT_Screencap001.png";
+    alert(imagePath)
     var fileTransfer = new FileTransfer();
     
-    fileTransfer.download(url, imagePath, function (entry) {
+    var options = new FileUploadOptions();
+    options.fileKey = "file";
+    options.fileName = "EXMORT_Screencap001.png";
+    options.mimeType = "image/png";
+     
+    
+    fileTransfer.download(uri, imagePath, function (entry) {
         alert("download complete: " + entry.fullPath); // entry is fileEntry object
     }, function (error) {
         alert("download error source " + error.source);
