@@ -468,6 +468,8 @@ function refrashImage() {
     alert("refresh Image");
     var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";
 
+    ;
+
     $("#Image-3").attr("src", pathToFile);
 }
 
@@ -496,4 +498,38 @@ function DownLoadImageToStorage(download_link, folderName, File_Name) {
          false,
          {}
      );
+}
+
+
+function checkFile() {
+
+    var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";
+    alert(pathToFile)
+    window.resolveLocalFileSystemURL(pathToFile, gotFile, fail);
+}
+
+
+ 
+
+
+function fail(e) {
+    alert("FileSystem Error")
+    console.log("FileSystem Error");
+    console.dir(e);
+}
+
+function gotFile(fileEntry) {
+
+    fileEntry.file(function (file) {
+        var s = "";
+        s += "<b>name:</b> " + file.name + "<br/>";
+        s += "<b>localURL:</b> " + file.localURL + "<br/>";
+        s += "<b>type:</b> " + file.type + "<br/>";
+        s += "<b>lastModifiedDate:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
+        s += "<b>size:</b> " + file.size + "<br/>";
+
+        document.querySelector("#status").innerHTML = s;
+        console.dir(file);
+
+    });
 }
