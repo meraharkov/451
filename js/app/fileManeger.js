@@ -17,27 +17,22 @@ function onDeviceReady() {
 
 function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
-    alert(fileSystem.root);
-
-    //var srcUrl3 = fileSystem.root.toURL() + "Package/Image/" + "EXMORT_Screencap001.png";
-    //alert(srcUrl3);
-    //$("#Image-3").attr("src", srcUrl3);
-
-
+   
 
     window.fileSystemGlobal = fileSystem; 
-    alert("start download"); 
-    var fileTransfer = new FileTransfer();
 
-    var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";// "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
-    var File_Name = "SUNFLOW001_Motion_003.png";
-    var folderName = "Package/Image/";
 
-    var download_link = encodeURI(URL);
-    alert("download_link " + download_link);
+    //alert("start download");
+    //var fileTransfer = new FileTransfer();
 
+    //var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";// "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
+    //var File_Name = "SUNFLOW001_Motion_003.png";
+    //var folderName = "Package/Image/";
+
+    //var download_link = encodeURI(URL);
+    //alert("download_link " + download_link);
    
-    var fp = cordova.file.dataDirectory + folderName + File_Name;
+    //var fp = cordova.file.dataDirectory + folderName + File_Name;
 
         //cordova.file.applicationDirectory + "www/images/"  + File_Name; //fail
         // fileSystem.root.fullPath + folderName + File_Name; // fail 
@@ -46,34 +41,32 @@ function onRequestFileSystemSuccess(fileSystem) {
      // "cdvfile://localhost/persistent/" + folderName + File_Name;
     //fileSystem.root.toURL() + folderName + File_Name; //important workin code
     
-    alert("fp " + fp);
-   
-    $("#Image-3").attr("src", fp);
+  
 
 
  //    File download function with URL and local path
-    fileTransfer.download(download_link, fp,
-        function (entry) {
-            alert("download complete: " + entry.fullPath);
+    //fileTransfer.download(download_link, fp,
+    //    function (entry) {
+    //        alert("download complete: " + entry.fullPath);
 
-          //  alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
-         //   alert("fileSystem.root.fullPath" + fileSystem.root.fullPath) // просто /
+    //      //  alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
+    //     //   alert("fileSystem.root.fullPath" + fileSystem.root.fullPath) // просто /
 
-            //var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-            //$("#Image-3").attr("src", srcUrl3);
+    //        //var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
+    //        //$("#Image-3").attr("src", srcUrl3);
 
-            alert("fp " + fp);
-            $("#Image-3").attr("src", fp);
-        },
-        function (error) {
-            //Download abort errors or download failed errors
-            alert("download error source " + error.source);
-            alert("download error target " + error.target);
-            alert("upload error code" + error.code);
-        },
-        false,
-        {}
-    );
+    //        alert("fp " + fp);
+    //        $("#Image-3").attr("src", fp);
+    //    },
+    //    function (error) {
+    //        //Download abort errors or download failed errors
+    //        alert("download error source " + error.source);
+    //        alert("download error target " + error.target);
+    //        alert("upload error code" + error.code);
+    //    },
+    //    false,
+    //    {}
+    //);
 
 
     //DownloadFile(
@@ -438,4 +431,67 @@ function createDirectory(path, success) {
     };
 
     createDir(dirs.pop());
+}
+
+
+/* download Logic  ================================================================================================== */
+window.pathToFile = "";
+
+function DownloadImage1() {
+    var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_002.png";
+    alert("DownloadImage  url " + url);
+
+    var File_Name = "SUNFLOW001_Motion_002.png";
+    var folderName = "Package/Image/";
+
+    DownLoadImageToStorage(url, folderName, File_Name)
+
+
+    
+};
+
+function DownloadImage2() {
+    var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
+    alert("DownloadImage  url " + url);
+
+    var File_Name = "SUNFLOW001_Motion_003.png";
+    var folderName = "Package/Image/";
+
+    DownLoadImageToStorage(url, folderName, File_Name)
+};
+
+
+
+
+function refrashImage() {
+
+    alert("refresh Image");
+    $("#Image-3").attr("src", window.pathToFile);
+}
+
+
+function DownLoadImageToStorage(download_link, folderName, File_Name) {
+
+    alert("click to start download ")
+    var fileTransfer = new FileTransfer();
+    var fp = window.window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
+
+    alert("path to storage " + fp)
+    fileTransfer.download(download_link, fp,
+         function (entry) {
+             alert("download complete: " + entry.fullPath);
+
+             window.pathToFile = fp;
+             alert(" path To File" + window.pathToFile)
+             
+         },
+         function (error) {
+             //Download abort errors or download failed errors
+             alert("download error source " + error.source);
+             alert("download error target " + error.target);
+             alert("upload error code" + error.code);
+         },
+         false,
+         {}
+     );
 }
