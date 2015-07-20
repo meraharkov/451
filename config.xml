@@ -18,6 +18,17 @@
     PhoneGap Team
   </author>
 
+  <feature name="File">
+    <param name="android-package" value="org.apache.cordova.file.FileUtils" />
+  </feature>
+  <feature name="File">
+    <param name="ios-package" value="CDVFile" />
+  </feature>
+  <feature name="FileTransfer">
+    <param name="ios-package" value="CDVFileTransfer" />
+  </feature>
+  
+  
   <!--
         Enable individual API permissions here.
         The "device" permission is required for the 'deviceready' event.

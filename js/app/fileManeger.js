@@ -37,7 +37,12 @@ function onRequestFileSystemSuccess(fileSystem) {
     alert("download_link " + download_link);
 
    
-    var fp = cordova.file.applicationDirectory + "www/images/"  + File_Name;  // fileSystem.root.fullPath + folderName + File_Name; // fail 
+    var fp = cordova.file.dataDirectory + folderName + File_Name;
+
+        //cordova.file.applicationDirectory + "www/images/"  + File_Name; //fail
+        // fileSystem.root.fullPath + folderName + File_Name; // fail 
+
+
      // "cdvfile://localhost/persistent/" + folderName + File_Name;
     //fileSystem.root.toURL() + folderName + File_Name; //important workin code
     
