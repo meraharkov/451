@@ -19,51 +19,53 @@ function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
     alert(fileSystem.root);
 
-    window.fileSystemGlobal = fileSystem;
+    var srcUrl3 = fileSystem.root.toURL() + "Package/Image/" + "EXMORT_Screencap001.png";
+    alert(srcUrl3);
+    $("#Image-3").attr("src", srcUrl3);
 
 
-    alert("start download");
+
+    //window.fileSystemGlobal = fileSystem; 
+    //alert("start download"); 
+    //var fileTransfer = new FileTransfer();
+
+    //var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
+    //var File_Name = "EXMORT_Screencap001.png";
+    //var folderName = "Package/Image/";
+
+    //var download_link = encodeURI(URL);
+    //alert("download_link " + download_link);
+
+    //var fp = fileSystem.root.toURL() + folderName + File_Name; //important workin code
 
 
-    var fileTransfer = new FileTransfer();
+    //alert("fp " + fp);
 
-    var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
-    var File_Name = "EXMORT_Screencap001.png";
-    var folderName = "Package/Image/";
+    //// File download function with URL and local path
+    //fileTransfer.download(download_link, fp,
+    //    function (entry) {
+    //        alert("download complete: " + entry.fullPath);
 
-    var download_link = encodeURI(URL);
-    alert("download_link " + download_link);
+    //        alert("download complete: " + entry.fullPath);
 
-    var fp = fileSystem.root.toURL() + folderName + File_Name; //important workin code
+    //        $("#Image-1").attr("src", entry.fullPath);
 
-
-    alert("fp " + fp);
-
-    // File download function with URL and local path
-    fileTransfer.download(download_link, fp,
-        function (entry) {
-            alert("download complete: " + entry.fullPath);
-
-            alert("download complete: " + entry.fullPath);
-
-            $("#Image-1").attr("src", entry.fullPath);
-
-            var srcUrl = "/" + entry.fullPath;
-            $("#Image-2").attr("src", srcUrl);
+    //        var srcUrl = "/" + entry.fullPath;
+    //        $("#Image-2").attr("src", srcUrl);
 
 
-            var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-            $("#Image-3").attr("src", srcUrl3);
-        },
-        function (error) {
-            //Download abort errors or download failed errors
-            alert("download error source " + error.source);
-            alert("download error target " + error.target);
-            alert("upload error code" + error.code);
-        },
-        false,
-        {}
-    );
+    //        var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
+    //        $("#Image-3").attr("src", srcUrl3);
+    //    },
+    //    function (error) {
+    //        //Download abort errors or download failed errors
+    //        alert("download error source " + error.source);
+    //        alert("download error target " + error.target);
+    //        alert("upload error code" + error.code);
+    //    },
+    //    false,
+    //    {}
+    //);
 
 
     //DownloadFile(
@@ -353,8 +355,7 @@ function download(URL, Folder_Name, File_Name) {
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
                      fp = fp + Folder_Name + "/";// + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
-                     alert("fp " + fp);    var fp = fileSystem.root.toURL();*/
-               
+                     alert("fp " + fp);    var fp = fileSystem.root.toURL();*/ 
 
         // download function call
        // filetransfer(download_link, fp);
