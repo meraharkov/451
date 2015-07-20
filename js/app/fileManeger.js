@@ -36,7 +36,8 @@ function onRequestFileSystemSuccess(fileSystem) {
     var download_link = encodeURI(URL);
     alert("download_link " + download_link);
 
-    var fp = fileSystem.root.toURL() + folderName + File_Name; //important workin code
+   
+    var fp = "cdvfile://localhost/persistent/" + folderName + File_Name;  //fileSystem.root.toURL() + folderName + File_Name; //important workin code
 
 
     alert("fp " + fp);
@@ -46,8 +47,8 @@ function onRequestFileSystemSuccess(fileSystem) {
         function (entry) {
             alert("download complete: " + entry.fullPath);
 
-            alert( fileSystem.root.toNativeURL());
-
+            alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
+            alert("fileSystem.root.fullPath" + fileSystem.root.fullPath)
 
             var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
             $("#Image-3").attr("src", srcUrl3);
