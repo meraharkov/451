@@ -42,30 +42,34 @@ function onRequestFileSystemSuccess(fileSystem) {
 
     alert("fp " + fp);
 
+
    
     $("#Image-3").attr("src", fp);
 
 
-    //// File download function with URL and local path
-    //fileTransfer.download(download_link, fp,
-    //    function (entry) {
-    //        alert("download complete: " + entry.fullPath);
+    // File download function with URL and local path
+    fileTransfer.download(download_link, fp,
+        function (entry) {
+            alert("download complete: " + entry.fullPath);
 
-    //        alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
-    //        alert("fileSystem.root.fullPath" + fileSystem.root.fullPath)
+          //  alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
+         //   alert("fileSystem.root.fullPath" + fileSystem.root.fullPath) // просто /
 
-    //        var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-    //        $("#Image-3").attr("src", srcUrl3);
-    //    },
-    //    function (error) {
-    //        //Download abort errors or download failed errors
-    //        alert("download error source " + error.source);
-    //        alert("download error target " + error.target);
-    //        alert("upload error code" + error.code);
-    //    },
-    //    false,
-    //    {}
-    //);
+            //var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
+            //$("#Image-3").attr("src", srcUrl3);
+
+            alert("fp " + fp);
+            $("#Image-3").attr("src", fp);
+        },
+        function (error) {
+            //Download abort errors or download failed errors
+            alert("download error source " + error.source);
+            alert("download error target " + error.target);
+            alert("upload error code" + error.code);
+        },
+        false,
+        {}
+    );
 
 
     //DownloadFile(
