@@ -466,7 +466,9 @@ function DownloadImage2() {
 function refrashImage() {
 
     alert("refresh Image");
-    $("#Image-3").attr("src", window.pathToFile);
+    var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";
+
+    $("#Image-3").attr("src", pathToFile);
 }
 
 
