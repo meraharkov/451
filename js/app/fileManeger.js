@@ -46,12 +46,7 @@ function onRequestFileSystemSuccess(fileSystem) {
         function (entry) {
             alert("download complete: " + entry.fullPath);
 
-            alert("download complete: " + entry.fullPath);
-
-            $("#Image-1").attr("src", entry.fullPath);
-
-            var srcUrl = "/" + entry.fullPath;
-            $("#Image-2").attr("src", srcUrl);
+            alert( fileSystem.root.toNativeURL());
 
 
             var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
