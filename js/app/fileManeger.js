@@ -19,53 +19,53 @@ function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
     alert(fileSystem.root);
 
-    var srcUrl3 = fileSystem.root.toURL() + "Package/Image/" + "EXMORT_Screencap001.png";
-    alert(srcUrl3);
-    $("#Image-3").attr("src", srcUrl3);
+    //var srcUrl3 = fileSystem.root.toURL() + "Package/Image/" + "EXMORT_Screencap001.png";
+    //alert(srcUrl3);
+    //$("#Image-3").attr("src", srcUrl3);
 
 
 
-    //window.fileSystemGlobal = fileSystem; 
-    //alert("start download"); 
-    //var fileTransfer = new FileTransfer();
+    window.fileSystemGlobal = fileSystem; 
+    alert("start download"); 
+    var fileTransfer = new FileTransfer();
 
-    //var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
-    //var File_Name = "EXMORT_Screencap001.png";
-    //var folderName = "Package/Image/";
+    var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";// "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
+    var File_Name = "SUNFLOW001_Motion_003.png";
+    var folderName = "Package/Image/";
 
-    //var download_link = encodeURI(URL);
-    //alert("download_link " + download_link);
+    var download_link = encodeURI(URL);
+    alert("download_link " + download_link);
 
-    //var fp = fileSystem.root.toURL() + folderName + File_Name; //important workin code
-
-
-    //alert("fp " + fp);
-
-    //// File download function with URL and local path
-    //fileTransfer.download(download_link, fp,
-    //    function (entry) {
-    //        alert("download complete: " + entry.fullPath);
-
-    //        alert("download complete: " + entry.fullPath);
-
-    //        $("#Image-1").attr("src", entry.fullPath);
-
-    //        var srcUrl = "/" + entry.fullPath;
-    //        $("#Image-2").attr("src", srcUrl);
+    var fp = fileSystem.root.toURL() + folderName + File_Name; //important workin code
 
 
-    //        var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-    //        $("#Image-3").attr("src", srcUrl3);
-    //    },
-    //    function (error) {
-    //        //Download abort errors or download failed errors
-    //        alert("download error source " + error.source);
-    //        alert("download error target " + error.target);
-    //        alert("upload error code" + error.code);
-    //    },
-    //    false,
-    //    {}
-    //);
+    alert("fp " + fp);
+
+    // File download function with URL and local path
+    fileTransfer.download(download_link, fp,
+        function (entry) {
+            alert("download complete: " + entry.fullPath);
+
+            alert("download complete: " + entry.fullPath);
+
+            $("#Image-1").attr("src", entry.fullPath);
+
+            var srcUrl = "/" + entry.fullPath;
+            $("#Image-2").attr("src", srcUrl);
+
+
+            var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
+            $("#Image-3").attr("src", srcUrl3);
+        },
+        function (error) {
+            //Download abort errors or download failed errors
+            alert("download error source " + error.source);
+            alert("download error target " + error.target);
+            alert("upload error code" + error.code);
+        },
+        false,
+        {}
+    );
 
 
     //DownloadFile(
