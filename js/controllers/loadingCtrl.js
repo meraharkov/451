@@ -54,15 +54,16 @@
                             };
                             
 
-                            document.addEventListener('deviceready', function onDeviceReady() {
-                                alert("onDeviceReady 5");
+                            document.addEventListener('deviceready', onDeviceReady, false);
+
+
+                            function onDeviceReady() {
+                                alert("onDeviceReady 6");
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
-                              //  $scope.globalobjectsarray.fileSystemGlobal = {};
-                               window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
-                            }, false);
-
-
-
+                                //  $scope.globalobjectsarray.fileSystemGlobal = {};
+                                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+                            }
+                            
                             function onRequestFileSystemSuccess(fileSystem) {
                                 alert("onRequestFileSystemSuccess");
                                 window.fileSystemGlobal = fileSystem;
