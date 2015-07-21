@@ -9,25 +9,28 @@
                                 var _self = this;
 
                                 this.downLoadImageToStorage =  function(download_link, folderName, File_Name) {
-
-                                    alert("click to start download ");
+                                    $("#loading-id").append("<div class='log-info'>" + "start downloading " + " </div>");
+                                
                                     var fileTransfer = new FileTransfer();
                                     var fp = window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
-
-                                    alert("path to storage " + fp);
+                                    $("#loading-id").append("<div class='log-info'>" + "path to storage " + fp + " </div>");
+                                    
+                                
                                     fileTransfer.download(download_link, fp,
                                          function (entry) {
-                                             alert("download complete: " + entry.fullPath);
-
+                                        
+                                             $("#loading-id").append("<div class='log-info'>" + "download complete: " + entry.fullPath + " </div>");
                                              window.pathToFile = fp;
-                                             alert(" path To File" + window.pathToFile);
-
+                                             $("#loading-id").append("<div class='log-info'>" + " path To File" + window.pathToFile + " </div>");
+                                              
                                          },
                                          function (error) {
                                              //Download abort errors or download failed errors
-                                             alert("download error source " + error.source);
-                                             alert("download error target " + error.target);
-                                             alert("upload error code" + error.code);
+                                             $("#loading-id").append("<div class='log-info'>" + "/" + " </div>");
+                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.source + " </div>");
+                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.target + " </div>");
+                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.code + " </div>");
+                                             $("#loading-id").append("<img src=" + window.fileSystemGlobal.root.toNativeURL() + imagePathOnserver + " />");
                                          },
                                          false,
                                          {}
