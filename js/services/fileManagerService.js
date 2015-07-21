@@ -8,34 +8,37 @@
 
                                 var _self = this;
 
-                                this.downLoadImageToStorage =  function(download_link, folderName, File_Name) {
+                                this.downLoadImageToStorage = function(download_link, folderName, File_Name) {
                                     $("#loading-id").append("<div class='log-info'>" + "start downloading " + " </div>");
-                                
+
                                     var fileTransfer = new FileTransfer();
                                     var fp = window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
                                     $("#loading-id").append("<div class='log-info'>" + "path to storage " + fp + " </div>");
-                                    
-                                
+
+
                                     fileTransfer.download(download_link, fp,
-                                         function (entry) {
-                                        
-                                             $("#loading-id").append("<div class='log-info'>" + "download complete: " + entry.fullPath + " </div>");
-                                             window.pathToFile = fp;
-                                             $("#loading-id").append("<div class='log-info'>" + " path To File" + window.pathToFile + " </div>");
-                                              
-                                         },
-                                         function (error) {
-                                             //Download abort errors or download failed errors
-                                             $("#loading-id").append("<div class='log-info'>" + "/" + " </div>");
-                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.source + " </div>");
-                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.target + " </div>");
-                                             $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.code + " </div>");
-                                             $("#loading-id").append("<img src=" + window.fileSystemGlobal.root.toNativeURL() + imagePathOnserver + " />");
-                                         },
-                                         false,
-                                         {}
-                                     );
-                                }
+                                        function(entry) {
+
+                                            $("#loading-id").append("<div class='log-info'>" + "download complete: " + entry.fullPath + " </div>");
+                                          /*  window.pathToFile = fp;
+                                            $("#loading-id").append("<div class='log-info'>" + " path To File" + window.pathToFile + " </div>");
+                                            
+                                            var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";*/
+                                            $("#loading-id").append("<img src=" + fp + " />");
+
+                                        },
+                                        function(error) {
+                                            //Download abort errors or download failed errors
+                                            $("#loading-id").append("<div class='log-info'>" + "/" + " </div>");
+                                            $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.source + " </div>");
+                                            $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.target + " </div>");
+                                            $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.code + " </div>");
+
+                                        },
+                                        false,
+                                        {}
+                                    );
+                                };
                                 
                              /*   this.downloadImageByLink = function (imagePathOnserver) {
                                     
