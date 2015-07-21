@@ -58,6 +58,8 @@
 
                             function onDeviceReady() {
                                 alert("onDeviceReady 6");
+                                alert("current url " + $location.absUrl() + " " + $location.url());
+                                
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
                                // onRequestFileSystemSuccess({});
                                   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);

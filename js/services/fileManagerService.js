@@ -16,8 +16,8 @@
                                     $("#loading-id").append("<div class='log-info'>"+ "url to download "+ downloadLink  + " </div>");
 
                                     var fileTransfer = new FileTransfer();
-                                    var pathToVault = window.fileSystemGlobal.root.toNativeURL();
-                                    $("#loading-id").append("<div class='log-info'>" + "device storage " + pathToVault + " </div>");
+                                    var filePath = window.fileSystemGlobal.root.toNativeURL() + imagePathOnserver;
+                                    $("#loading-id").append("<div class='log-info'>" + "device storage " + filePath + " </div>");
                                     $("#loading-id").append("<div class='log-info'>" + "/" + " </div>");
                                     
                                     fileTransfer.download(downloadLink, filePath, function (entry) {
