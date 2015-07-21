@@ -68,7 +68,9 @@
                                         $scope.LoginfoArr.push("DownloadImage  url " + url);
 
                                         var File_Name = "SUNFLOW001_Motion_003.png";
-                                        var folderName = "Package/Image/";
+                                      //  var folderName = "Package/Image/";
+                                        var folderName = "/Content/6.12.15/Sunflower/";
+
 
                                         fileManagerService.self.downLoadImageToStorage(url, folderName, File_Name);
                                     } else {

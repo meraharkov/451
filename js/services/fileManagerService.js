@@ -20,10 +20,6 @@
                                         function(entry) {
 
                                             $("#loading-id").append("<div class='log-info'>" + "download complete: " + entry.fullPath + " </div>");
-                                          /*  window.pathToFile = fp;
-                                            $("#loading-id").append("<div class='log-info'>" + " path To File" + window.pathToFile + " </div>");
-                                            
-                                            var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";*/
                                             $("#loading-id").append("<img src=" + fp + " />");
 
                                         },
