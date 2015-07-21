@@ -17,62 +17,14 @@ function onDeviceReady() {
 
 function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
-   
+    alert(fileSystem.root);
 
-    window.fileSystemGlobal = fileSystem; 
+    window.fileSystemGlobal = fileSystem;
 
-
-    //alert("start download");
-    //var fileTransfer = new FileTransfer();
-
-    //var URL = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";// "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png";
-    //var File_Name = "SUNFLOW001_Motion_003.png";
-    //var folderName = "Package/Image/";
-
-    //var download_link = encodeURI(URL);
-    //alert("download_link " + download_link);
-   
-    //var fp = cordova.file.dataDirectory + folderName + File_Name;
-
-        //cordova.file.applicationDirectory + "www/images/"  + File_Name; //fail
-        // fileSystem.root.fullPath + folderName + File_Name; // fail 
-
-
-     // "cdvfile://localhost/persistent/" + folderName + File_Name;
-    //fileSystem.root.toURL() + folderName + File_Name; //important workin code
-    
-  
-
-
- //    File download function with URL and local path
-    //fileTransfer.download(download_link, fp,
-    //    function (entry) {
-    //        alert("download complete: " + entry.fullPath);
-
-    //      //  alert("fileSystem.root.toNativeURL" + fileSystem.root.toNativeURL());
-    //     //   alert("fileSystem.root.fullPath" + fileSystem.root.fullPath) // просто /
-
-    //        //var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-    //        //$("#Image-3").attr("src", srcUrl3);
-
-    //        alert("fp " + fp);
-    //        $("#Image-3").attr("src", fp);
-    //    },
-    //    function (error) {
-    //        //Download abort errors or download failed errors
-    //        alert("download error source " + error.source);
-    //        alert("download error target " + error.target);
-    //        alert("upload error code" + error.code);
-    //    },
-    //    false,
-    //    {}
-    //);
-
-
-    //DownloadFile(
-    //    "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
-    //    "Content",
-    //    "EXMORT_Screencap001.png");
+    DownloadFile(
+        "http://web421.newlinetechnologies.net/Content/6.12.15/ExMortis/EXMORT_Screencap001.png",
+        "Content",
+        "EXMORT_Screencap001.png");
 
     // downloadImage();
 
@@ -305,7 +257,7 @@ function download(URL, Folder_Name, File_Name) {
         var folderName = "Package/Image";
 
         var createDirectorySuccess = function (entry) {
-            alert("createDirectorySuccess")
+            alert("createDirectorySuccess");
             alert("Dir path - " + entry.fullPath);
       
                 alert("start download");
@@ -316,26 +268,15 @@ function download(URL, Folder_Name, File_Name) {
                 var download_link = encodeURI(URL);
                 alert("download_link " + download_link);
 
-                var fp = fileSystem.root.toURL() + entry.fullPath + File_Name; //important workin code
-
-               
+                var fp = window.FS.root  + entry.fullPath + File_Name;
+                alert(window.FS.root);
+            
                 alert("fp " + fp);
 
                 // File download function with URL and local path
                 fileTransfer.download(download_link, fp,
                     function(entry) {
                         alert("download complete: " + entry.fullPath);
-
-                        alert("download complete: " + entry.fullPath);
-
-                        $("#Image-1").attr("src", entry.fullPath);
-
-                        var srcUrl = "/" + entry.fullPath;
-                        $("#Image-2").attr("src", srcUrl);
-
-
-                        var srcUrl3 = fileSystem.root.toURL() + entry.fullPath;
-                        $("#Image-3").attr("src", srcUrl3);
                     },
                     function(error) {
                         //Download abort errors or download failed errors
@@ -356,7 +297,8 @@ function download(URL, Folder_Name, File_Name) {
                   /*   var fp = cordova.file.applicationDirectory + "www/"; //rootdir.fullPath; // Returns Fulpath of local directory
                      alert("fp " + fp);
                      fp = fp + Folder_Name + "/";// + File_Name;// + "." + ext; // fullpath and name of the file which we want to give
-                     alert("fp " + fp);    var fp = fileSystem.root.toURL();*/ 
+                     alert("fp " + fp);    var fp = fileSystem.root.toURL();*/
+               
 
         // download function call
        // filetransfer(download_link, fp);
@@ -431,105 +373,4 @@ function createDirectory(path, success) {
     };
 
     createDir(dirs.pop());
-}
-
-
-/* download Logic  ================================================================================================== */
-window.pathToFile = "";
-
-function DownloadImage1() {
-    var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_002.png";
-    alert("DownloadImage  url " + url);
-
-    var File_Name = "SUNFLOW001_Motion_002.png";
-    var folderName = "Package/Image/";
-
-    DownLoadImageToStorage(url, folderName, File_Name)
-
-
-    
-};
-
-function DownloadImage2() {
-    var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
-    alert("DownloadImage  url " + url);
-
-    var File_Name = "SUNFLOW001_Motion_003.png";
-    var folderName = "Package/Image/";
-
-    DownLoadImageToStorage(url, folderName, File_Name)
-};
-
-
-
-
-function refrashImage() {
-
-    alert("refresh Image");
-    var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";
-
-    ;
-
-    $("#Image-3").attr("src", pathToFile);
-}
-
-
-function DownLoadImageToStorage(download_link, folderName, File_Name) {
-
-    alert("click to start download ")
-    var fileTransfer = new FileTransfer();
-    var fp = window.window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
-
-    alert("path to storage " + fp)
-    fileTransfer.download(download_link, fp,
-         function (entry) {
-             alert("download complete: " + entry.fullPath);
-
-             window.pathToFile = fp;
-             alert(" path To File" + window.pathToFile)
-             
-         },
-         function (error) {
-             //Download abort errors or download failed errors
-             alert("download error source " + error.source);
-             alert("download error target " + error.target);
-             alert("upload error code" + error.code);
-         },
-         false,
-         {}
-     );
-}
-
-
-function checkFile() {
-
-    var pathToFile = window.fileSystemGlobal.root.toNativeURL() + "Package/Image/" + "SUNFLOW001_Motion_002.png";
-    alert(pathToFile)
-    window.resolveLocalFileSystemURL(pathToFile, gotFile, fail);
-}
-
-
- 
-
-
-function fail(e) {
-    alert("FileSystem Error")
-    console.log("FileSystem Error");
-    console.dir(e);
-}
-
-function gotFile(fileEntry) {
-
-    fileEntry.file(function (file) {
-        var s = "";
-        s += "<b>name:</b> " + file.name + "<br/>";
-        s += "<b>localURL:</b> " + file.localURL + "<br/>";
-        s += "<b>type:</b> " + file.type + "<br/>";
-        s += "<b>lastModifiedDate:</b> " + (new Date(file.lastModifiedDate)) + "<br/>";
-        s += "<b>size:</b> " + file.size + "<br/>";
-
-        document.querySelector("#status").innerHTML = s;
-        console.dir(file);
-
-    });
 }

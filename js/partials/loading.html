@@ -1,0 +1,13 @@
+﻿<style type="text/css">
+    .log-info {
+        font-size: 14px;
+    }
+
+</style>
+<div id="loading-page" ng-controller="loadingCtrl">
+    <div id="loading-id" 
+              style="width: 100%; height: 100%;">
+        <div class="log-info"  ng-repeat="logItem in LoginfoArr track by $index" > {{ logItem }}</div>
+    </div>
+    <button ng-click="goToHomePage()"> go to home page </button>
+</div>
