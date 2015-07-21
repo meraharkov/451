@@ -63,17 +63,24 @@
                                     
 
                                     if ($scope.Package != null && window.fileSystemGlobal != null) {
-                                         
-                                        var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
-                                        $scope.LoginfoArr.push("DownloadImage  url " + url);
+                                        showUrlsToDownload($scope.Package);
+                                        
+                                     //   var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
+                                     
 
-                                        var File_Name = "SUNFLOW001_Motion_003.png";
+                                      //  var File_Name = "SUNFLOW001_Motion_003.png";
                                       //  var folderName = "Package/Image/";
-                                        var folderName = "/Content/6.12.15/Sunflower/";
+                                      //  var folderName = "/Content/6.12.15/Sunflower/";
+                                        var imagePathOnserver = $scope.Package.Pages[0].ContentPage[0].LinkToImage;
+                                        
+                                        var url = window.serviceLink +  imagePathOnserver.substring(1, imagePathOnserver.length);
+                                        
+                                        $scope.LoginfoArr.push("DownloadImage  url " + url);
+                                        
 
-
-                                        var pathOnServer = "/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
-
+                                        var pathOnServer = $scope.Package.Pages[0].ContentPage[0].LinkToImage; // "/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
+                                        $scope.LoginfoArr.push("DownloadImage  url " + pathOnServer);
+                                        
                                         fileManagerService.self.downLoadImageToStorage(url, pathOnServer);
                                     } else {
                                         $scope.LoginfoArr.push("$scope.Package is NULL");

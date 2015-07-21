@@ -42,7 +42,7 @@
                                     var downloadLink = window.serviceLink + imagePathOnserver.substring(1, imagePathOnserver.length);;
                                     
                                     $("#loading-id").append("<div class='log-info'>"+ "url to download "+ downloadLink  + " </div>");
-
+                                    $scope.Package
                                     var fileTransfer = new FileTransfer();
                                     var filePath = window.fileSystemGlobal.root.toNativeURL() + imagePathOnserver;
                                     $("#loading-id").append("<div class='log-info'>" + "device storage " + filePath + " </div>");
