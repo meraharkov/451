@@ -2,6 +2,7 @@
 (function (window, angular) {
     'use strict';
 
+    window.fileSystemGlobal = null;
     window.appName = window.appName || 'comix';
     window.serviceLink = "http://web421.newlinetechnologies.net/";
  // window.serviceLink =  "http://localhost:50038/";
@@ -18,7 +19,7 @@
                 .when('/about', { templateUrl: 'js/partials/about.html' })
                 .otherwise({ redirectTo:'/' });
             
-               $locationProvider.html5Mode(false); 
+                $locationProvider.html5Mode(false); 
                
             }]);
 }(window, window.angular));
