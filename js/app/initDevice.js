@@ -1,4 +1,6 @@
-﻿document.addEventListener("deviceready", onDeviceReady, false);
+﻿
+alert("init device js")
+document.addEventListener("deviceready", onDeviceReady, false);
 window.fileSystemGlobal = null;
 
 function onDeviceReady() {
