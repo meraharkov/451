@@ -1,19 +1,16 @@
-﻿/*document.addEventListener("deviceready", onDeviceReady, false);
+﻿document.addEventListener("deviceready", onDeviceReady, false);
+window.fileSystemGlobal = null;
 
 function onDeviceReady() {
-
+     
     alert("onDeviceReady");
-
-
-   // window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
-
+    $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " +  " </div>");
+    
+    window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
 }
 
 function onRequestFileSystemSuccess(fileSystem) {
     alert("onRequestFileSystemSuccess");
     window.fileSystemGlobal = fileSystem;
-    
-    var pathToVault = window.fileSystemGlobal.root.toURL();
-    alert(pathToVault);
-
-}*/
+    $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>"); 
+}

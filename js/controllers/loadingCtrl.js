@@ -25,25 +25,23 @@
                                    $scope.LoginfoArr.push(jsopStr);
 
                                    showUrlsToDownload($scope.Package);
-                                   fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
+                                   
                                 }
                             });
                             
-                            document.addEventListener("deviceready", onDeviceReady, false);
 
-                            function onDeviceReady() {
-                                $scope.LoginfoArr.push("onDeviceReady");
-                                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
-                            }
+                            $scope.$watch(function () {
+                                return window.fileSystemGlobal;
+                            }, function (newVal, oldVal) {
+                                if ($scope.Package != null) {
+                                    fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
+                                } else {
+                                    $scope.LoginfoArr.push("$scope.Package is NULL");
 
-                            function onRequestFileSystemSuccess(fileSystem) {
-                              /*  alert("onRequestFileSystemSuccess");
-                                window.fileSystemGlobal = fileSystem;
-
-                                var pathToVault = window.fileSystemGlobal.root.toURL();
-                                alert(pathToVault);*/
-                                $scope.LoginfoArr += "onRequestFileSystemSuccess";
-                            }
+                                }
+                              }
+                            );
+                             
 
                             var showUrlsToDownload = function (packageFromServer) {
                                 $scope.LoginfoArr.push("Urls to download");
