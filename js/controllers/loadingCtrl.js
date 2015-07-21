@@ -72,7 +72,9 @@
                                         var folderName = "/Content/6.12.15/Sunflower/";
 
 
-                                        fileManagerService.self.downLoadImageToStorage(url, folderName, File_Name);
+                                        var pathOnServer = "/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
+
+                                        fileManagerService.self.downLoadImageToStorage(url, pathOnServer);
                                     } else {
                                         $scope.LoginfoArr.push("$scope.Package is NULL");
 

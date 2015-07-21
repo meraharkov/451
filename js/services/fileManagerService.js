@@ -8,11 +8,11 @@
 
                                 var _self = this;
 
-                                this.downLoadImageToStorage = function(download_link, folderName, File_Name) {
+                                this.downLoadImageToStorage = function (download_link, pathOnServer) {
                                     $("#loading-id").append("<div class='log-info'>" + "start downloading " + " </div>");
 
                                     var fileTransfer = new FileTransfer();
-                                    var fp = window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
+                                    var fp = window.fileSystemGlobal.root.toNativeURL() + pathOnServer;
                                     $("#loading-id").append("<div class='log-info'>" + "path to storage " + fp + " </div>");
 
 
