@@ -37,11 +37,8 @@
 
                             function onDeviceReady() { 
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
-                               /* var val = "/Package/Image/";
-
-                                alert(val.substring(1, val.length))*/;
                                 
-                               //   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+                                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
                             }
                             
                             function onRequestFileSystemSuccess(fileSystem) {
