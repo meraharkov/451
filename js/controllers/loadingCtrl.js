@@ -88,9 +88,6 @@
                                     }
                                 });
                             }
-                            
- 
-
                         }]);
 
 }(window, window.angular));

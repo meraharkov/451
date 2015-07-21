@@ -5,7 +5,7 @@
     window.fileSystemGlobal = null;
     window.appName = window.appName || 'comix';
     window.serviceLink = "http://web421.newlinetechnologies.net/";
- // window.serviceLink =  "http://localhost:50038/";
+   // window.serviceLink =  "http://localhost:50038/";
 
     angular
         .module(window.appName, ['ngRoute', 'ngAnimate', 'youtubePlayer'])  /*'youtubePlayer'*/
@@ -13,15 +13,26 @@
             function ($routeProvider, $locationProvider) {
 
                 $routeProvider
-                .when('/', { templateUrl: 'js/partials/loading.html', controller: 'loadingCtrl' })
-                .when('/home', { templateUrl: 'js/partials/home.html' })
+                .when('/loading', { templateUrl: 'js/partials/loading.html', controller: 'loadingCtrl' })
+                .when('/', { templateUrl: 'js/partials/home.html' })
                 .when('/title', { templateUrl: 'js/partials/title.html'})
                 .when('/about', { templateUrl: 'js/partials/about.html' })
-                .otherwise({ redirectTo:'/' });
+                .otherwise({ redirectTo: '/' });
             
                 $locationProvider.html5Mode(false); 
                
             }]);
+    
+    angular
+       .module(window.appName)
+        .run(['$rootScope', '$http', '$location',
+
+            function ($rootScope, $http, $location) {
+                    $location.url("/loading");
+            }
+        ]);
+    
+
 }(window, window.angular));
 
 
