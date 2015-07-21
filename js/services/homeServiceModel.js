@@ -13,14 +13,15 @@
                 Package: null,
                 SelectedPage: null
             };
- 
-            packageRepository.getPackage(function (packageModel) {
-                
-      /*          var packageModelWithLocalPath = fileManagerService.self.downloadImage(packageModel);
-                _self.homeServiceModel.Package = packageModelWithLocalPath;*/
 
-                _self.homeServiceModel.Package = packageModel;
-            });
+
+            this.getPackage = function( response) {
+                packageRepository.getPackage(function (packageModel) {
+                    response(packageModel);
+                    // _self.homeServiceModel.Package = packageModel;
+                });
+            };
+                      
 
             return {
                 self: _self,

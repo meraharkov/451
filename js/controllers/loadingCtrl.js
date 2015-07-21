@@ -10,11 +10,10 @@
                             $scope.Package = null;
                             $scope.LoginfoArr = [];
 
-                            $scope.globalobjectsarray = { Package: null, fileSystemGlobal: null };
+                          //  $scope.globalobjectsarray = { Package: null, fileSystemGlobal: null };
                                                        
 
-
-                            $scope.$watch(function () {
+                          /*  $scope.$watch(function () {
                                 return homeServiceModel.self.homeServiceModel.Package;
                             }, function (newVal, oldVal) {
                                 $scope.Package = newVal;
@@ -31,7 +30,7 @@
                                    showUrlsToDownload($scope.Package);
                                    
                                 }
-                            });
+                            });*/
                              
 
                             var showUrlsToDownload = function (packageFromServer) {
@@ -60,22 +59,42 @@
                             function onDeviceReady() {
                                 alert("onDeviceReady 6");
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
-                                //  $scope.globalobjectsarray.fileSystemGlobal = {};
-                                window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+                               // onRequestFileSystemSuccess({});
+                                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
                             }
                             
                             function onRequestFileSystemSuccess(fileSystem) {
                                 alert("onRequestFileSystemSuccess");
                                 window.fileSystemGlobal = fileSystem;
-                                $scope.globalobjectsarray.fileSystemGlobal = fileSystem;
-                                
+                                 
+
                                 alert("root : " + window.fileSystemGlobal.root.toNativeURL());
-                                $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>");
+                                $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>");                                
+
+                                $scope.LoginfoArr.push("request device");
+                                homeServiceModel.self.getPackage(function(packageModel) {
+
+                                    $scope.Package = packageModel;
+
+                                    var jsopStr = JSON.stringify($scope.Package);
+                                    $scope.LoginfoArr.push(jsopStr);
+                                    
+
+                                    if ($scope.Package != null && window.fileSystemGlobal != null) {
+                                        alert("$scope.Package != null && window.fileSystemGlobal != null");
+                                        fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
+                                    } else {
+                                        $scope.LoginfoArr.push("$scope.Package is NULL");
+
+                                    }
+                                });
+
+
                             }
                             
 
 
-                            $scope.$watch( function() {
+                       /*     $scope.$watch( function() {
                                 return $scope.globalobjectsarray;
                             }, function (newVal, oldVal) {
 
@@ -93,7 +112,7 @@
 
                                 }
                             },true
-                          );
+                          );*/
 
                         }]);
 
