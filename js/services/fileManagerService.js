@@ -23,8 +23,8 @@
                                     fileTransfer.download(downloadLink, filePath, function (entry) {
                                         $("#loading-id").append("<div class='log-info'>" + "/" + " </div>");
                                         $("#loading-id").append("<div class='log-info'>" + "download complete image path: " + entry.fullPath + " </div>");
-                                         
-                                            return entry.fullPath;
+                                        $("#loading-id").append("<img src=" + window.fileSystemGlobal.root.toNativeURL() + imagePathOnserver + " />");
+                                          //  return entry.fullPath;
                                         },
                                                function (error) {
                                                    //Download abort errors or download failed errors
@@ -32,7 +32,7 @@
                                                    $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.source + " </div>");
                                                    $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.target + " </div>");
                                                    $("#loading-id").append("<div class='log-info'>" + "download error source: " + error.code + " </div>"); 
-                                                   return null;
+                                                 //  return null;
                                                },
                                                false,
                                                {}

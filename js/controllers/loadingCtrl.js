@@ -57,8 +57,8 @@
 
 
                             function onDeviceReady() {
-                                alert("onDeviceReady 6");
-                                alert("current url " + $location.absUrl() + " " + $location.url());
+                                //alert("onDeviceReady 6");
+                                //alert("current url " + $location.absUrl() + " " + $location.url());
                                 
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
                                // onRequestFileSystemSuccess({});
@@ -66,14 +66,14 @@
                             }
                             
                             function onRequestFileSystemSuccess(fileSystem) {
-                                alert("onRequestFileSystemSuccess");
+                              //  alert("onRequestFileSystemSuccess");
                                 window.fileSystemGlobal = fileSystem;
                                  
 
                                 alert("root : " + window.fileSystemGlobal.root.toNativeURL());
                                 $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>");                                
 
-                                $scope.LoginfoArr.push("request device");
+                                $scope.LoginfoArr.push("request for service");
                                 homeServiceModel.self.getPackage(function(packageModel) {
 
                                     $scope.Package = packageModel;
@@ -90,7 +90,7 @@
 
                                     }
                                 });
-
+                                 
 
                             }
                             
