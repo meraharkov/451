@@ -22,7 +22,7 @@
                 $locationProvider.html5Mode(false); 
                
             }]);
-    
+     
     angular
        .module(window.appName)
         .run(['$rootScope', '$http', '$location',

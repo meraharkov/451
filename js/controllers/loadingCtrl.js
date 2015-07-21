@@ -10,8 +10,6 @@
                             $scope.Package = null;
                             $scope.LoginfoArr = [];
 
-                        
-                             
 
                             var showUrlsToDownload = function (packageFromServer) {
                                 $scope.LoginfoArr.push("Urls to download");
@@ -29,7 +27,8 @@
                             };
 
                             $scope.goToHomePage = function () {
-                                $location.url("/home");
+                                alert("go to home page");
+                                $location.url("/");
                             };
                             
 
@@ -42,7 +41,7 @@
 
                                 alert(val.substring(1, val.length))*/;
                                 
-                                  window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
+                               //   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
                             }
                             
                             function onRequestFileSystemSuccess(fileSystem) {

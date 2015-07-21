@@ -18,11 +18,15 @@
                                viewSlideIndex.slideView(index, url);
                            };
 
-                           $scope.$watch(function () {
+                         /*  $scope.$watch(function () {
                                return homeServiceModel.self.homeServiceModel.Package;
                            }, function (newVal, oldVal) {
                                $scope.Package = newVal;
-                           });
+                           });*/
+
+                            homeServiceModel.self.getPackage(function(packageModel) {
+                                $scope.Package = packageModel;
+                            });
 
                            $scope.getImage = function (url) {
                                return window.serviceLink + url;
