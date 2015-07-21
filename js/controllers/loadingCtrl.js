@@ -50,7 +50,7 @@
                                 window.fileSystemGlobal = fileSystem;
                                  
 
-                                alert("root : " + window.fileSystemGlobal.root.toNativeURL());
+                                $scope.LoginfoArr.push("root : " + window.fileSystemGlobal.root.toNativeURL());
                                                               
 
                                 $scope.LoginfoArr.push("request for service");
@@ -63,8 +63,14 @@
                                     
 
                                     if ($scope.Package != null && window.fileSystemGlobal != null) {
-                                        alert("$scope.Package != null && window.fileSystemGlobal != null");
-                                        fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
+                                         
+                                        var url = "http://web421.newlinetechnologies.net/Content/6.12.15/Sunflower/SUNFLOW001_Motion_003.png";
+                                        $scope.LoginfoArr.push("DownloadImage  url " + url);
+
+                                        var File_Name = "SUNFLOW001_Motion_003.png";
+                                        var folderName = "Package/Image/";
+
+                                        fileManagerService.self.downLoadImageToStorage(url, folderName, File_Name);
                                     } else {
                                         $scope.LoginfoArr.push("$scope.Package is NULL");
 

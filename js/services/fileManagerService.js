@@ -8,8 +8,33 @@
 
                                 var _self = this;
 
+                                this.downLoadImageToStorage =  function(download_link, folderName, File_Name) {
 
-                                this.downloadImageByLink = function (imagePathOnserver) {
+                                    alert("click to start download ");
+                                    var fileTransfer = new FileTransfer();
+                                    var fp = window.fileSystemGlobal.root.toNativeURL() + folderName + File_Name;
+
+                                    alert("path to storage " + fp);
+                                    fileTransfer.download(download_link, fp,
+                                         function (entry) {
+                                             alert("download complete: " + entry.fullPath);
+
+                                             window.pathToFile = fp;
+                                             alert(" path To File" + window.pathToFile);
+
+                                         },
+                                         function (error) {
+                                             //Download abort errors or download failed errors
+                                             alert("download error source " + error.source);
+                                             alert("download error target " + error.target);
+                                             alert("upload error code" + error.code);
+                                         },
+                                         false,
+                                         {}
+                                     );
+                                }
+                                
+                             /*   this.downloadImageByLink = function (imagePathOnserver) {
                                     
                                     
                                     var downloadLink = window.serviceLink + imagePathOnserver.substring(1, imagePathOnserver.length);;
@@ -39,7 +64,7 @@
                                                {}
                                     );
                                     
-                                };
+                                };*/
 
                                /* var checkFile = function( pathFroServer) {
                                   
