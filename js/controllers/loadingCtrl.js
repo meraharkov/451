@@ -33,7 +33,15 @@
                             $scope.$watch(function () {
                                 return window.fileSystemGlobal;
                             }, function (newVal, oldVal) {
-                                if ($scope.Package != null) {
+                                
+                                $scope.LoginfoArr.push("$watch $scope.Package : "
+                                    + JSON.stringify($scope.Package)
+                                    + " $watch window.fileSystemGlobal :  "
+                                    + JSON.stringify(window.fileSystemGlobal));
+
+
+                                if ($scope.Package != null && window.fileSystemGlobal != null) {
+                                    alert("$scope.Package != null && window.fileSystemGlobal != null");
                                     fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
                                 } else {
                                     $scope.LoginfoArr.push("$scope.Package is NULL");
