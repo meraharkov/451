@@ -4,7 +4,7 @@
 
     window.fileSystemGlobal = null;
     window.appName = window.appName || 'comix';
-    window.serviceLink = "http://web421.newlinetechnologies.net";
+    window.serviceLink = "http://web421.newlinetechnologies.net/";
  // window.serviceLink =  "http://localhost:50038/";
 
     angular

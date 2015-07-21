@@ -10,8 +10,9 @@
 
 
                                 this.downloadImageByLink = function (imagePathOnserver) {
-
-                                    var downloadLink = window.serviceLink + imagePathOnserver;
+                                    
+                                    
+                                    var downloadLink = window.serviceLink + imagePathOnserver.substring(1, imagePathOnserver.length);;
                                     
                                     $("#loading-id").append("<div class='log-info'>"+ "url to download "+ downloadLink  + " </div>");
 

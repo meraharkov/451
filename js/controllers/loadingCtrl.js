@@ -10,27 +10,7 @@
                             $scope.Package = null;
                             $scope.LoginfoArr = [];
 
-                          //  $scope.globalobjectsarray = { Package: null, fileSystemGlobal: null };
-                                                       
-
-                          /*  $scope.$watch(function () {
-                                return homeServiceModel.self.homeServiceModel.Package;
-                            }, function (newVal, oldVal) {
-                                $scope.Package = newVal;
-                                $scope.globalobjectsarray.Package = newVal;
-
-                                $scope.LoginfoArr.push("request device");
-                                
-                                if ($scope.Package != null) {
-                                    $scope.LoginfoArr.push("response Json");
-
-                                   var jsopStr = JSON.stringify($scope.Package );
-                                   $scope.LoginfoArr.push(jsopStr);
-
-                                   showUrlsToDownload($scope.Package);
-                                   
-                                }
-                            });*/
+                        
                              
 
                             var showUrlsToDownload = function (packageFromServer) {
@@ -56,22 +36,22 @@
                             document.addEventListener('deviceready', onDeviceReady, false);
 
 
-                            function onDeviceReady() {
-                                //alert("onDeviceReady 6");
-                                //alert("current url " + $location.absUrl() + " " + $location.url());
-                                
+                            function onDeviceReady() { 
                                 $("#loading-id").append("<div class='log-info'>" + "onDeviceReady " + " </div>");
-                               // onRequestFileSystemSuccess({});
+                               /* var val = "/Package/Image/";
+
+                                alert(val.substring(1, val.length))*/;
+                                
                                   window.requestFileSystem(LocalFileSystem.PERSISTENT, 0, onRequestFileSystemSuccess, null);
                             }
                             
                             function onRequestFileSystemSuccess(fileSystem) {
-                              //  alert("onRequestFileSystemSuccess");
+                                $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>");
                                 window.fileSystemGlobal = fileSystem;
                                  
 
                                 alert("root : " + window.fileSystemGlobal.root.toNativeURL());
-                                $("#loading-id").append("<div class='log-info'>" + "onRequestFileSystemSuccess " + " </div>");                                
+                                                              
 
                                 $scope.LoginfoArr.push("request for service");
                                 homeServiceModel.self.getPackage(function(packageModel) {
@@ -90,31 +70,9 @@
 
                                     }
                                 });
-                                 
-
                             }
                             
-
-
-                       /*     $scope.$watch( function() {
-                                return $scope.globalobjectsarray;
-                            }, function (newVal, oldVal) {
-
-                                $scope.LoginfoArr.push("$watch $scope.Package : "
-                                    + JSON.stringify($scope.Package)
-                                    + " $watch window.fileSystemGlobal :  "
-                                    + JSON.stringify(window.fileSystemGlobal));
-
-
-                                if ($scope.Package != null && window.fileSystemGlobal != null) {
-                                    alert("$scope.Package != null && window.fileSystemGlobal != null");
-                                    fileManagerService.self.downloadImageByLink($scope.Package.Pages[0].ContentPage[0].LinkToImage);
-                                } else {
-                                    $scope.LoginfoArr.push("$scope.Package is NULL");
-
-                                }
-                            },true
-                          );*/
+ 
 
                         }]);
 
